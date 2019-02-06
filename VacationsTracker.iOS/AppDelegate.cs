@@ -1,6 +1,9 @@
 ﻿using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
 using Foundation;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using UIKit;
 using VacationsTracker.Core.Bootstrappers;
 using VacationsTracker.iOS.Bootstrappers;
@@ -21,8 +24,11 @@ namespace VacationsTracker.iOS
             set;
         }
 
+        private Task TaskDelay { get; set; }
+
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
+
             var config = new BootstrapperConfig();
             config.SetSimpleIoc(new SimpleIoc());
             var compositeBootstrapper = new CompositeBootstrapper(
@@ -36,6 +42,16 @@ namespace VacationsTracker.iOS
             };
             Window.MakeKeyAndVisible();
 
+            TaskDelay.Wait();
+
+            return true;
+        }
+
+        public override bool WillFinishLaunching(UIApplication application, NSDictionary launchOptions)
+        {
+            //TaskDelay = Task.Delay(3000);
+            TaskDelay = Task.Delay(0);
+
             return true;
         }
 
@@ -43,7 +59,7 @@ namespace VacationsTracker.iOS
         {
             // Invoked when the application is about to move from active to inactive state.
             // This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) 
-            // or when the user quits the application and it begins the transition to the background state.
+            // or when the user quits the application and it begins the transition \to the background state.
             // Games should use this method to pause the game.
         }
 
