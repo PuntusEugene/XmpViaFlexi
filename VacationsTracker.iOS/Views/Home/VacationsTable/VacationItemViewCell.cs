@@ -3,14 +3,17 @@ using Cirrious.FluentLayouts.Touch;
 using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
+using FlexiMvvm.Commands;
+using VacationsTracker.Core.Presentation.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Home;
 using VacationsTracker.Core.Presentation.ViewModels.Vacation;
+using VacationsTracker.iOS.ValueConverters;
 
 namespace VacationsTracker.iOS.Views.Home.VacationsTable
 {
     internal class VacationItemViewCell
-        : UITableViewBindableItemCell<HomeViewModel, VacationCellViewModel>
+        : UITableViewBindableItemCell<HomeViewModel, VacationItemViewModel>
     {
         protected internal VacationItemViewCell(IntPtr handle)
             : base(handle)
@@ -30,11 +33,29 @@ namespace VacationsTracker.iOS.Views.Home.VacationsTable
             ContentView.AddConstraints(View.FullSizeOf(ContentView));
         }
 
-        public override void Bind(BindingSet<VacationCellViewModel> bindingSet)
+        public override void Bind(BindingSet<VacationItemViewModel> bindingSet)
         {
             base.Bind(bindingSet);
 
-            //TODO define bindings
+            bindingSet.Bind(View)
+                .For(v => v.VacationTypeImageView.Image)
+                .To(vm => vm.VacationType)
+                .WithConvertion<VacationTypeToImageValueConverter>();
+
+            bindingSet.Bind(View)
+                .For(v => v.VacationDurationLabel.Text)
+                .To(vm => vm.Duration)
+                .WithConvertion<DurationToStringValueConverter>();
+
+            bindingSet.Bind(View)
+                .For(v => v.VacationTypeLabel.Text)
+                .To(vm => vm.VacationType)
+                .WithConvertion<VacationTypeToStringValueConverter>();
+            
+            bindingSet.Bind(View)
+                .For(v => v.VacationStatusLabel.Text)
+                .To(vm => vm.VacationStatus)
+                .WithConvertion<VacationStatusToStringValueConverter>();
         }
     }
 }

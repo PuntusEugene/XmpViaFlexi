@@ -1,5 +1,6 @@
 ﻿using FlexiMvvm;
 using FlexiMvvm.Navigation;
+using Foundation;
 using UIKit;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
@@ -10,6 +11,7 @@ using VacationsTracker.Core.Presentation.ViewModels.Vacation.Parameters;
 using VacationsTracker.iOS.Views;
 using VacationsTracker.iOS.Views.Home;
 using VacationsTracker.iOS.Views.Login;
+using VacationsTracker.iOS.Views.VacationDetails;
 
 namespace VacationsTracker.iOS.Navigation
 {
@@ -31,22 +33,14 @@ namespace VacationsTracker.iOS.Navigation
 
         public void NavigateToVacationDetails(HomeViewModel fromViewModel, VacationDetailsParameters parameters)
         {
-            throw new System.NotImplementedException();
+            var homeViewController = GetViewController<HomeViewModel, HomeViewController>(fromViewModel);
+            homeViewController.NotNull().NavigationController.PushViewController(new VacationDetailsViewController(parameters), true);
         }
 
         public void NavigateBackToHome(VacationDetailsViewModel fromViewModel)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void NavigateToNewVacation(HomeViewModel fromViewModel)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void NavigateBackToHome(NewVacationViewModel fromViewModel)
-        {
-            throw new System.NotImplementedException();
+            var vacationDetailsViewController = GetViewController<VacationDetailsViewModel, VacationDetailsViewController>(fromViewModel);
+            vacationDetailsViewController.NotNull().NavigationController.PopViewController(true);
         }
     }
 }

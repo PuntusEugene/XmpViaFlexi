@@ -21,7 +21,7 @@ namespace VacationsTracker.Core.Presentation
         {
             factory.Register(() => new EntryViewModel(_dependencyProvider.Get<INavigationService>()));
             factory.Register(() => new LoginViewModel(_dependencyProvider.Get<INavigationService>(), _dependencyProvider.Get<IIdentityService>()));
-            factory.Register(() => new HomeViewModel());
+            factory.Register(() => new HomeViewModel(_dependencyProvider.Get<INavigationService>(), _dependencyProvider.Get<IVacationService>()));
         }
     }
 }

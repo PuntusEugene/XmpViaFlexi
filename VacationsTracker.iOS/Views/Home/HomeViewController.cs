@@ -1,8 +1,12 @@
-﻿using FlexiMvvm;
+﻿using System;
+using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
 using FlexiMvvm.Views;
+using UIKit;
 using VacationsTracker.Core.Presentation.ViewModels.Home;
+using VacationsTracker.Core.Resourses;
+using VacationsTracker.iOS.Design;
 using VacationsTracker.iOS.Views.Home.VacationsTable;
 
 namespace VacationsTracker.iOS.Views.Home
@@ -20,6 +24,18 @@ namespace VacationsTracker.iOS.Views.Home
         public override void LoadView()
         {
             View = new HomeView();
+            NavigationController.NavigationBarHidden = false;
+            NavigationController.NavigationBar.BarTintColor = AppColors.Primary;
+
+            var barButton = new UIBarButtonItem()
+            {
+                Title = VacationResource.New,
+                TintColor = AppColors.Header
+            };
+
+            NavigationItem.TitleView = new UILabel()
+                .SetHeaderLabel(VacationResource.AllRequsts);
+            NavigationItem.RightBarButtonItem = barButton;
         }
 
         public override void ViewDidLoad()
@@ -42,6 +58,10 @@ namespace VacationsTracker.iOS.Views.Home
 
             bindingSet.Bind(VacationsSource)
                 .For(v => v.RowSelectedBinding())
+                .To(vm => vm.VacationSelectedCommand);
+
+            bindingSet.Bind(NavigationItem.RightBarButtonItem)
+                .For(v => v.ClickedBinding())
                 .To(vm => vm.VacationSelectedCommand);
         }
     }

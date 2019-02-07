@@ -5,30 +5,55 @@ using System.Text;
 using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Commands;
+using VacationsTracker.Core.Domain.Vacation;
+using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels.Vacation;
+using VacationsTracker.Core.Presentation.ViewModels.Vacation.Parameters;
+using VacationsTracker.Core.Services.Interfaces;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Home
 {
     public class HomeViewModel : ViewModelBase
     {
-        public ObservableCollection<VacationCellViewModel> Vacations { get; set; }
+        private INavigationService _navigationService;
+        private IVacationService _vacationService;
+        private ObservableCollection<VacationItemViewModel> _vacations;
 
-        public ICommand VacationSelectedCommand => CommandProvider.GetForAsync(NavigateToDetails);
-
-        protected override void Initialize()
+        public ObservableCollection<VacationItemViewModel> Vacations
         {
-            base.Initialize();
-
-            //TODO login view initialization
-            Vacations = new ObservableCollection<VacationCellViewModel>();
-            Vacations.Add(new VacationCellViewModel());
-            Vacations.Add(new VacationCellViewModel());
-            Vacations.Add(new VacationCellViewModel());
+            get => _vacations;
+            set => Set(ref _vacations, value);
         }
 
-        private async Task NavigateToDetails()
+        public ICommand<VacationItemViewModel> VacationSelectedCommand => CommandProvider.Get<VacationItemViewModel>(NavigateToDetails);
+
+        public HomeViewModel(INavigationService navigationService, IVacationService vacationService)
         {
-            return;
+            _navigationService = navigationService;
+            _vacationService = vacationService;
+        }
+
+        protected async override Task InitializeAsync()
+        {
+            await base.InitializeAsync();
+
+            Vacations = new ObservableCollection<VacationItemViewModel>();
+
+            var vacations = await _vacationService.GetVacations();
+            
+            foreach (var vacation in vacations.Result)
+            {
+                Vacations.Add(new VacationItemViewModel(vacation));
+            }
+        }
+
+        private void NavigateToDetails(VacationItemViewModel param)
+        {
+            var parameters = param == null
+                ? null
+                : new VacationDetailsParameters {Id = param.Id.ToString()};
+
+            _navigationService.NavigateToVacationDetails(this, parameters);
         }
     }
 }

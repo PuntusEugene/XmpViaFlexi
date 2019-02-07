@@ -10,6 +10,8 @@
 
         public static float Inset4x => 32;
 
+        public static float Inset5x => 40;
+
         public static float Inset6x => 48;
 
         public static float Inset7x => 56;

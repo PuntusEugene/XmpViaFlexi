@@ -7,46 +7,46 @@ namespace VacationsTracker.iOS.Views.Home.VacationsTable
 {
     internal class VacationItemView : LayoutView
     {
-        // TODO vacation cell View
-        public  UIImageView VacationStatusImage { get; private set; }
+        public  UIImageView VacationTypeImageView { get; private set; }
 
         public UILabel VacationDurationLabel { get; private set; }
 
+        public UILabel VacationTypeLabel { get; private set; }
+
         public UILabel VacationStatusLabel { get; private set; }
 
-        public UILabel VacationTypeLabel { get; private set; }
+        public UIImageView ArrowImageView { get; private set; }
 
         protected override void SetupSubviews()
         {
             base.SetupSubviews();
             
-            VacationStatusImage = new UIImageView();
-            VacationStatusImage.Image = UIImage.FromBundle("Regular");
+            VacationTypeImageView = new UIImageView();
 
             VacationDurationLabel = new UILabel()
                 .SetPrimaryLabel();
 
-            VacationDurationLabel.Text = "MAR 20 - Mar31";
+            VacationTypeLabel = new UILabel()
+                .SetBodyLabel(8);
 
             VacationStatusLabel = new UILabel()
-                .SetColorLabel(Colors.Label)
-                .SetFontSizeLabel(8);
-            VacationStatusLabel.Text = "Regular";
+                .SetBodyLabel(10);
 
-            VacationTypeLabel = new UILabel()
-                .SetColorLabel(Colors.Label)
-                .SetFontSizeLabel(10);
-            VacationTypeLabel.Text = "Approved";
+            ArrowImageView = new UIImageView
+            {
+                Image = UIImage.FromBundle("RightArrow")
+            };
         }
 
         protected override void SetupLayout()
         {
             base.SetupLayout();
 
-            this.AddLayoutSubview(VacationStatusImage)
+            this.AddLayoutSubview(VacationTypeImageView)
                 .AddLayoutSubview(VacationDurationLabel)
+                .AddLayoutSubview(VacationTypeLabel)
                 .AddLayoutSubview(VacationStatusLabel)
-                .AddLayoutSubview(VacationTypeLabel);
+                .AddLayoutSubview(ArrowImageView);
         }
 
         protected override void SetupLayoutConstraints()
@@ -56,32 +56,35 @@ namespace VacationsTracker.iOS.Views.Home.VacationsTable
             this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
             this.AddConstraints(
-                VacationStatusImage.AtLeftOf(this, AppDimens.Inset1x),
-                VacationStatusImage.AtTopOf(this, AppDimens.Inset1x),
-                VacationStatusImage.WithSameHeight(this),
-                VacationStatusImage.Width().EqualTo(48));
-
-
-            this.AddConstraints(
-                VacationDurationLabel.Left().EqualTo().RightOf(VacationStatusImage).Plus(AppDimens.Inset1x),
-                VacationDurationLabel.WithSameCenterY(this).Minus(AppDimens.Inset1x),
-                VacationDurationLabel.Above(VacationStatusLabel));
-
-
-            //this.AddConstraints(
-            //    VacationDurationLabel.Left().EqualTo().RightOf(VacationStatusImage).Plus(AppDimens.Inset1x),
-            //    VacationDurationLabel.WithSameTop(this),
-            //    VacationDurationLabel.Bottom().EqualTo(this.Center.Y),
-            //    VacationDurationLabel.Above(VacationStatusLabel));
+                VacationTypeImageView.AtLeftOf(this, AppDimens.Inset1x),
+                VacationTypeImageView.AtTopOf(this, AppDimens.Inset1x),
+                VacationTypeImageView.AtBottomOf(this, AppDimens.Inset1x),
+                VacationTypeImageView.WithSameCenterY(this),
+                VacationTypeImageView.Height().EqualTo(AppDimens.Inset5x),
+                VacationTypeImageView.Width().EqualTo(AppDimens.Inset5x));
 
             this.AddConstraints(
-                VacationStatusLabel.WithSameLeft(VacationDurationLabel),
-                VacationStatusLabel.WithSameRight(VacationDurationLabel));
+                VacationDurationLabel.AtTopOf(this, AppDimens.Inset1x),
+                VacationDurationLabel.ToRightOf(VacationTypeImageView, AppDimens.Inset1x),
+                VacationDurationLabel.WithRelativeHeight(this, 0.5f),
+                VacationDurationLabel.Above(VacationTypeLabel)
+                );
 
             this.AddConstraints(
-                VacationTypeLabel.Height().EqualTo(56),
-                VacationTypeLabel.AtRightOf(this, AppDimens.Inset1x),
-                VacationTypeLabel.WithSameCenterY(this));
+                VacationTypeLabel.WithSameLeft(VacationDurationLabel),
+                VacationTypeLabel.WithSameRight(VacationDurationLabel),
+                VacationTypeLabel.AtBottomOf(this, AppDimens.Inset1x));
+
+            this.AddConstraints(
+                VacationStatusLabel.Height().EqualTo(56),
+                VacationStatusLabel.AtRightOf(ArrowImageView, AppDimens.Inset2x),
+                VacationStatusLabel.WithSameCenterY(this));
+
+            this.AddConstraints(
+                ArrowImageView.AtRightOf(this, AppDimens.Inset1x),
+                ArrowImageView.Width().EqualTo(AppDimens.Inset1x),
+                ArrowImageView.Height().EqualTo(AppDimens.Inset1x),
+                ArrowImageView.WithSameCenterY(this));
         }
     }
 }

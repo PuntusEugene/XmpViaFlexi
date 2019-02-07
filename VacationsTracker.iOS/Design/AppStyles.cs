@@ -10,12 +10,6 @@ namespace VacationsTracker.iOS.Design
 {
     public static class AppStyles
     {
-        public static UIImageView SetBackgroundStyle(this UIImageView imageView)
-        {
-            imageView.Image = UIImage.FromBundle("Background");
-            return imageView;
-        }
-
         public static UIButton SetPrimaryButtonStyle(this UIButton button, string text = null)
         {
             if (text != null)
@@ -23,7 +17,7 @@ namespace VacationsTracker.iOS.Design
                 button.SetTitle(text, UIControlState.Normal);
             }
 
-            button.BackgroundColor = Colors.Primary;
+            button.BackgroundColor = AppColors.Primary;
             button.Layer.CornerRadius = AppDimens.Inset1x;
 
             return button;
@@ -39,7 +33,7 @@ namespace VacationsTracker.iOS.Design
             textField.MinimumFontSize = 17;
             textField.AdjustsFontSizeToFitWidth = true;
             textField.BorderStyle = UITextBorderStyle.RoundedRect;
-            textField.BackgroundColor = Colors.Header;
+            textField.BackgroundColor = AppColors.Header;
             textField.Enabled = true;
             textField.Layer.CornerRadius = AppDimens.Inset1x;
 
@@ -55,34 +49,38 @@ namespace VacationsTracker.iOS.Design
 
             label.Lines = 0;
             label.AdjustsFontSizeToFitWidth = false;
-            label.TextColor = Colors.Error;
-            label.BackgroundColor = Colors.Header;
+            label.TextColor = AppColors.Error;
+            label.BackgroundColor = AppColors.Header;
             label.TextAlignment = UITextAlignment.Center;
             label.Font = UIFont.FromName(label.Font.Name, 10f);
 
             return label;
         }
 
-        public static UILabel SetFontSizeLabel(this UILabel label, float size)
+        public static UILabel SetBodyLabel(this UILabel label, float size)
         {
             if (size >= 0)
             {
                 label.Font = UIFont.FromName(label.Font.Name, size);
             }
+            label.TextColor = AppColors.Body;
 
             return label;
         }
+
         public static UILabel SetPrimaryLabel(this UILabel label, float size = 13)
         {
-            label.Font = UIFont.BoldSystemFontOfSize(size);
-            label.TextColor = Colors.Primary;
+            label.Font = UIFont.FromName("Arial-BoldMT", size);
+            label.TextColor = AppColors.Primary;
 
             return label;
         }
 
-        public static UILabel SetColorLabel(this UILabel label, UIColor color)
+        public static UILabel SetHeaderLabel(this UILabel label, string text)
         {
-            label.TextColor = color;
+            label.Text = text;
+            label.TextColor = AppColors.Header;
+
             return label;
         }
     }

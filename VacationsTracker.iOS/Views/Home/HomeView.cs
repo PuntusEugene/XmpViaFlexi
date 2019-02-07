@@ -1,6 +1,7 @@
 ﻿using Cirrious.FluentLayouts.Touch;
 using FlexiMvvm.Views;
 using UIKit;
+using VacationsTracker.iOS.Design;
 using VacationsTracker.iOS.Views.Home.VacationsTable;
 
 namespace VacationsTracker.iOS.Views.Home
@@ -12,9 +13,8 @@ namespace VacationsTracker.iOS.Views.Home
         protected override void SetupSubviews()
         {
             base.SetupSubviews();
-
-            //TODO create class AppColors
-            BackgroundColor = UIColor.White;
+            
+            BackgroundColor = AppColors.Header;
 
             VacationsTableView = new UITableView();
             VacationsTableView.RegisterClassForCellReuse(

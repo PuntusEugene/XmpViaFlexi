@@ -21,6 +21,7 @@ namespace VacationsTracker.iOS.Bootstrappers
         {
             simpleIoc.Register<INavigationService>(() => new NavigationService());
             simpleIoc.Register<IIdentityService>(() => new IdentityService());
+            simpleIoc.Register<IVacationService>(() => new VacationService());
         }
     }
 }

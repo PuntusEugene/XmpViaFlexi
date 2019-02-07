@@ -25,8 +25,11 @@ namespace VacationsTracker.iOS.Views.Login
         {
             base.SetupSubviews();
 
-            BackgroundView = new UIImageView().SetBackgroundStyle();
-            BackgroundView.UserInteractionEnabled = false;
+            BackgroundView = new UIImageView()
+            {
+                Image = UIImage.FromBundle("Background"),
+                UserInteractionEnabled = false
+            };
 
             InvalidCredentialLabel = new UILabel().SetCredentialLabel(VacationResource.InvalidCredential);
 

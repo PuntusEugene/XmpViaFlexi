@@ -25,17 +25,7 @@ namespace VacationsTracker.Android.Navigation
             throw new System.NotImplementedException();
         }
 
-        public void NavigateBackToHome(NewVacationViewModel fromViewModel)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void NavigateToHome(LoginViewModel fromViewModel)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void NavigateToNewVacation(HomeViewModel fromViewModel)
         {
             throw new System.NotImplementedException();
         }

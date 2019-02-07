@@ -64,9 +64,11 @@
     <Compile Include="Bootstrappers\IosBootstrapper.cs" />
     <Compile Include="Design\AppDimens.cs" />
     <Compile Include="Design\AppStyles.cs" />
-    <Compile Include="Design\Colors.cs" />
+    <Compile Include="Design\AppColors.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\VacationDetails\VacationDetailsView.cs" />
+    <Compile Include="Views\VacationDetails\VacationDetailsViewController.cs" />
     <Compile Include="Views\Home\HomeView.cs" />
     <Compile Include="Views\Home\HomeViewController.cs" />
     <Compile Include="Views\Home\VacationsTable\VacationItemView.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Views\Login\LoginView.cs" />
     <Compile Include="Views\Login\LoginViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
+    <Compile Include="ValueConverters\VacationTypeToImageValueConverter.cs" />
     <None Include="Info.plist" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -154,6 +157,9 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\RightArrow.imageset\arrow_ios_grey.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Background.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -166,34 +172,37 @@
     <ImageAsset Include="Assets.xcassets\Background.imageset\Login_bg2.jpg">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ExceptionalLeave.imageset\Icon_Request_Dark.png">
+    <ImageAsset Include="Assets.xcassets\IconRequestDark.imageset\Icon_Request_Dark.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Overtime.imageset\Icon_Request_Blue.png">
+    <ImageAsset Include="Assets.xcassets\RightArrow.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Regular.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\IconRequestBlue.imageset\Icon_Request_Blue.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Regular.imageset\Icon_Request_Green1.png">
+    <ImageAsset Include="Assets.xcassets\IconRequestGreen.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Regular.imageset\Icon_Request_Green2.png">
+    <ImageAsset Include="Assets.xcassets\IconRequestGreen.imageset\Icon_Request_Green1.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\SlickDays.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\IconRequestGreen.imageset\Icon_Request_Green2.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ExceptionalLeave.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\IconRequestRed.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Overtime.imageset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\IconRequestDark.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Regular.imageset\Icon_Request_Green.png">
+    <ImageAsset Include="Assets.xcassets\IconRequestBlue.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\SlickDays.imageset\Icon_Request_Plum.png">
+    <ImageAsset Include="Assets.xcassets\IconRequestGreen.imageset\Icon_Request_Green.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\IconRequestRed.imageset\Icon_Request_Plum.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\SplashLaunchScreen.imageset\Contents.json">

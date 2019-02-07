@@ -4,12 +4,10 @@ using System.Text;
 
 namespace VacationsTracker.Core.Domain.Vacation
 {
-    public enum VacationStatus
+    public enum BaseResultCode
     {
-        Approved,
-        Closed,
-        Draft,
-        Submitted,
-        InProgress
+        OK,
+        ValidationFailed,
+        NotFound
     }
 }

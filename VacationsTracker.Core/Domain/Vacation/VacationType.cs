@@ -6,9 +6,11 @@ namespace VacationsTracker.Core.Domain.Vacation
 {
     public enum VacationType
     {
+        Undefined,
         Regular,
-        SickDays,
-        ExceptionalLeave,
+        Sick,
+        Exceptional,
+        LeaveWithoutPay,
         Overtime
     }
 }

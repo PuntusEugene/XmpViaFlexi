@@ -14,12 +14,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         private bool _validCredentials = true;
         private string _username;
         private string _password;
-        
-        public LoginViewModel(INavigationService navigationService, IIdentityService identityService)
-        {
-            _navigationService = navigationService;
-            _identityService = identityService;
-        }
 
         public string Username
         {
@@ -40,6 +34,12 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         }
 
         public ICommand LoginCommand => CommandProvider.GetForAsync(Login);
+
+        public LoginViewModel(INavigationService navigationService, IIdentityService identityService)
+        {
+            _navigationService = navigationService;
+            _identityService = identityService;
+        }
 
         private async Task Login()
         {
