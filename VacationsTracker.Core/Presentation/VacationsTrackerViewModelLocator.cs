@@ -4,6 +4,7 @@ using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Home;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
+using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
 using VacationsTracker.Core.Services.Interfaces;
 
 namespace VacationsTracker.Core.Presentation
@@ -22,6 +23,7 @@ namespace VacationsTracker.Core.Presentation
             factory.Register(() => new EntryViewModel(_dependencyProvider.Get<INavigationService>()));
             factory.Register(() => new LoginViewModel(_dependencyProvider.Get<INavigationService>(), _dependencyProvider.Get<IIdentityService>()));
             factory.Register(() => new HomeViewModel(_dependencyProvider.Get<INavigationService>(), _dependencyProvider.Get<IVacationService>()));
+            factory.Register(() => new VacationDetailsViewModel(_dependencyProvider.Get<INavigationService>(), _dependencyProvider.Get<IVacationService>()));
         }
     }
 }

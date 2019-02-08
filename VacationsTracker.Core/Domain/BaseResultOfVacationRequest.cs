@@ -10,6 +10,6 @@ namespace VacationsTracker.Core.Domain
 
         public string Message { get; set; }
 
-        public VacationRequest[] Result { get; set; }
+        public IEnumerable<VacationRequest> Result { get; set; }
     }
 }

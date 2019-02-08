@@ -68,10 +68,29 @@ namespace VacationsTracker.iOS.Design
             return label;
         }
 
+        public static UILabel SetdDisplay0Label(this UILabel label, float size)
+        {
+            if (size >= 0)
+            {
+                label.Font = UIFont.FromName(label.Font.Name, size);
+            }
+            label.TextColor = AppColors.Body;
+
+            return label;
+        }
+
         public static UILabel SetPrimaryLabel(this UILabel label, float size = 13)
         {
             label.Font = UIFont.FromName("Arial-BoldMT", size);
             label.TextColor = AppColors.Primary;
+
+            return label;
+        }
+
+        public static UILabel SetPrimaryInverseLabel(this UILabel label, float size = 13)
+        {
+            label.Font = UIFont.FromName("Arial-BoldMT", size);
+            label.TextColor = AppColors.Secondary;
 
             return label;
         }

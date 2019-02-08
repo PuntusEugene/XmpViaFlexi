@@ -17,8 +17,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
 
         private DateTime _dateEnd;
 
-        //public  VacationItemViewModel(VacationModel)
-
         public Guid Id
         {
             get => _id;
@@ -62,9 +60,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
             get => ValueTuple.Create(DateBegin, DateEnd);
         }
 
-        public VacationItemViewModel() { }
-
-        public VacationItemViewModel(VacationRequest vacationRequest)
+        public VacationItemViewModel(VacationModel vacationRequest)
         {
             Id = vacationRequest.Id;
             DateBegin = vacationRequest.Start;

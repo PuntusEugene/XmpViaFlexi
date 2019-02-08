@@ -8,12 +8,12 @@ namespace VacationsTracker.Core.Services.Interfaces
 {
     public interface IVacationService
     {
-        Task<VacationRequest> CreateOrUpdateVacation(VacationRequest model);
+        Task<VacationModel> CreateOrUpdateVacation(VacationModel model);
 
-        Task<BaseResultOfVacationRequest> GetVacations();
+        Task<IEnumerable<VacationModel>> GetVacations();
 
-        Task<VacationRequest> GetVacationById(Guid id);
+        Task<VacationModel> GetVacationById(Guid id);
 
-        Task<BaseResult> RemoveVacationById(Guid id);
+        Task<bool> RemoveVacationById(Guid id);
     }
 }

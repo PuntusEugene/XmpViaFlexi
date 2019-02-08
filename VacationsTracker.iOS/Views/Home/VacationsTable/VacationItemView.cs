@@ -64,16 +64,15 @@ namespace VacationsTracker.iOS.Views.Home.VacationsTable
                 VacationTypeImageView.Width().EqualTo(AppDimens.Inset5x));
 
             this.AddConstraints(
-                VacationDurationLabel.AtTopOf(this, AppDimens.Inset1x),
-                VacationDurationLabel.ToRightOf(VacationTypeImageView, AppDimens.Inset1x),
-                VacationDurationLabel.WithRelativeHeight(this, 0.5f),
-                VacationDurationLabel.Above(VacationTypeLabel)
+                VacationDurationLabel.AtTopOf(this, AppDimens.Inset2x),
+                VacationDurationLabel.ToRightOf(VacationTypeImageView, AppDimens.Inset1x)
                 );
 
             this.AddConstraints(
+                VacationTypeLabel.Below(VacationDurationLabel, AppDimens.Inset1x),
                 VacationTypeLabel.WithSameLeft(VacationDurationLabel),
                 VacationTypeLabel.WithSameRight(VacationDurationLabel),
-                VacationTypeLabel.AtBottomOf(this, AppDimens.Inset1x));
+                VacationTypeLabel.AtBottomOf(this, AppDimens.Inset2x));
 
             this.AddConstraints(
                 VacationStatusLabel.Height().EqualTo(56),

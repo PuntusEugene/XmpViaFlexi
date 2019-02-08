@@ -6,8 +6,8 @@ using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Home;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
-using VacationsTracker.Core.Presentation.ViewModels.Vacation;
-using VacationsTracker.Core.Presentation.ViewModels.Vacation.Parameters;
+using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
+using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.Parameters;
 
 namespace VacationsTracker.Android.Navigation
 {

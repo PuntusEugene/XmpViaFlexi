@@ -165,6 +165,9 @@
   <data name="Submitted" xml:space="preserve">
     <value>Submitted</value>
   </data>
+  <data name="TitleDetailsView" xml:space="preserve">
+    <value>Request</value>
+  </data>
   <data name="Undefined" xml:space="preserve">
     <value>Undefined</value>
   </data>

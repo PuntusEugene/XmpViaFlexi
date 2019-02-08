@@ -1,16 +1,14 @@
 ﻿using System;
 using FlexiMvvm;
 
-namespace VacationsTracker.Core.Presentation.ViewModels.Vacation.Parameters
+namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails.Parameters
 {
     public class VacationDetailsParameters : ViewModelBundleBase
     {
-        public string Id
+        public Guid Id
         {
-            get => Bundle.GetString(key: nameof(Id));
-            set => Bundle.SetString(value, nameof(Id));
+            get => Guid.Parse(Bundle.GetString(key: nameof(Id)));
+            set => Bundle.SetString(value.ToString(), nameof(Id));
         }
-
-        public Guid Guid => Guid.Parse(Id);
     }
 }

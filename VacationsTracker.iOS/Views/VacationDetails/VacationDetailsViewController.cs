@@ -2,8 +2,11 @@
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
 using UIKit;
-using VacationsTracker.Core.Presentation.ViewModels.Vacation;
-using VacationsTracker.Core.Presentation.ViewModels.Vacation.Parameters;
+using VacationsTracker.Core.Domain;
+using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
+using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.Parameters;
+using VacationsTracker.Core.Resourses;
+using VacationsTracker.iOS.Design;
 
 namespace VacationsTracker.iOS.Views.VacationDetails
 {
@@ -24,6 +27,9 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             View = new VacationDetailsView();
 
             NavigationItem.LeftBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Cancel);
+            NavigationItem.RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Save);
+            NavigationItem.TitleView = new UILabel()
+                .SetHeaderLabel(VacationResource.TitleDetailsView);
         }
 
         public override void Bind(BindingSet<VacationDetailsViewModel> bindingSet)
@@ -33,6 +39,10 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             bindingSet.Bind(NavigationItem.LeftBarButtonItem)
                 .For(v => v.ClickedBinding())
                 .To(vm => vm.BackToHomeCommand);
+
+            bindingSet.Bind(NavigationItem.LeftBarButtonItem)
+                .For(v => v.ClickedBinding())
+                .To(vm => vm.SaveVacationCommand);
         }
     }
 }

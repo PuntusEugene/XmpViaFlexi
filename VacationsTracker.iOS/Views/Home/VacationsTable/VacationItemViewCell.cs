@@ -7,7 +7,6 @@ using FlexiMvvm.Commands;
 using VacationsTracker.Core.Presentation.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Home;
-using VacationsTracker.Core.Presentation.ViewModels.Vacation;
 using VacationsTracker.iOS.ValueConverters;
 
 namespace VacationsTracker.iOS.Views.Home.VacationsTable
