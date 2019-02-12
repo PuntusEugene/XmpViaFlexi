@@ -1,46 +1,167 @@
-﻿using Cirrious.FluentLayouts.Touch;
+﻿using System;
+using Cirrious.FluentLayouts.Touch;
 using FlexiMvvm.Views;
+using ObjCRuntime;
 using UIKit;
+using VacationsTracker.Core.Domain.Vacation;
 using VacationsTracker.Core.Resourses;
+using VacationsTracker.iOS.Controls;
 using VacationsTracker.iOS.Design;
-using VacationsTracker.iOS.Views.Home.VacationsTable;
 
 namespace VacationsTracker.iOS.Views.VacationDetails
 {
     internal class VacationDetailsView : LayoutView
     {
-        public UIPageControl TypePageControl { get; private set; }
+        private FluentLayout _contentViewExpanded;
+        private FluentLayout _contentViewCollapsedByToolbar;
+        private FluentLayout _toolbarAboveStartPicker;
+        private FluentLayout _toolbarAboveEndPicker;
+        private FluentLayout _toolbarBottom;
+        private FluentLayout _datePickerToolbarExpanded;
+        private FluentLayout _datePickerToolbarCollapsed;
+        private FluentLayout _datePickerStartCollapsed;
+        private FluentLayout _datePickerStartExpanded;
+        private FluentLayout _datePickerEndExpanded;
+        private FluentLayout _datePickerEndCollapsed;
 
-        public UIView DateBeginView { get; private set; }
+        public UIView ContentView { get; private set; }
 
-        public UIView DateEndView { get; private set; }
+        public UIView VacationsPager { get; private set; }
+
+        public UIPageControl VacationPageControl { get; set; }
+
+        public UIView AboveDateSeparator { get; private set; }
+
+        public LargeDateControl DateBeginView { get; private set; }
+
+        public LargeDateControl DateEndView { get; private set; }
+
+        public UIView BelowDateSeparator { get; private set; }
 
         public UISegmentedControl StatusSegmentedControl { get; private set; }
 
-        public UIDatePicker DatePicker { get; private set; }
+        public UIToolbar DatePickerToolbar { get; private set; }
+
+        public UIDatePicker StartDatePicker { get; private set; }
+
+        public UIDatePicker EndDatePicker { get; private set; }
+
+        public void HideDatePickers()
+        {
+            _contentViewExpanded.Active = true;
+            _contentViewCollapsedByToolbar.Active = false;
+
+            _toolbarAboveStartPicker.Active = false;
+            _toolbarAboveEndPicker.Active = false;
+            _toolbarBottom.Active = true;
+
+            _datePickerToolbarExpanded.Active = false;
+            _datePickerToolbarCollapsed.Active = true;
+
+            _datePickerStartExpanded.Active = false;
+            _datePickerStartCollapsed.Active = true;
+
+            _datePickerEndExpanded.Active = false;
+            _datePickerEndCollapsed.Active = true;
+
+            UIView.Animate(0.3,LayoutIfNeeded);
+        }
+
+        public void ShowStartDatePicker()
+        {
+            HideDatePickers();
+
+            _contentViewExpanded.Active = false;
+            _contentViewCollapsedByToolbar.Active = true;
+
+            _toolbarAboveStartPicker.Active = true;
+            _toolbarBottom.Active = false;
+            
+            _datePickerToolbarExpanded.Active = true;
+            _datePickerToolbarCollapsed.Active = false;
+
+            _datePickerStartCollapsed.Active = false;
+            _datePickerStartExpanded.Active = true;
+
+            UIView.Animate(0.3, LayoutIfNeeded);
+        }
+
+        public void ShowEndDatePicker()
+        {
+            HideDatePickers();
+
+            _contentViewExpanded.Active = false;
+            _contentViewCollapsedByToolbar.Active = true;
+
+            _toolbarAboveEndPicker.Active = true;
+            _toolbarBottom.Active = false;
+
+            _datePickerToolbarExpanded.Active = true;
+            _datePickerToolbarCollapsed.Active = false;
+
+            _datePickerEndCollapsed.Active = false;
+            _datePickerEndExpanded.Active = true;
+
+            UIView.Animate(0.3, LayoutIfNeeded);
+        }
 
         protected override void SetupSubviews()
         {
             base.SetupSubviews();
 
-            BackgroundColor = AppColors.Header;
+            ContentView = new UIView {BackgroundColor = AppColors.ContentPrimary };
 
-            TypePageControl = new UIPageControl();
-            DateBeginView = new UIView();
-            DateEndView = new UIView();
-            StatusSegmentedControl = new UISegmentedControl(VacationResource.Approved, VacationResource.Closed);
-            StatusSegmentedControl.TintColor = AppColors.Secondary;
+            VacationsPager = new UIView();
+            VacationPageControl = new UIPageControl
+            {
+                Pages = Enum.GetValues(typeof(VacationType)).Length, PageIndicatorTintColor = AppColors.TextBody,
+                CurrentPageIndicatorTintColor = AppColors.TextPrimary
+            };
 
-            DatePicker = new UIDatePicker();
+            AboveDateSeparator = new UIView().SetSeparatorStyle();
+            DateBeginView = new LargeDateControl(AppColors.TextPrimary);
+            DateEndView = new LargeDateControl(AppColors.TextSecondary);
+            BelowDateSeparator = new UIView().SetSeparatorStyle();
+            StatusSegmentedControl = new UISegmentedControl(Strings.Approved, Strings.Closed)
+            {
+                SelectedSegment = 0,
+                TintColor = AppColors.TextSecondary
+            };
+
+            StartDatePicker = new UIDatePicker {Mode = UIDatePickerMode.Date};
+
+            EndDatePicker = new UIDatePicker {Mode = UIDatePickerMode.Date};
+
+            DatePickerToolbar = new UIToolbar
+            {
+                BarStyle = UIBarStyle.Default, Translucent = true, TintColor = AppColors.TextPrimary
+            };
+
+            var doneButton = new UIBarButtonItem()
+            {
+                Title = Strings.Done,
+                Style = UIBarButtonItemStyle.Plain,
+            };
+            doneButton.ClickedWeakSubscribe((sender, args) => HideDatePickers());
+            DatePickerToolbar.SetItems(new[] {doneButton}, false);
+            DatePickerToolbar.UserInteractionEnabled = true;
         }
 
         protected override void SetupLayout()
         {
             base.SetupLayout();
 
-            this.AddLayoutSubview(TypePageControl)
-                .AddLayoutSubview(DateBeginView)
-                .AddLayoutSubview(StatusSegmentedControl);
+            this.AddLayoutSubview(ContentView
+                    .AddLayoutSubview(VacationsPager)
+                    .AddLayoutSubview(VacationPageControl)
+                    .AddLayoutSubview(AboveDateSeparator)
+                    .AddLayoutSubview(DateBeginView)
+                    .AddLayoutSubview(DateEndView)
+                    .AddLayoutSubview(BelowDateSeparator)
+                    .AddLayoutSubview(StatusSegmentedControl))
+                .AddLayoutSubview(DatePickerToolbar)
+                .AddLayoutSubview(StartDatePicker)
+                .AddLayoutSubview(EndDatePicker);
         }
 
         protected override void SetupLayoutConstraints()
@@ -49,26 +170,103 @@ namespace VacationsTracker.iOS.Views.VacationDetails
 
             this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
-            this.AddConstraints(
-                TypePageControl.AtLeftOf(this),
-                TypePageControl.AtTopOf(this),
-                TypePageControl.AtRightOf(this),
-                TypePageControl.WithRelativeHeight(this, 0.35f));
+            ContentView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+            DateBeginView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+            DateEndView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+
+            _contentViewExpanded = ContentView.AtBottomOf(this);
+            _contentViewCollapsedByToolbar = ContentView.Above(DatePickerToolbar);
+            _contentViewCollapsedByToolbar.Active = false;
 
             this.AddConstraints(
-                DateBeginView.Below(TypePageControl, AppDimens.Inset1x),
-                DateBeginView.WithSameLeft(TypePageControl),
-                DateBeginView.WithRelativeWidth(TypePageControl, 0.5f),
-                DateBeginView.WithRelativeHeight(this, 0.25f));
+                ContentView.FullWidthOf(this));
 
             this.AddConstraints(
-                DateEndView.AtLeftOf(DateBeginView),
-                DateEndView.WithSameWidth(DateBeginView),
-                DateEndView.WithSameHeight(DateBeginView));
+                ContentView.AtTopOf(this),
+                _contentViewExpanded,
+                _contentViewCollapsedByToolbar);
 
             this.AddConstraints(
-                StatusSegmentedControl.Below(DateBeginView, AppDimens.Inset4x),
-                StatusSegmentedControl.WithSameCenterX(this));
+                VacationsPager.AtTopOf(ContentView, AppDimens.Inset3x),
+                VacationsPager.WithSameCenterX(ContentView),
+                VacationsPager.WithRelativeHeight(ContentView, 0.3f),
+                VacationsPager.WithSameWidth(ContentView));
+
+            this.AddConstraints(
+                VacationPageControl.WithSameCenterX(ContentView),
+                VacationPageControl.Below(VacationsPager, AppDimens.Inset1x),
+                VacationPageControl.WithSameWidth(ContentView),
+                VacationPageControl.Height().EqualTo(AppDimens.Inset2x));
+
+            this.AddConstraints(
+                AboveDateSeparator.AtLeftOf(ContentView),
+                AboveDateSeparator.Below(VacationPageControl, AppDimens.Inset1x),
+                AboveDateSeparator.AtRightOf(ContentView),
+                AboveDateSeparator.Height().EqualTo(AppDimens.SeparatorSize));
+
+            this.AddConstraints(
+                DateBeginView.Below(AboveDateSeparator, AppDimens.Inset1x),
+                DateBeginView.AtLeftOf(ContentView),
+                DateBeginView.WithRelativeWidth(ContentView, 0.5f),
+                DateBeginView.Height().EqualTo(AppDimens.Inset9x));
+
+            this.AddConstraints(
+                DateEndView.ToRightOf(DateBeginView),
+                DateEndView.Below(AboveDateSeparator),
+                DateEndView.WithRelativeWidth(ContentView, 0.5f),
+                DateEndView.Height().EqualTo(AppDimens.Inset9x));
+
+            this.AddConstraints(
+                BelowDateSeparator.AtLeftOf(ContentView),
+                BelowDateSeparator.Below(DateBeginView, AppDimens.Inset1x),
+                BelowDateSeparator.AtRightOf(ContentView),
+                BelowDateSeparator.Height().EqualTo(AppDimens.SeparatorSize));
+
+            this.AddConstraints(
+                StatusSegmentedControl.Below(BelowDateSeparator, AppDimens.Inset4x),
+                StatusSegmentedControl.WithSameCenterX(ContentView));
+
+            _toolbarBottom = DatePickerToolbar.AtBottomOf(this);
+            _toolbarAboveStartPicker = DatePickerToolbar.Above(StartDatePicker);
+            _toolbarAboveStartPicker.Active = false;
+            _toolbarAboveEndPicker = DatePickerToolbar.Above(EndDatePicker);
+            _toolbarAboveEndPicker.Active = false;
+
+            _datePickerToolbarCollapsed = DatePickerToolbar.Height().EqualTo(0);
+            _datePickerToolbarExpanded = DatePickerToolbar.Height().EqualTo(44);
+            _datePickerToolbarExpanded.Active = false;
+
+            this.AddConstraints(
+                DatePickerToolbar.AtLeftOf(this),
+                DatePickerToolbar.AtRightOf(this),
+                _toolbarBottom,
+                _toolbarAboveStartPicker,
+                _toolbarAboveEndPicker,
+                _datePickerToolbarCollapsed,
+                _datePickerToolbarExpanded);
+
+            _datePickerStartCollapsed = StartDatePicker.Height().EqualTo(0);
+            _datePickerStartExpanded = StartDatePicker.Height().EqualTo(AppDimens.DatePickerSize);
+            _datePickerStartExpanded.Active = false;
+
+            this.AddConstraints(
+                StartDatePicker.AtLeftOf(this),
+                StartDatePicker.AtBottomOf(this),
+                StartDatePicker.AtRightOf(this),
+                _datePickerStartExpanded,
+                _datePickerStartCollapsed);
+
+            _datePickerEndCollapsed = EndDatePicker.Height().EqualTo(0);
+            _datePickerEndExpanded = EndDatePicker.Height().EqualTo(AppDimens.DatePickerSize);
+            _datePickerEndExpanded.Active = false;
+
+            this.AddConstraints(
+                EndDatePicker.AtLeftOf(this),
+                EndDatePicker.AtBottomOf(this),
+                EndDatePicker.AtRightOf(this),
+                _datePickerEndCollapsed,
+                _datePickerEndExpanded);
+
         }
     }
 }

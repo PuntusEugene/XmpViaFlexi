@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace VacationsTracker.Core.Domain
+﻿namespace VacationsTracker.Core.DataTransfer
 {
     public class BaseResult
     {

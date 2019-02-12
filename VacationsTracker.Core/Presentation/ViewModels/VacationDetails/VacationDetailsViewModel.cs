@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Commands;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Domain.Vacation;
 using VacationsTracker.Core.Navigation;
-using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.Parameters;
+using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.VacationPager;
 using VacationsTracker.Core.Services.Interfaces;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
@@ -17,15 +19,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
         private DateTime _dateBegin;
         private DateTime _dateEnd;
         private VacationStatus _vacationStatus;
-        private INavigationService _navigationService;
-        private IVacationService _vacationService;
-
-        public Guid Id
-        {
-            get => _id;
-            set => Set(ref _id, value);
-        }
-
+        private readonly INavigationService _navigationService;
+        private readonly IVacationService _vacationService;
+        
         public VacationType VacationType
         {
             get => _vacationType;
@@ -35,13 +31,25 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
         public DateTime DateBegin
         {
             get => _dateBegin;
-            set => Set(ref _dateBegin, value);
+            set
+            {
+                Set(ref _dateBegin, value);
+
+                if (_dateBegin > _dateEnd)
+                    DateEnd = _dateBegin;
+            }
         }
 
         public DateTime DateEnd
         {
             get => _dateEnd;
-            set => Set(ref _dateEnd, value);
+            set
+            {
+                Set(ref _dateEnd, value);
+
+                if (_dateEnd < _dateBegin)
+                    DateBegin = _dateEnd;
+            }
         }
 
         public VacationStatus VacationStatus
@@ -49,6 +57,8 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
             get => _vacationStatus;
             set => Set(ref _vacationStatus, value);
         }
+
+        public ObservableCollection<VacationTypePagerParameters> VacationTypes { get; }
 
         public ICommand BackToHomeCommand => CommandProvider.Get(BackToHome);
 
@@ -58,6 +68,10 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
         {
             _navigationService = navigationService;
             _vacationService = vacationService;
+
+            VacationTypes = new ObservableCollection<VacationTypePagerParameters>(
+                Enum.GetValues(typeof(VacationType))
+                    .Cast<VacationType>().Select(t => new VacationTypePagerParameters(t)));
         }
 
         protected override async Task InitializeAsync(VacationDetailsParameters parameters)
@@ -67,7 +81,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
             if (parameters != null)
             {
                 var vacation = await _vacationService.GetVacationById(parameters.Id);
-                Id = vacation.Id;
+                _id = vacation.Id;
                 VacationType = vacation.VacationType;
                 DateBegin = vacation.Start;
                 DateEnd = vacation.End;
@@ -84,7 +98,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
         {
             var vacationModel = new VacationModel()
             {
-                Id = Id,
+                Id = _id,
                 VacationStatus = this.VacationStatus,
                 VacationType = this.VacationType,
                 Start = this.DateBegin,
@@ -94,7 +108,8 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
 
             await _vacationService.CreateOrUpdateVacation(vacationModel);
 
-            //BackToHome();
+            BackToHome();
         }
     }
+
 }

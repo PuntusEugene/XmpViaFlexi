@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Cirrious.FluentLayouts.Touch;
+﻿using Cirrious.FluentLayouts.Touch;
 using FlexiMvvm.Views;
-using Foundation;
 using UIKit;
 using VacationsTracker.iOS.Design;
-using AdvancedFluentLayoutExtensions = Cirrious.FluentLayouts.Touch.AdvancedFluentLayoutExtensions;
 
 namespace VacationsTracker.iOS.Controls
 {
@@ -19,18 +13,27 @@ namespace VacationsTracker.iOS.Controls
 
         public UILabel YearOfDateLabel { get; private set; }
 
+        public LargeDateControl(UIColor colorControl)
+        {
+            DayOfDateLabel.TextColor = colorControl;
+            MonthOfDateLabel.TextColor = colorControl;
+            YearOfDateLabel.TextColor = colorControl;
+        }
+
         protected override void SetupSubviews()
         {
             base.SetupSubviews();
 
             DayOfDateLabel = new UILabel()
-                .SetPrimaryLabel(48);
+                .SetPrimaryLabel(72);
 
             MonthOfDateLabel = new UILabel()
                 .SetPrimaryLabel(28);
+            MonthOfDateLabel.TextAlignment = UITextAlignment.Right;
 
             YearOfDateLabel = new UILabel()
                 .SetPrimaryLabel(20);
+            YearOfDateLabel.TextAlignment = UITextAlignment.Right;
         }
 
         protected override void SetupLayout()
@@ -46,13 +49,16 @@ namespace VacationsTracker.iOS.Controls
         {
             base.SetupLayoutConstraints();
 
+            this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+
             this.AddConstraints(
-                DayOfDateLabel.AtLeftOf(this, AppDimens.Inset1x),
+                DayOfDateLabel.AtLeftOf(this,AppDimens.Inset1x),
                 DayOfDateLabel.AtTopOf(this));
 
             this.AddConstraints(
-                MonthOfDateLabel.AtLeftOf(DayOfDateLabel, AppDimens.Inset1x),
-                MonthOfDateLabel.AtRightOf(this, AppDimens.Inset1x));
+                MonthOfDateLabel.ToRightOf(DayOfDateLabel,AppDimens.Inset1x),
+                MonthOfDateLabel.WithSameTop(DayOfDateLabel),
+                MonthOfDateLabel.WithRelativeHeight(DayOfDateLabel, 0.5f));
 
             this.AddConstraints(
                 YearOfDateLabel.Below(MonthOfDateLabel, AppDimens.Inset1x),

@@ -1,7 +1,7 @@
 ﻿using System;
 using FlexiMvvm;
 
-namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails.Parameters
+namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
 {
     public class VacationDetailsParameters : ViewModelBundleBase
     {

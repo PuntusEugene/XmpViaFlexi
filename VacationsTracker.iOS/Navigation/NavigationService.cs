@@ -1,13 +1,11 @@
 ﻿using FlexiMvvm;
 using FlexiMvvm.Navigation;
-using Foundation;
 using UIKit;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Home;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
-using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.Parameters;
 using VacationsTracker.iOS.Views;
 using VacationsTracker.iOS.Views.Home;
 using VacationsTracker.iOS.Views.Login;
@@ -21,6 +19,14 @@ namespace VacationsTracker.iOS.Navigation
         {
             var rootViewController = GetViewController<EntryViewModel, RootNavigationController>(fromViewModel);
             rootViewController.NotNull().PushViewController(new LoginViewController(), false);
+        }
+
+        public void NavigateToLogin(HomeViewModel fromViewModel)
+        {
+            var loginViewController = GetViewController<HomeViewModel, HomeViewController>(fromViewModel);
+            loginViewController.NotNull().NavigationController.SetViewControllers(
+                new UIViewController[] { new LoginViewController() },
+                true);
         }
 
         public void NavigateToHome(LoginViewModel fromViewModel)

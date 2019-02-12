@@ -7,8 +7,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
 {
     public class VacationItemViewModel : ViewModelBase
     {
-        private Guid _id;
-
         private VacationStatus _vacationStatus;
 
         private VacationType _vacationType;
@@ -17,11 +15,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
 
         private DateTime _dateEnd;
 
-        public Guid Id
-        {
-            get => _id;
-            set => Set(ref _id, value);
-        }
+        public Guid Id { get; }
 
         public VacationStatus VacationStatus
         {
@@ -55,10 +49,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
             } 
         }
 
-        public ValueTuple<DateTime, DateTime> Duration
-        {
-            get => ValueTuple.Create(DateBegin, DateEnd);
-        }
+        public ValueTuple<DateTime, DateTime> Duration => ValueTuple.Create(DateBegin, DateEnd);
 
         public VacationItemViewModel(VacationModel vacationRequest)
         {

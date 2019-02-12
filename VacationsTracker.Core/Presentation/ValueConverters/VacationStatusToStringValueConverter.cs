@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using FlexiMvvm.ValueConverters;
 using VacationsTracker.Core.Domain.Vacation;
 using VacationsTracker.Core.Resourses;
@@ -17,26 +15,26 @@ namespace VacationsTracker.Core.Presentation.ValueConverters
             switch (value)
             {
                 case VacationStatus.Approved:
-                    text = VacationResource.Approved;
+                    text = Strings.Approved;
                     break;
 
                 case VacationStatus.Closed:
-                    text = VacationResource.Closed;
+                    text = Strings.Closed;
                     break;
 
 
                 case VacationStatus.Draft:
-                    text = VacationResource.Draft;
+                    text = Strings.Draft;
                     break;
 
 
                 case VacationStatus.InProgress:
-                    text = VacationResource.InProgress;
+                    text = Strings.InProgress;
                     break;
 
 
                 case VacationStatus.Submitted:
-                    text = VacationResource.Submitted;
+                    text = Strings.Submitted;
                     break;
             }
 

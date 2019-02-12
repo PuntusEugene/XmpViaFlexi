@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using VacationsTracker.Core.Domain;
 
-namespace VacationsTracker.Core.Domain
+namespace VacationsTracker.Core.DataTransfer
 {
     public class BaseResultOfVacationRequest
     {

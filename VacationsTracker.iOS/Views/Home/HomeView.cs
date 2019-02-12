@@ -14,9 +14,10 @@ namespace VacationsTracker.iOS.Views.Home
         {
             base.SetupSubviews();
             
-            BackgroundColor = AppColors.Header;
+            BackgroundColor = AppColors.ContentPrimary;
 
             VacationsTableView = new UITableView();
+            VacationsTableView.RefreshControl = new UIRefreshControl();
             VacationsTableView.RegisterClassForCellReuse(
                 typeof(VacationItemViewCell),
                 VacationItemViewCell.CellId);

@@ -63,11 +63,14 @@
   <ItemGroup>
     <Compile Include="Bootstrappers\IosBootstrapper.cs" />
     <Compile Include="Controls\LargeDateControl.cs" />
+    <Compile Include="Controls\PlusButtonContol.cs" />
     <Compile Include="Design\AppDimens.cs" />
+    <Compile Include="Design\AppImages.cs" />
     <Compile Include="Design\AppStyles.cs" />
     <Compile Include="Design\AppColors.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="ValueConverters\DateToNSDateValueConverter.cs" />
     <Compile Include="Views\VacationDetails\VacationDetailsView.cs" />
     <Compile Include="Views\VacationDetails\VacationDetailsViewController.cs" />
     <Compile Include="Views\Home\HomeView.cs" />
@@ -78,6 +81,8 @@
     <Compile Include="Views\Login\LoginViewController.cs" />
     <Compile Include="Views\RootNavigationController.cs" />
     <Compile Include="ValueConverters\VacationTypeToImageValueConverter.cs" />
+    <Compile Include="Views\VacationDetails\VacationsPager\VacationTypePagerView.cs" />
+    <Compile Include="Views\VacationDetails\VacationsPager\VacationTypePagerViewController.cs" />
     <None Include="Info.plist" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +111,9 @@
     </Reference>
     <Reference Include="FlexiMvvm.Lifecycle, Version=0.9.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FlexiMvvm.Lifecycle.PreRelease.0.9.7-prerelease\lib\xamarinios10\FlexiMvvm.Lifecycle.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=2018.3.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.2018.3.0\lib\netstandard2.0\JetBrains.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -156,6 +164,18 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Plus.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LeftArrow.imageset\arrow_ios_grey_left.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LeftArrow.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Plus.imageset\Plus1.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\RightArrow.imageset\arrow_ios_grey.png">

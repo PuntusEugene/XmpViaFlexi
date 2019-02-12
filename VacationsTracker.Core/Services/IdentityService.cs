@@ -8,8 +8,8 @@ namespace VacationsTracker.Core.Services
     {
         public async Task<bool> AuthorizationAsync(string login, string password)
         {
-            //await Task.Delay(1000);
-            return true;//login == "ark" && password == "123";
+            await Task.Delay(500);
+            return login == "ark" && password == "123";
         }
     }
 }

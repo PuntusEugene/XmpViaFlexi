@@ -1,4 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">VacationsTracker.Android</string>
-    <string name="action_settings">Settings</string>
+    <string name="all_requsts">All Requests</string>
+    <string name="approved">Approved</string>
+    <string name="closed">Closed</string>
+    <string name="done">Done</string>
+    <string name="draft">Draft</string>
+    <string name="exceptional_leave">Exceptional Leave</string>
+    <string name="in_progress">In progress</string>
+    <string name="invalid_credential">Please, retry your login and password pair. Check current Caps Lock and input language setting</string>
+    <string name="leave_without_pay">Leave without pay</string>
+    <string name="login">Login</string>
+    <string name="new">New</string>
+    <string name="overtime">Overtime</string>
+    <string name="password">Password</string>
+    <string name="regular">Regular</string>
+    <string name="save">Save</string>
+    <string name="sick_days">Sick days</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="submitted">Submitted</string>
+    <string name="title_details_view">Request</string>
+    <string name="undefined">Undefined</string>
 </resources>

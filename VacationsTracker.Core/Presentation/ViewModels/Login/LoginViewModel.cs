@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Commands;
 using VacationsTracker.Core.Navigation;
@@ -9,11 +8,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 {
     public class LoginViewModel : ViewModelBase
     {
+        private string _username = "ark";
+        private string _password = "123";
+        private bool _validCredentials = true;
         private readonly IIdentityService _identityService;
         private readonly INavigationService _navigationService;
-        private bool _validCredentials = true;
-        private string _username;
-        private string _password;
 
         public string Username
         {
@@ -43,8 +42,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 
         private async Task Login()
         {
-            // TODO login operation
-
             ValidCredentials = await _identityService.AuthorizationAsync(Username, Password);
 
             if (ValidCredentials)

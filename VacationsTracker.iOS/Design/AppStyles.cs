@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Foundation;
-using UIKit;
+﻿using UIKit;
 
 namespace VacationsTracker.iOS.Design
 {
@@ -17,7 +11,7 @@ namespace VacationsTracker.iOS.Design
                 button.SetTitle(text, UIControlState.Normal);
             }
 
-            button.BackgroundColor = AppColors.Primary;
+            button.BackgroundColor = AppColors.ButtonPrimary;
             button.Layer.CornerRadius = AppDimens.Inset1x;
 
             return button;
@@ -33,7 +27,7 @@ namespace VacationsTracker.iOS.Design
             textField.MinimumFontSize = 17;
             textField.AdjustsFontSizeToFitWidth = true;
             textField.BorderStyle = UITextBorderStyle.RoundedRect;
-            textField.BackgroundColor = AppColors.Header;
+            textField.BackgroundColor = AppColors.ContentPrimary;
             textField.Enabled = true;
             textField.Layer.CornerRadius = AppDimens.Inset1x;
 
@@ -49,10 +43,11 @@ namespace VacationsTracker.iOS.Design
 
             label.Lines = 0;
             label.AdjustsFontSizeToFitWidth = false;
-            label.TextColor = AppColors.Error;
-            label.BackgroundColor = AppColors.Header;
+            label.TextColor = AppColors.TextError;
+            label.BackgroundColor = AppColors.ContentPrimary;
             label.TextAlignment = UITextAlignment.Center;
             label.Font = UIFont.FromName(label.Font.Name, 10f);
+            label.Layer.CornerRadius = AppDimens.Inset1x;
 
             return label;
         }
@@ -61,20 +56,9 @@ namespace VacationsTracker.iOS.Design
         {
             if (size >= 0)
             {
-                label.Font = UIFont.FromName(label.Font.Name, size);
+                label.Font = UIFont.FromName("Arial-BoldMT", size);
             }
-            label.TextColor = AppColors.Body;
-
-            return label;
-        }
-
-        public static UILabel SetdDisplay0Label(this UILabel label, float size)
-        {
-            if (size >= 0)
-            {
-                label.Font = UIFont.FromName(label.Font.Name, size);
-            }
-            label.TextColor = AppColors.Body;
+            label.TextColor = AppColors.TextBody;
 
             return label;
         }
@@ -82,15 +66,7 @@ namespace VacationsTracker.iOS.Design
         public static UILabel SetPrimaryLabel(this UILabel label, float size = 13)
         {
             label.Font = UIFont.FromName("Arial-BoldMT", size);
-            label.TextColor = AppColors.Primary;
-
-            return label;
-        }
-
-        public static UILabel SetPrimaryInverseLabel(this UILabel label, float size = 13)
-        {
-            label.Font = UIFont.FromName("Arial-BoldMT", size);
-            label.TextColor = AppColors.Secondary;
+            label.TextColor = AppColors.TextPrimary;
 
             return label;
         }
@@ -98,9 +74,17 @@ namespace VacationsTracker.iOS.Design
         public static UILabel SetHeaderLabel(this UILabel label, string text)
         {
             label.Text = text;
-            label.TextColor = AppColors.Header;
+            label.TextColor = AppColors.TextHeadline;
+            label.Font = UIFont.FromName("Arial-BoldMT", label.Font.PointSize);
 
             return label;
+        }
+
+        public static UIView SetSeparatorStyle(this UIView view)
+        {
+            view.BackgroundColor = AppColors.SeparatorPrimary;
+
+            return view;
         }
     }
 }

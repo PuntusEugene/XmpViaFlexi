@@ -126,6 +126,9 @@
   <data name="Closed" xml:space="preserve">
     <value>Closed</value>
   </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
   <data name="Draft" xml:space="preserve">
     <value>Draft</value>
   </data>
@@ -138,14 +141,23 @@
   <data name="InvalidCredential" xml:space="preserve">
     <value>Please, retry your login and password pair. Check current Caps Lock and input language setting</value>
   </data>
+  <data name="KeyboardDone" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="KeyboardNext" xml:space="preserve">
+    <value>Next</value>
+  </data>
   <data name="LeaveWithoutPay" xml:space="preserve">
     <value>Leave without pay</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
   <data name="New" xml:space="preserve">
-    <value>New</value>
+    <value>New +</value>
   </data>
   <data name="Overtime" xml:space="preserve">
     <value>Overtime</value>
@@ -155,6 +167,9 @@
   </data>
   <data name="Regular" xml:space="preserve">
     <value>Regular</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="SickDays" xml:space="preserve">
     <value>Sick days</value>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Domain.Vacation;
@@ -34,16 +33,17 @@ namespace VacationsTracker.Core.Services
             };
         }
 
-        public async Task<IEnumerable<VacationModel>> GetVacations()
+        public Task<IEnumerable<VacationModel>> GetVacations()
         {
-            await Task.Delay(500);
+            var task = Task.Delay(500);
+            task.Wait();
 
-            var vacations = new VacationModel[]
+            var vacations = new List<VacationModel>
             {
                 new VacationModel()
                 {
                     VacationStatus = VacationStatus.Approved, VacationType = VacationType.Exceptional,
-                    Id = Guid.NewGuid(), Start = new DateTime(2019, 02, 20), End = new DateTime(2019, 02, 30)
+                    Id = Guid.NewGuid(), Start = new DateTime(2019, 02, 20), End = new DateTime(2019, 02, 25)
                 },
                 new VacationModel()
                 {
@@ -53,7 +53,7 @@ namespace VacationsTracker.Core.Services
                 new VacationModel()
                 {
                     VacationStatus = VacationStatus.Approved, VacationType = VacationType.Regular, Id = Guid.NewGuid(),
-                    Start = new DateTime(2019, 04, 31), End = new DateTime(2019, 05, 29)
+                    Start = new DateTime(2019, 04, 30), End = new DateTime(2019, 05, 29)
                 },
                 new VacationModel()
                 {
@@ -72,7 +72,7 @@ namespace VacationsTracker.Core.Services
                 },
             };
 
-            return vacations;
+            return Task.FromResult<IEnumerable<VacationModel>>(vacations);
         }
 
         public async Task<bool> RemoveVacationById(Guid id)

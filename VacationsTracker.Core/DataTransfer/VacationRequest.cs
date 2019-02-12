@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization.Json;
-using System.Text;
 using VacationsTracker.Core.Domain.Vacation;
 
-namespace VacationsTracker.Core.Domain
+namespace VacationsTracker.Core.DataTransfer
 {
     public class VacationRequest
     {

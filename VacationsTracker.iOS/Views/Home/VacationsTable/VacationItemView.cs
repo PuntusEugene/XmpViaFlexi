@@ -34,7 +34,7 @@ namespace VacationsTracker.iOS.Views.Home.VacationsTable
 
             ArrowImageView = new UIImageView
             {
-                Image = UIImage.FromBundle("RightArrow")
+                Image = AppImages.RightArrow
             };
         }
 
@@ -57,22 +57,19 @@ namespace VacationsTracker.iOS.Views.Home.VacationsTable
 
             this.AddConstraints(
                 VacationTypeImageView.AtLeftOf(this, AppDimens.Inset1x),
-                VacationTypeImageView.AtTopOf(this, AppDimens.Inset1x),
-                VacationTypeImageView.AtBottomOf(this, AppDimens.Inset1x),
                 VacationTypeImageView.WithSameCenterY(this),
                 VacationTypeImageView.Height().EqualTo(AppDimens.Inset5x),
                 VacationTypeImageView.Width().EqualTo(AppDimens.Inset5x));
 
             this.AddConstraints(
-                VacationDurationLabel.AtTopOf(this, AppDimens.Inset2x),
+                VacationDurationLabel.AtTopOf(this, AppDimens.Inset1x),
                 VacationDurationLabel.ToRightOf(VacationTypeImageView, AppDimens.Inset1x)
                 );
 
             this.AddConstraints(
-                VacationTypeLabel.Below(VacationDurationLabel, AppDimens.Inset1x),
+                VacationTypeLabel.Below(VacationDurationLabel, 4),
                 VacationTypeLabel.WithSameLeft(VacationDurationLabel),
-                VacationTypeLabel.WithSameRight(VacationDurationLabel),
-                VacationTypeLabel.AtBottomOf(this, AppDimens.Inset2x));
+                VacationTypeLabel.AtBottomOf(this, AppDimens.Inset1x));
 
             this.AddConstraints(
                 VacationStatusLabel.Height().EqualTo(56),

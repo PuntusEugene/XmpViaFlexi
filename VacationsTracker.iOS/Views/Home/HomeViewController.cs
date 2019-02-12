@@ -1,5 +1,4 @@
-﻿using System;
-using FlexiMvvm;
+﻿using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
 using FlexiMvvm.Views;
@@ -25,17 +24,22 @@ namespace VacationsTracker.iOS.Views.Home
         {
             View = new HomeView();
             NavigationController.NavigationBarHidden = false;
-            NavigationController.NavigationBar.BarTintColor = AppColors.Primary;
+            NavigationController.NavigationBar.BarTintColor = AppColors.TextPrimary;
 
-            var barButton = new UIBarButtonItem()
+            var addNewButton = new UIBarButtonItem()
             {
-                Title = VacationResource.New,
-                TintColor = AppColors.Header
+                CustomView = new UILabel().SetHeaderLabel(Strings.New)
+            };
+
+            var logoutButton = new UIBarButtonItem()
+            {
+                CustomView = new UILabel().SetHeaderLabel(Strings.Logout)
             };
 
             NavigationItem.TitleView = new UILabel()
-                .SetHeaderLabel(VacationResource.AllRequsts);
-            NavigationItem.RightBarButtonItem = barButton;
+                .SetHeaderLabel(Strings.AllRequsts);
+            NavigationItem.RightBarButtonItem = addNewButton;
+            NavigationItem.LeftBarButtonItem = logoutButton;
         }
 
         public override void ViewDidLoad()
@@ -63,6 +67,22 @@ namespace VacationsTracker.iOS.Views.Home
             bindingSet.Bind(NavigationItem.RightBarButtonItem)
                 .For(v => v.ClickedBinding())
                 .To(vm => vm.VacationSelectedCommand);
+
+            bindingSet.Bind(NavigationItem.LeftBarButtonItem)
+                .For(v => v.ClickedBinding())
+                .To(vm => vm.LogoutCommand);
+
+            bindingSet.Bind(View.VacationsTableView.RefreshControl)
+                .For(v => v.ValueChangedBinding())
+                .To(vm => vm.RefreshCommand);
+
+            bindingSet.Bind(View.VacationsTableView.RefreshControl)
+                .For(v => v.BeginRefreshingBinding())
+                .To(vm => vm.Refreshing);
+
+            bindingSet.Bind(View.VacationsTableView.RefreshControl)
+                .For(v => v.EndRefreshingBinding())
+                .To(vm => vm.Refreshing);
         }
     }
 }

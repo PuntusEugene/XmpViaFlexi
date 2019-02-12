@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using FlexiMvvm.ValueConverters;
 using VacationsTracker.Core.Domain.Vacation;
 using VacationsTracker.Core.Resourses;
@@ -17,29 +15,27 @@ namespace VacationsTracker.Core.Presentation.ValueConverters
             switch (value)
             {
                 case VacationType.Regular:
-                    text = VacationResource.Regular;
+                    text = Strings.Regular;
                     break;
 
                 case VacationType.Exceptional:
-                    text = VacationResource.ExceptionalLeave;
+                    text = Strings.ExceptionalLeave;
                     break;
 
                 case VacationType.Overtime:
-                    text = VacationResource.Overtime;
+                    text = Strings.Overtime;
                     break;
 
                 case VacationType.Sick:
-                    text = VacationResource.SickDays;
+                    text = Strings.SickDays;
                     break;
-
 
                 case VacationType.LeaveWithoutPay:
-                    text = VacationResource.LeaveWithoutPay;
+                    text = Strings.LeaveWithoutPay;
                     break;
 
-
                 case VacationType.Undefined:
-                    text = VacationResource.Undefined;
+                    text = Strings.Undefined;
                     break;
             }
 

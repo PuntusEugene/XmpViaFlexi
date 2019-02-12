@@ -1,8 +1,6 @@
 ﻿using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
 using Foundation;
-using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using UIKit;
 using VacationsTracker.Core.Bootstrappers;

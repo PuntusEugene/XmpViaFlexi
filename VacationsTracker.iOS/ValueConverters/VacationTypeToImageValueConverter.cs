@@ -3,6 +3,7 @@ using System.Globalization;
 using FlexiMvvm.ValueConverters;
 using UIKit;
 using VacationsTracker.Core.Domain.Vacation;
+using VacationsTracker.iOS.Design;
 
 namespace VacationsTracker.iOS.ValueConverters
 {
@@ -15,27 +16,27 @@ namespace VacationsTracker.iOS.ValueConverters
             switch (value)
             {
                 case VacationType.Regular:
-                    image = UIImage.FromBundle("IconRequestGreen");
+                    image = AppImages.IconRequestGreen;
                     break;
 
                 case VacationType.Exceptional:
-                    image = UIImage.FromBundle("IconRequestDark");
+                    image = AppImages.IconRequestDark;
                     break;
 
                 case VacationType.Overtime:
-                    image = UIImage.FromBundle("IconRequestBlue");
+                    image = AppImages.IconRequestBlue;
                     break;
 
                 case VacationType.Sick:
-                    image = UIImage.FromBundle("IconRequestRed");
+                    image = AppImages.IconRequestRed;
                     break;
 
                 case VacationType.LeaveWithoutPay:
-                    image = UIImage.FromBundle("IconRequestGreen");
+                    image = AppImages.IconRequestGreen;
                     break;
 
                 case VacationType.Undefined:
-                    image = UIImage.FromBundle("IconRequestRed");
+                    image = AppImages.IconRequestRed;
                     break;
             }
 

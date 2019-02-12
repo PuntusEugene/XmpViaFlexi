@@ -1,6 +1,4 @@
-﻿using System.Resources;
-using System.Security.Authentication;
-using Cirrious.FluentLayouts.Touch;
+﻿using Cirrious.FluentLayouts.Touch;
 using FlexiMvvm.Views;
 using UIKit;
 using VacationsTracker.Core.Resourses;
@@ -10,7 +8,6 @@ namespace VacationsTracker.iOS.Views.Login
 {
     public class LoginView : LayoutView
     {
-
         public UIImageView BackgroundView { get; private set; }
 
         public UILabel InvalidCredentialLabel { get; private set; }
@@ -27,18 +24,20 @@ namespace VacationsTracker.iOS.Views.Login
 
             BackgroundView = new UIImageView()
             {
-                Image = UIImage.FromBundle("Background"),
+                Image = AppImages.Background,
                 UserInteractionEnabled = false
             };
 
-            InvalidCredentialLabel = new UILabel().SetCredentialLabel(VacationResource.InvalidCredential);
+            InvalidCredentialLabel = new UILabel().SetCredentialLabel(Strings.InvalidCredential);
 
-            LoginTextField = new UITextField().SetTextFieldStyle(VacationResource.Login);
+            LoginTextField = new UITextField().SetTextFieldStyle(Strings.Login);
 
-            PasswordTextField = new UITextField().SetTextFieldStyle(VacationResource.Password);
+            PasswordTextField = new UITextField().SetTextFieldStyle(Strings.Password);
             PasswordTextField.SecureTextEntry = true;
-            
-            LoginButton = new UIButton().SetPrimaryButtonStyle(VacationResource.SignIn);
+
+            //LoginTextField.ShouldChangeTextInRange(PasswordTextField.SelectedTextRange, Strings.KeyboardDone);
+
+            LoginButton = new UIButton().SetPrimaryButtonStyle(Strings.SignIn);
         }
 
         protected override void SetupLayout()

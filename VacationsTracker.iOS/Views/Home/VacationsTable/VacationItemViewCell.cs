@@ -3,9 +3,7 @@ using Cirrious.FluentLayouts.Touch;
 using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
-using FlexiMvvm.Commands;
 using VacationsTracker.Core.Presentation.ValueConverters;
-using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Home;
 using VacationsTracker.iOS.ValueConverters;
 
@@ -14,14 +12,14 @@ namespace VacationsTracker.iOS.Views.Home.VacationsTable
     internal class VacationItemViewCell
         : UITableViewBindableItemCell<HomeViewModel, VacationItemViewModel>
     {
+
+        public static string CellId { get; } = nameof(VacationItemViewCell);
+        private VacationItemView View { get; set; }
+
         protected internal VacationItemViewCell(IntPtr handle)
             : base(handle)
         {
         }
-
-        public static string CellId { get; } = nameof(VacationItemViewCell);
-
-        private VacationItemView View { get; set; }
 
         public override void LoadView()
         {
