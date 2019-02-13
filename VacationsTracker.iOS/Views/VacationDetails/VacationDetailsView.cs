@@ -64,7 +64,7 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             _datePickerEndExpanded.Active = false;
             _datePickerEndCollapsed.Active = true;
 
-            UIView.Animate(0.3,LayoutIfNeeded);
+            UIView.Animate(0.3, LayoutIfNeeded);
         }
 
         public void ShowStartDatePicker()
@@ -74,11 +74,11 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             _contentViewExpanded.Active = false;
             _contentViewCollapsedByToolbar.Active = true;
 
-            _toolbarAboveStartPicker.Active = true;
             _toolbarBottom.Active = false;
-            
-            _datePickerToolbarExpanded.Active = true;
+            _toolbarAboveStartPicker.Active = true;
+
             _datePickerToolbarCollapsed.Active = false;
+            _datePickerToolbarExpanded.Active = true;
 
             _datePickerStartCollapsed.Active = false;
             _datePickerStartExpanded.Active = true;
@@ -93,11 +93,11 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             _contentViewExpanded.Active = false;
             _contentViewCollapsedByToolbar.Active = true;
 
-            _toolbarAboveEndPicker.Active = true;
             _toolbarBottom.Active = false;
+            _toolbarAboveEndPicker.Active = true;
 
-            _datePickerToolbarExpanded.Active = true;
             _datePickerToolbarCollapsed.Active = false;
+            _datePickerToolbarExpanded.Active = true;
 
             _datePickerEndCollapsed.Active = false;
             _datePickerEndExpanded.Active = true;
@@ -143,7 +143,9 @@ namespace VacationsTracker.iOS.Views.VacationDetails
                 Style = UIBarButtonItemStyle.Plain,
             };
             doneButton.ClickedWeakSubscribe((sender, args) => HideDatePickers());
-            DatePickerToolbar.SetItems(new[] {doneButton}, false);
+            var space = new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace);
+
+            DatePickerToolbar.SetItems(new[] { space, doneButton }, false);
             DatePickerToolbar.UserInteractionEnabled = true;
         }
 
@@ -233,7 +235,7 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             _toolbarAboveEndPicker.Active = false;
 
             _datePickerToolbarCollapsed = DatePickerToolbar.Height().EqualTo(0);
-            _datePickerToolbarExpanded = DatePickerToolbar.Height().EqualTo(44);
+            _datePickerToolbarExpanded = DatePickerToolbar.Height().EqualTo(AppDimens.ToolbarSize);
             _datePickerToolbarExpanded.Active = false;
 
             this.AddConstraints(
@@ -253,8 +255,8 @@ namespace VacationsTracker.iOS.Views.VacationDetails
                 StartDatePicker.AtLeftOf(this),
                 StartDatePicker.AtBottomOf(this),
                 StartDatePicker.AtRightOf(this),
-                _datePickerStartExpanded,
-                _datePickerStartCollapsed);
+                _datePickerStartCollapsed,
+                _datePickerStartExpanded);
 
             _datePickerEndCollapsed = EndDatePicker.Height().EqualTo(0);
             _datePickerEndExpanded = EndDatePicker.Height().EqualTo(AppDimens.DatePickerSize);

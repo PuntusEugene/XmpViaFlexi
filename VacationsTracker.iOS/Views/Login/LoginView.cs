@@ -31,11 +31,13 @@ namespace VacationsTracker.iOS.Views.Login
             InvalidCredentialLabel = new UILabel().SetCredentialLabel(Strings.InvalidCredential);
 
             LoginTextField = new UITextField().SetTextFieldStyle(Strings.Login);
+            LoginTextField.ReturnKeyType = UIReturnKeyType.Next;
+            LoginTextField.ShouldReturn = field => PasswordTextField.BecomeFirstResponder();
 
             PasswordTextField = new UITextField().SetTextFieldStyle(Strings.Password);
             PasswordTextField.SecureTextEntry = true;
-
-            //LoginTextField.ShouldChangeTextInRange(PasswordTextField.SelectedTextRange, Strings.KeyboardDone);
+            PasswordTextField.ReturnKeyType = UIReturnKeyType.Done;
+            PasswordTextField.ShouldReturn = field => PasswordTextField.ResignFirstResponder();
 
             LoginButton = new UIButton().SetPrimaryButtonStyle(Strings.SignIn);
         }

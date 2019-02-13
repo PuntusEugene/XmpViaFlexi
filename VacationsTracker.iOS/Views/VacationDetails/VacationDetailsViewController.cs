@@ -1,8 +1,10 @@
 ﻿using System;
+using Cirrious.FluentLayouts.Touch;
 using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
 using FlexiMvvm.Views;
+using Foundation;
 using UIKit;
 using VacationsTracker.Core.Presentation.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
@@ -16,6 +18,8 @@ namespace VacationsTracker.iOS.Views.VacationDetails
 {
     internal class VacationDetailsViewController : FlxBindableViewController<VacationDetailsViewModel, VacationDetailsParameters>
     {
+        private UIButton _backButton;
+
         public new VacationDetailsView View
         {
             get => (VacationDetailsView)base.View.NotNull();
@@ -39,14 +43,30 @@ namespace VacationsTracker.iOS.Views.VacationDetails
         {
             base.ViewDidLoad();
 
-            NavigationItem.BackBarButtonItem = new UIBarButtonItem { TintColor = AppColors.TextHeadline };
-            NavigationItem.RightBarButtonItem = new UIBarButtonItem
-            {
-                CustomView = new UILabel().SetHeaderLabel(Strings.Save)
-            };
+            var backImageView = new UIImageView() { Image = AppImages.LeftArrowWhite, TintColor = AppColors.TextHeadline};
+            var backLabel = new UILabel().SetHeaderLabelByBarButtonStyle(Strings.BackHeader);
+
+            _backButton = new UIButton();
+            _backButton.AddLayoutSubview(backImageView)
+                .AddLayoutSubview(backLabel);
+
+            _backButton.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+            _backButton.AddConstraints(backImageView.AtLeftOf(_backButton),
+                backImageView.WithSameCenterY(_backButton),
+                backImageView.Width().EqualTo(AppDimens.Inset3x),
+                backImageView.Height().EqualTo(AppDimens.Inset3x));
+
+            _backButton.AddConstraints(backLabel.ToRightOf(backImageView),
+                backLabel.WithSameCenterY(_backButton),
+                backLabel.AtRightOf(_backButton));
+
+            NavigationItem.LeftBarButtonItem = new UIBarButtonItem {CustomView = _backButton};
+
+            NavigationItem.RightBarButtonItem = new UIBarButtonItem()
+                .SetHeaderBarButtonItemStyle(Strings.Save);
 
             NavigationItem.TitleView = new UILabel()
-                .SetHeaderLabel(Strings.TitleDetailsView);
+                .SetHeaderLabelStyle(Strings.TitleDetailsView);
 
             VacationsPageViewController = new UIPageViewController(
                 UIPageViewControllerTransitionStyle.Scroll,
@@ -76,6 +96,10 @@ namespace VacationsTracker.iOS.Views.VacationDetails
         public override void Bind(BindingSet<VacationDetailsViewModel> bindingSet)
         {
             base.Bind(bindingSet);
+
+            bindingSet.Bind(_backButton)
+                .For(v => v.TouchUpInsideBinding())
+                .To(vm => vm.BackToHomeCommand);
 
             bindingSet.Bind(NavigationItem.LeftBarButtonItem)
                 .For(v => v.ClickedBinding())

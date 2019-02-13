@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="Bootstrappers\IosBootstrapper.cs" />
     <Compile Include="Controls\LargeDateControl.cs" />
-    <Compile Include="Controls\PlusButtonContol.cs" />
+    <Compile Include="Controls\UINewPlusButton.cs" />
     <Compile Include="Design\AppDimens.cs" />
     <Compile Include="Design\AppImages.cs" />
     <Compile Include="Design\AppStyles.cs" />
@@ -164,6 +164,30 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\IconRequestGrey.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\IconRequestGrey.imageset\Icon_Request_Gray.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\IconRequestOrange.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\IconRequestOrange.imageset\Icon_Request_Dark - Copy.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LeftArrowWhite.imageset\arrow_ios_white_left - Copy.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LeftArrowWhite.imageset\arrow_ios_white_left - Copy1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LeftArrowWhite.imageset\arrow_ios_white_left - Copy2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LeftArrowWhite.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\Plus.imageset\Contents.json">

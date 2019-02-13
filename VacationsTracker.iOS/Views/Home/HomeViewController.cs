@@ -1,10 +1,12 @@
-﻿using FlexiMvvm;
+﻿using Cirrious.FluentLayouts.Touch;
+using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
 using FlexiMvvm.Views;
 using UIKit;
 using VacationsTracker.Core.Presentation.ViewModels.Home;
 using VacationsTracker.Core.Resourses;
+using VacationsTracker.iOS.Controls;
 using VacationsTracker.iOS.Design;
 using VacationsTracker.iOS.Views.Home.VacationsTable;
 
@@ -12,8 +14,10 @@ namespace VacationsTracker.iOS.Views.Home
 {
     internal class HomeViewController : FlxBindableViewController<HomeViewModel>
     {
-        private UITableViewObservablePlainSource VacationsSource { get; set; }
+        private UINewPlusButton _uiNewPlusButton;
 
+        private UITableViewObservablePlainSource VacationsSource { get; set; }
+        
         public new HomeView View
         {
             get => (HomeView)base.View.NotNull();
@@ -26,19 +30,18 @@ namespace VacationsTracker.iOS.Views.Home
             NavigationController.NavigationBarHidden = false;
             NavigationController.NavigationBar.BarTintColor = AppColors.TextPrimary;
 
-            var addNewButton = new UIBarButtonItem()
+            _uiNewPlusButton = new UINewPlusButton();
+            var addNewBarButtonFirst = new UIBarButtonItem()
             {
-                CustomView = new UILabel().SetHeaderLabel(Strings.New)
+                CustomView = _uiNewPlusButton
             };
 
             var logoutButton = new UIBarButtonItem()
-            {
-                CustomView = new UILabel().SetHeaderLabel(Strings.Logout)
-            };
+                .SetHeaderBarButtonItemStyle(Strings.Logout);
 
             NavigationItem.TitleView = new UILabel()
-                .SetHeaderLabel(Strings.AllRequsts);
-            NavigationItem.RightBarButtonItem = addNewButton;
+                .SetHeaderLabelStyle(Strings.AllRequsts);
+            NavigationItem.RightBarButtonItem = addNewBarButtonFirst;
             NavigationItem.LeftBarButtonItem = logoutButton;
         }
 
@@ -64,8 +67,8 @@ namespace VacationsTracker.iOS.Views.Home
                 .For(v => v.RowSelectedBinding())
                 .To(vm => vm.VacationSelectedCommand);
 
-            bindingSet.Bind(NavigationItem.RightBarButtonItem)
-                .For(v => v.ClickedBinding())
+            bindingSet.Bind(_uiNewPlusButton)
+                .For(v => v.TouchUpInsideBinding())
                 .To(vm => vm.VacationSelectedCommand);
 
             bindingSet.Bind(NavigationItem.LeftBarButtonItem)

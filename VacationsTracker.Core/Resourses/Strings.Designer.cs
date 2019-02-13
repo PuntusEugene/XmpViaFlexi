@@ -79,6 +79,15 @@ namespace VacationsTracker.Core.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string BackHeader {
+            get {
+                return ResourceManager.GetString("BackHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Closed.
         /// </summary>
         public static string Closed {
@@ -178,11 +187,20 @@ namespace VacationsTracker.Core.Resourses {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New +.
+        ///   Looks up a localized string similar to New.
         /// </summary>
         public static string New {
             get {
                 return ResourceManager.GetString("New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New +.
+        /// </summary>
+        public static string NewWithPlus {
+            get {
+                return ResourceManager.GetString("NewWithPlus", resourceCulture);
             }
         }
         
@@ -201,6 +219,15 @@ namespace VacationsTracker.Core.Resourses {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to +.
+        /// </summary>
+        public static string PlusSign {
+            get {
+                return ResourceManager.GetString("PlusSign", resourceCulture);
             }
         }
         

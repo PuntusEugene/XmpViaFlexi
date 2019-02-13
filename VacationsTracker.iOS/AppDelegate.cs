@@ -26,7 +26,6 @@ namespace VacationsTracker.iOS
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-
             var config = new BootstrapperConfig();
             config.SetSimpleIoc(new SimpleIoc());
             var compositeBootstrapper = new CompositeBootstrapper(

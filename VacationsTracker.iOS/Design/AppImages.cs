@@ -14,9 +14,15 @@ namespace VacationsTracker.iOS.Design
 
         public static UIImage IconRequestRed => GetImage("IconRequestRed");
 
+        public static UIImage IconRequestGrey => GetImage("IconRequestGrey");
+
+        public static UIImage IconRequestOrange => GetImage("IconRequestOrange");
+
         public static UIImage Plus => GetImage("Plus");
 
         public static UIImage RightArrow => GetImage("RightArrow");
+
+        public static UIImage LeftArrowWhite => GetImage("LeftArrowWhite");
 
 
         private static UIImage GetImage(string name)

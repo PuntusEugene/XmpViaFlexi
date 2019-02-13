@@ -24,13 +24,13 @@ namespace VacationsTracker.iOS.Views.Home.VacationsTable
             VacationTypeImageView = new UIImageView();
 
             VacationDurationLabel = new UILabel()
-                .SetPrimaryLabel();
+                .SetPrimaryLabelStyle();
 
             VacationTypeLabel = new UILabel()
-                .SetBodyLabel(8);
+                .SetBodyLabelStyle(8);
 
             VacationStatusLabel = new UILabel()
-                .SetBodyLabel(10);
+                .SetBodyLabelStyle(10);
 
             ArrowImageView = new UIImageView
             {

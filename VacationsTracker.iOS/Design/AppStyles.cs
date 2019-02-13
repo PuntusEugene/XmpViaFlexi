@@ -47,12 +47,13 @@ namespace VacationsTracker.iOS.Design
             label.BackgroundColor = AppColors.ContentPrimary;
             label.TextAlignment = UITextAlignment.Center;
             label.Font = UIFont.FromName(label.Font.Name, 10f);
+            label.Layer.MasksToBounds = true;
             label.Layer.CornerRadius = AppDimens.Inset1x;
 
             return label;
         }
 
-        public static UILabel SetBodyLabel(this UILabel label, float size)
+        public static UILabel SetBodyLabelStyle(this UILabel label, float size)
         {
             if (size >= 0)
             {
@@ -63,7 +64,7 @@ namespace VacationsTracker.iOS.Design
             return label;
         }
 
-        public static UILabel SetPrimaryLabel(this UILabel label, float size = 13)
+        public static UILabel SetPrimaryLabelStyle(this UILabel label, float size = 13)
         {
             label.Font = UIFont.FromName("Arial-BoldMT", size);
             label.TextColor = AppColors.TextPrimary;
@@ -71,7 +72,7 @@ namespace VacationsTracker.iOS.Design
             return label;
         }
 
-        public static UILabel SetHeaderLabel(this UILabel label, string text)
+        public static UILabel SetHeaderLabelStyle(this UILabel label, string text)
         {
             label.Text = text;
             label.TextColor = AppColors.TextHeadline;
@@ -85,6 +86,27 @@ namespace VacationsTracker.iOS.Design
             view.BackgroundColor = AppColors.SeparatorPrimary;
 
             return view;
+        }
+
+        public static UIBarButtonItem SetHeaderBarButtonItemStyle(this UIBarButtonItem barButtonItem, string text = null, int size = 17)
+        {
+            if (text != null)
+            {
+                barButtonItem.Title = text;
+            }
+
+            barButtonItem.SetTitleTextAttributes(new UITextAttributes() { Font = UIFont.FromName("Arial", size), TextColor = AppColors.TextHeadline }, UIControlState.Normal);
+
+            return barButtonItem;
+        }
+        
+        public static UILabel SetHeaderLabelByBarButtonStyle(this UILabel label, string text, int size = 17)
+        {
+            label.Text = text;
+            label.TextColor = AppColors.TextHeadline;
+            label.Font = UIFont.FromName("Arial", size);
+
+            return label;
         }
     }
 }

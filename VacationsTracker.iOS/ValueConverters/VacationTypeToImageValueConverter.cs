@@ -32,11 +32,11 @@ namespace VacationsTracker.iOS.ValueConverters
                     break;
 
                 case VacationType.LeaveWithoutPay:
-                    image = AppImages.IconRequestGreen;
+                    image = AppImages.IconRequestOrange;
                     break;
 
                 case VacationType.Undefined:
-                    image = AppImages.IconRequestRed;
+                    image = AppImages.IconRequestGrey;
                     break;
             }
 

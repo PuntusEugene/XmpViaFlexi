@@ -18,7 +18,7 @@ namespace VacationsTracker.iOS.Views.VacationDetails.VacationsPager
             VacationTypeImageView = new UIImageView();
 
             VacationTypeLabel = new UILabel()
-                .SetBodyLabel(28);
+                .SetBodyLabelStyle(28);
         }
 
         protected override void SetupLayout()

@@ -24,5 +24,7 @@
         public static float SeparatorSize => 2f;
 
         public static float DatePickerSize => 200f;
+
+        public static float ToolbarSize => 44f;
     }
 }

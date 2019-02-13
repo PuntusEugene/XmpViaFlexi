@@ -25,14 +25,14 @@ namespace VacationsTracker.iOS.Controls
             base.SetupSubviews();
 
             DayOfDateLabel = new UILabel()
-                .SetPrimaryLabel(72);
+                .SetPrimaryLabelStyle(72);
 
             MonthOfDateLabel = new UILabel()
-                .SetPrimaryLabel(28);
+                .SetPrimaryLabelStyle(28);
             MonthOfDateLabel.TextAlignment = UITextAlignment.Right;
 
             YearOfDateLabel = new UILabel()
-                .SetPrimaryLabel(20);
+                .SetPrimaryLabelStyle(20);
             YearOfDateLabel.TextAlignment = UITextAlignment.Right;
         }
 

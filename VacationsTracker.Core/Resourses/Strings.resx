@@ -123,6 +123,9 @@
   <data name="Approved" xml:space="preserve">
     <value>Approved</value>
   </data>
+  <data name="BackHeader" xml:space="preserve">
+    <value>Back</value>
+  </data>
   <data name="Closed" xml:space="preserve">
     <value>Closed</value>
   </data>
@@ -157,6 +160,9 @@
     <value>Logout</value>
   </data>
   <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="NewWithPlus" xml:space="preserve">
     <value>New +</value>
   </data>
   <data name="Overtime" xml:space="preserve">
@@ -164,6 +170,9 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="PlusSign" xml:space="preserve">
+    <value>+</value>
   </data>
   <data name="Regular" xml:space="preserve">
     <value>Regular</value>

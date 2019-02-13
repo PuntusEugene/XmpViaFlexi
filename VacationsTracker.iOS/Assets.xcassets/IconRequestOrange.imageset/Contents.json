@@ -1,0 +1,22 @@
+{
+  "images": [
+    {
+      "scale": "1x",
+      "idiom": "iphone"
+    },
+    {
+      "scale": "3x",
+      "idiom": "iphone"
+    },
+    {
+      "scale": "2x",
+      "idiom": "iphone",
+      "filename": "Icon_Request_Dark - Copy.png"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": ""
+  }
+}
