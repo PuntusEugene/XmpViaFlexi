@@ -1,8 +1,9 @@
 ﻿using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Commands;
+using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
-using VacationsTracker.Core.Services.Interfaces;
+using VacationsTracker.Core.Repositories.Interfaces;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Login
 {
@@ -11,7 +12,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         private string _username = "ark";
         private string _password = "123";
         private bool _validCredentials = true;
-        private readonly IIdentityService _identityService;
+        private readonly IIdentityRepository _identityRepository;
         private readonly INavigationService _navigationService;
 
         public string Username
@@ -34,18 +35,29 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 
         public ICommand LoginCommand => CommandProvider.GetForAsync(Login);
 
-        public LoginViewModel(INavigationService navigationService, IIdentityService identityService)
+        public LoginViewModel(INavigationService navigationService, IIdentityRepository identityRepository)
         {
             _navigationService = navigationService;
-            _identityService = identityService;
+            _identityRepository = identityRepository;
         }
 
         private async Task Login()
         {
-            ValidCredentials = await _identityService.AuthorizationAsync(Username, Password);
+            ValidCredentials = await _identityRepository.AuthorizationAsync(new UserCredentialModel(Username, Password));
 
             if (ValidCredentials)
             {
+                //await OperationFactory.CreateOperation(OperationContext)
+                //    .WithExpressionAsync(cancelation => _identityRepository.AuthorizationAsync(Username, Password))
+                //    .OnSuccess((isSuccsess) =>
+                //    {
+                //        if (isSuccsess)
+                //        {
+                //            _navigationService.NavigateToHome(this);
+                //        }
+                //    })
+                //    .ExecuteAsync();
+
                 _navigationService.NavigateToHome(this);
             }
         }

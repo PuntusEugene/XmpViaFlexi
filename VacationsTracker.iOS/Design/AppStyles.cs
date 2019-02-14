@@ -1,4 +1,6 @@
-﻿using UIKit;
+﻿using System;
+using CoreGraphics;
+using UIKit;
 
 namespace VacationsTracker.iOS.Design
 {
@@ -107,6 +109,21 @@ namespace VacationsTracker.iOS.Design
             label.Font = UIFont.FromName("Arial", size);
 
             return label;
+        }
+
+        public static UIButton SetChoiceButtonStyle(this UIButton button, string text)
+        {
+            button.SetTitle(text, UIControlState.Normal);
+            button.TitleEdgeInsets = new UIEdgeInsets(AppDimens.Inset1x, 0, AppDimens.Inset1x, AppDimens.Inset2x);
+            button.HorizontalAlignment = UIControlContentHorizontalAlignment.Right;
+            button.Layer.MasksToBounds = true;
+            button.Layer.BorderColor = AppColors.TextBody.CGColor;
+            button.Layer.BorderWidth = AppDimens.SeparatorSizeSmall;
+            button.Font = UIFont.FromName("Arial-BoldMT", 20);
+            button.SetTitleColor(AppColors.TextBody, UIControlState.Normal);
+            button.BackgroundColor = AppColors.ButtonLightGrey;
+
+            return button;
         }
     }
 }

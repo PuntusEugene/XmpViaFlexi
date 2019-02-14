@@ -21,6 +21,7 @@ namespace VacationsTracker.iOS.Views.Home
             VacationsTableView.RegisterClassForCellReuse(
                 typeof(VacationItemViewCell),
                 VacationItemViewCell.CellId);
+
             VacationsTableView.AllowsSelection = true;
         }
 

@@ -66,7 +66,7 @@ namespace VacationsTracker.iOS.Views.VacationDetails
                 .SetHeaderBarButtonItemStyle(Strings.Save);
 
             NavigationItem.TitleView = new UILabel()
-                .SetHeaderLabelStyle(Strings.TitleDetailsView);
+                .SetHeaderLabelStyle(Strings.DetailsViewTitle);
 
             VacationsPageViewController = new UIPageViewController(
                 UIPageViewControllerTransitionStyle.Scroll,

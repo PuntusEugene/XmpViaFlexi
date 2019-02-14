@@ -46,7 +46,6 @@ namespace VacationsTracker.iOS
 
         public override bool WillFinishLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            //TaskDelay = Task.Delay(3000);
             TaskDelay = Task.Delay(0);
 
             return true;

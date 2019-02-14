@@ -61,6 +61,15 @@ namespace VacationsTracker.Core.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string action_settings {
+            get {
+                return ResourceManager.GetString("action_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Requests.
         /// </summary>
         public static string AllRequsts {
@@ -70,11 +79,29 @@ namespace VacationsTracker.Core.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to VacationsTracker.Android.
+        /// </summary>
+        public static string app_name {
+            get {
+                return ResourceManager.GetString("app_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Approved.
         /// </summary>
         public static string Approved {
             get {
                 return ResourceManager.GetString("Approved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arkadiy Dobkin.
+        /// </summary>
+        public static string AvatarTitle {
+            get {
+                return ResourceManager.GetString("AvatarTitle", resourceCulture);
             }
         }
         
@@ -93,6 +120,15 @@ namespace VacationsTracker.Core.Resourses {
         public static string Closed {
             get {
                 return ResourceManager.GetString("Closed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request.
+        /// </summary>
+        public static string DetailsViewTitle {
+            get {
+                return ResourceManager.GetString("DetailsViewTitle", resourceCulture);
             }
         }
         
@@ -189,9 +225,9 @@ namespace VacationsTracker.Core.Resourses {
         /// <summary>
         ///   Looks up a localized string similar to New.
         /// </summary>
-        public static string New {
+        public static string NewTitle {
             get {
-                return ResourceManager.GetString("New", resourceCulture);
+                return ResourceManager.GetString("NewTitle", resourceCulture);
             }
         }
         
@@ -273,15 +309,6 @@ namespace VacationsTracker.Core.Resourses {
         public static string Submitted {
             get {
                 return ResourceManager.GetString("Submitted", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Request.
-        /// </summary>
-        public static string TitleDetailsView {
-            get {
-                return ResourceManager.GetString("TitleDetailsView", resourceCulture);
             }
         }
         

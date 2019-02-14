@@ -70,7 +70,11 @@
     <Compile Include="Design\AppColors.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Navigation\NavigationTabBarService.cs" />
     <Compile Include="ValueConverters\DateToNSDateValueConverter.cs" />
+    <Compile Include="Views\RootTabBarController.cs" />
+    <Compile Include="Views\Setting\SettingView.cs" />
+    <Compile Include="Views\Setting\SettingViewController.cs" />
     <Compile Include="Views\VacationDetails\VacationDetailsView.cs" />
     <Compile Include="Views\VacationDetails\VacationDetailsViewController.cs" />
     <Compile Include="Views\Home\HomeView.cs" />
@@ -166,6 +170,9 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Avatar.imageset\Avatar_Ark.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\IconRequestGrey.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -176,6 +183,9 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\IconRequestOrange.imageset\Icon_Request_Dark - Copy.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Avatar.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LeftArrowWhite.imageset\arrow_ios_white_left - Copy.png">

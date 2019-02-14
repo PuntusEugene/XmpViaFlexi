@@ -8,7 +8,7 @@ using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Domain.Vacation;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.VacationPager;
-using VacationsTracker.Core.Services.Interfaces;
+using VacationsTracker.Core.Repositories.Interfaces;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
 {
@@ -20,7 +20,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
         private DateTime _dateEnd;
         private VacationStatus _vacationStatus;
         private readonly INavigationService _navigationService;
-        private readonly IVacationService _vacationService;
+        private readonly IVacationRepository _vacationRepository;
         
         public VacationType VacationType
         {
@@ -64,10 +64,10 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
 
         public ICommand SaveVacationCommand => CommandProvider.GetForAsync(SaveVacation);
 
-        public VacationDetailsViewModel(INavigationService navigationService, IVacationService vacationService)
+        public VacationDetailsViewModel(INavigationService navigationService, IVacationRepository vacationRepository)
         {
             _navigationService = navigationService;
-            _vacationService = vacationService;
+            _vacationRepository = vacationRepository;
 
             VacationTypes = new ObservableCollection<VacationTypePagerParameters>(
                 Enum.GetValues(typeof(VacationType))
@@ -80,7 +80,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
 
             if (parameters != null)
             {
-                var vacation = await _vacationService.GetVacationById(parameters.Id);
+                var vacation = await _vacationRepository.GetVacationByIdAsync(parameters.Id);
                 _id = vacation.Id;
                 VacationType = vacation.VacationType;
                 DateBegin = vacation.Start;
@@ -106,7 +106,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
                 Created = DateTime.Now,
             };
 
-            await _vacationService.CreateOrUpdateVacation(vacationModel);
+            await _vacationRepository.CreateOrUpdateVacationAsync(vacationModel);
 
             BackToHome();
         }

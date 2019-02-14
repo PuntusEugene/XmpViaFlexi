@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="action_settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="AllRequsts" xml:space="preserve">
     <value>All Requests</value>
   </data>
   <data name="Approved" xml:space="preserve">
     <value>Approved</value>
+  </data>
+  <data name="app_name" xml:space="preserve">
+    <value>VacationsTracker.Android</value>
   </data>
   <data name="BackHeader" xml:space="preserve">
     <value>Back</value>
@@ -159,9 +165,6 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
-  <data name="New" xml:space="preserve">
-    <value>New</value>
-  </data>
   <data name="NewWithPlus" xml:space="preserve">
     <value>New +</value>
   </data>
@@ -189,10 +192,16 @@
   <data name="Submitted" xml:space="preserve">
     <value>Submitted</value>
   </data>
-  <data name="TitleDetailsView" xml:space="preserve">
+  <data name="DetailsViewTitle" xml:space="preserve">
     <value>Request</value>
+  </data>
+  <data name="NewTitle" xml:space="preserve">
+    <value>New</value>
   </data>
   <data name="Undefined" xml:space="preserve">
     <value>Undefined</value>
+  </data>
+  <data name="AvatarTitle" xml:space="preserve">
+    <value>Arkadiy Dobkin</value>
   </data>
 </root>

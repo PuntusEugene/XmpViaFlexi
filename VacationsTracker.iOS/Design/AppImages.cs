@@ -24,6 +24,8 @@ namespace VacationsTracker.iOS.Design
 
         public static UIImage LeftArrowWhite => GetImage("LeftArrowWhite");
 
+        public static UIImage Avatar => GetImage("Avatar");
+
 
         private static UIImage GetImage(string name)
         {

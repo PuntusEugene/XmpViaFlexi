@@ -1,5 +1,10 @@
-﻿using FlexiMvvm;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using FlexiMvvm;
 using FlexiMvvm.Navigation;
+using Foundation;
 using UIKit;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
@@ -14,12 +19,17 @@ using VacationsTracker.iOS.Views.VacationDetails;
 
 namespace VacationsTracker.iOS.Navigation
 {
-    public class NavigationService : NavigationServiceBase, INavigationService
+    public class NavigationTabBarService : NavigationServiceBase, INavigationService
     {
         public void NavigateToLogin(EntryViewModel fromViewModel)
         {
-            var rootViewController = GetViewController<EntryViewModel, RootNavigationController>(fromViewModel);
-            rootViewController.NotNull().PushViewController(new LoginViewController(), false);
+            var navigationController = new RootNavigationController
+            {
+                ViewControllers = new UIViewController[] { new LoginViewController() }
+            };
+
+            var rootViewController = GetViewController<EntryViewModel, RootTabBarController>(fromViewModel);
+            rootViewController.NotNull().AddChildViewController(navigationController);
         }
 
         public void NavigateToLogin(HomeViewModel fromViewModel)
@@ -33,9 +43,14 @@ namespace VacationsTracker.iOS.Navigation
         public void NavigateToHome(LoginViewModel fromViewModel)
         {
             var loginViewController = GetViewController<LoginViewModel, LoginViewController>(fromViewModel);
+            
+            var navigationController = new RootNavigationController
+            {
+                ViewControllers = new UIViewController[] { new HomeViewController(), new SettingViewController() }
+            };
 
             loginViewController.NotNull().NavigationController.SetViewControllers(
-                new UIViewController[] { new HomeViewController() },
+                new UIViewController[] { navigationController },
                 true);
         }
 

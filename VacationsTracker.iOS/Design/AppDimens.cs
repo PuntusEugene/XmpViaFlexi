@@ -1,30 +1,35 @@
-﻿namespace VacationsTracker.iOS.Design
+﻿using System;
+
+namespace VacationsTracker.iOS.Design
 {
-    public class AppDimens
+    public static class AppDimens
     {
+        public static readonly nfloat Inset1x = 8;
 
-        public static float Inset1x => 8f;
+        public static readonly nfloat Inset2x = 16;
 
-        public static float Inset2x => 16f;
+        public static readonly nfloat Inset3x = 24;
 
-        public static float Inset3x => 24f;
+        public static readonly nfloat Inset4x = 32;
 
-        public static float Inset4x => 32f;
+        public static readonly nfloat Inset5x = 40;
 
-        public static float Inset5x => 40f;
+        public static readonly nfloat Inset6x = 48;
 
-        public static float Inset6x => 48f;
+        public static readonly nfloat Inset7x = 56;
 
-        public static float Inset7x => 56f;
+        public static readonly nfloat Inset8x = 64;
 
-        public static float Inset8x => 64f;
+        public static readonly nfloat Inset9x = 72;
 
-        public static float Inset9x => 72f;
+        public static readonly nfloat SeparatorSize = 2;
 
-        public static float SeparatorSize => 2f;
+        public static readonly nfloat SeparatorSizeSmall = 1;
 
-        public static float DatePickerSize => 200f;
+        public static readonly nfloat DatePickerSize = 200;
 
-        public static float ToolbarSize => 44f;
+        public static readonly nfloat ToolbarSize = 44;
+
+        public static readonly nfloat ButtonSize = 44;
     }
 }

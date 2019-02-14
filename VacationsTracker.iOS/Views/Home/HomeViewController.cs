@@ -9,6 +9,7 @@ using VacationsTracker.Core.Resourses;
 using VacationsTracker.iOS.Controls;
 using VacationsTracker.iOS.Design;
 using VacationsTracker.iOS.Views.Home.VacationsTable;
+using VacationsTracker.iOS.Views.Setting;
 
 namespace VacationsTracker.iOS.Views.Home
 {
@@ -57,7 +58,35 @@ namespace VacationsTracker.iOS.Views.Home
             };
 
             View.VacationsTableView.Source = VacationsSource;
+
+            SetupTabs();
         }
+
+        private void SetupTabs()
+        {
+            //var viewControllers = new UIViewController[ViewModel.Items.Count];
+            //for (var index = 0; index < ViewModel.Items.Count; index++)
+            //{
+            //    viewControllers[index] = CreateTab(ViewModel.Items[index]);
+            //}
+            //var tab1 = new HomeViewController()
+            //{
+            //    TabBarItem = new UITabBarItem(UITabBarSystemItem.Bookmarks, 0)
+            //};
+            //var tab2 = new SettingViewController
+            //{
+            //    TabBarItem = new UITabBarItem(UITabBarSystemItem.Contacts, 1)
+            //};
+
+            //ViewControllers = new UIViewController[] { this, tab2 };
+        }
+
+        //private UIViewController CreateTab(TabItemViewModel tab)
+        //{
+        //    var viewController = new CustomNavigationController { Title = tab.Title };
+
+        //    return viewController;
+        //}
 
         public override void Bind(BindingSet<HomeViewModel> bindingSet)
         {

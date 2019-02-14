@@ -6,14 +6,14 @@ using FlexiMvvm;
 using FlexiMvvm.Commands;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
-using VacationsTracker.Core.Services.Interfaces;
+using VacationsTracker.Core.Repositories.Interfaces;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Home
 {
     public class HomeViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
-        private readonly IVacationService _vacationService;
+        private readonly IVacationRepository _vacationRepository;
         private ObservableCollection<VacationItemViewModel> _vacations;
         private bool _refreshing;
 
@@ -35,17 +35,17 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
 
         public ICommand LogoutCommand => CommandProvider.Get(NavigateToLogin);
 
-        public HomeViewModel(INavigationService navigationService, IVacationService vacationService)
+        public HomeViewModel(INavigationService navigationService, IVacationRepository vacationRepository)
         {
             _navigationService = navigationService;
-            _vacationService = vacationService;
+            _vacationRepository = vacationRepository;
         }
 
         public async Task Refresh()
         {
             Refreshing = true;
 
-            var vacations = (await _vacationService.GetVacations()).Select(vacation => new VacationItemViewModel(vacation));
+            var vacations = (await _vacationRepository.GetVacationsAsync()).Select(vacation => new VacationItemViewModel(vacation));
             Vacations = new ObservableCollection<VacationItemViewModel>(vacations);
 
             Refreshing = false;

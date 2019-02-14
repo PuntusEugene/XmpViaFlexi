@@ -33,5 +33,10 @@ namespace VacationsTracker.Android.Navigation
         {
             throw new System.NotImplementedException();
         }
+
+        public void NavigateToLogin(HomeViewModel fromViewModel)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
