@@ -93,6 +93,10 @@ namespace VacationsTracker.iOS.Views.Home
             base.Bind(bindingSet);
 
             bindingSet.Bind(VacationsSource)
+                .For(v => v.Items)
+                .To(vm => vm.Vacations);
+
+            bindingSet.Bind(VacationsSource)
                 .For(v => v.RowSelectedBinding())
                 .To(vm => vm.VacationSelectedCommand);
 

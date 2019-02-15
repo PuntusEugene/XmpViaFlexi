@@ -5,7 +5,7 @@ using Xamarin.Essentials;
 
 namespace VacationsTracker.Core.Infrastructure.Storage
 {
-    public class VacationVacationSecureStorage : IVacationSecureStorage
+    public class VacationSecureStorage : IVacationSecureStorage
     {
         public async Task SetAsync(string key, string value)
         {
@@ -33,26 +33,11 @@ namespace VacationsTracker.Core.Infrastructure.Storage
             }
         }
 
-        public Task<bool> RemoveAsync(string key)
+        public bool Remove(string key)
         {
             try
             {
-                var taskCompletionSource = new TaskCompletionSource<bool>();
-                Task.Run(() => { taskCompletionSource.SetResult(SecureStorage.Remove(key)); });
-                return taskCompletionSource.Task;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-                throw;
-            }
-        }
-
-        public void RemoveAll()
-        {
-            try
-            {
-                SecureStorage.RemoveAll();
+                return SecureStorage.Remove(key);
             }
             catch (Exception e)
             {

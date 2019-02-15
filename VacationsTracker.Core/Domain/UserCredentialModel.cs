@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using VacationsTracker.Core.Domain.Interfaces;
 
 namespace VacationsTracker.Core.Domain
 {
-    public class UserCredentialModel
+    public class UserCredentialModel : IValidation
     {
         public UserCredentialModel(string login, string password)
         {
@@ -15,5 +13,10 @@ namespace VacationsTracker.Core.Domain
         public string Login { get; private set; }
 
         public string Password { get; private set; }
+
+        public bool Validation()
+        {
+            return !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);
+        }
     }
 }

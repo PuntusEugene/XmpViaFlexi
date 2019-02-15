@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using VacationsTracker.Core.Api.Interfaces;
+using VacationsTracker.Core.DataTransferObjects;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Repositories.Interfaces;
 
@@ -6,10 +9,21 @@ namespace VacationsTracker.Core.Repositories
 {
     public class IdentityRepository : IIdentityRepository
     {
-        public async Task<bool> AuthorizationAsync(UserCredentialModel userCredentialModel)
+        private readonly IIdentityApi _identityApi;
+
+        public IdentityRepository(IIdentityApi identityApi)
         {
-            await Task.Delay(500);
-            return userCredentialModel.Login == "ark" && userCredentialModel.Password == "123";
+            _identityApi = identityApi;
+        }
+
+        public async Task<bool> AuthenticationAsync(UserCredentialModel userCredentialModel, CancellationToken cancellationToken)
+        {
+            return await _identityApi.AuthenticationAsync(userCredentialModel.ToVacationDTO()); 
+        }
+
+        public bool Logout()
+        {
+            return _identityApi.Logout();
         }
     }
 }

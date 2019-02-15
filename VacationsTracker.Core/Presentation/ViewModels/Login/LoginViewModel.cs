@@ -1,6 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Commands;
+using FlexiMvvm.Operations;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Repositories.Interfaces;
@@ -35,7 +38,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 
         public ICommand LoginCommand => CommandProvider.GetForAsync(Login);
 
-        public LoginViewModel(INavigationService navigationService, IIdentityRepository identityRepository)
+        public LoginViewModel(INavigationService navigationService, IIdentityRepository identityRepository, IOperationFactory operationFactory) : base(operationFactory)
         {
             _navigationService = navigationService;
             _identityRepository = identityRepository;
@@ -43,23 +46,31 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 
         private async Task Login()
         {
-            ValidCredentials = await _identityRepository.AuthorizationAsync(new UserCredentialModel(Username, Password));
+            var userCredentialModel = new UserCredentialModel(Username, Password);
+            ValidCredentials = userCredentialModel.Validation();
 
-            if (ValidCredentials)
-            {
-                //await OperationFactory.CreateOperation(OperationContext)
-                //    .WithExpressionAsync(cancelation => _identityRepository.AuthorizationAsync(Username, Password))
-                //    .OnSuccess((isSuccsess) =>
-                //    {
-                //        if (isSuccsess)
-                //        {
-                //            _navigationService.NavigateToHome(this);
-                //        }
-                //    })
-                //    .ExecuteAsync();
+            if(!ValidCredentials)
+                return;
 
-                _navigationService.NavigateToHome(this);
-            }
+            await OperationFactory.CreateOperation(OperationContext)
+                .WithExpressionAsync(cancellation => _identityRepository.AuthenticationAsync(userCredentialModel, cancellation))
+                .OnSuccess(isSuccess =>
+                {
+                    if (isSuccess)
+                    {
+                        _navigationService.NavigateToHome(this);
+                    }
+                    else
+                    {
+                        ValidCredentials = false;
+                    }
+                })
+                .OnError<Exception>(error =>
+                {
+                    Debug.WriteLine(error.Exception);
+                    ValidCredentials = false;
+                })
+                .ExecuteAsync();
         }
 
     }

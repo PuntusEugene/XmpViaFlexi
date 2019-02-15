@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Security.Authentication;
 using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Commands;
+using FlexiMvvm.Operations;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Domain.Vacation;
 using VacationsTracker.Core.Navigation;
@@ -64,7 +68,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
 
         public ICommand SaveVacationCommand => CommandProvider.GetForAsync(SaveVacation);
 
-        public VacationDetailsViewModel(INavigationService navigationService, IVacationRepository vacationRepository)
+        public VacationDetailsViewModel(INavigationService navigationService, IVacationRepository vacationRepository, IOperationFactory operationFactory) : base(operationFactory)
         {
             _navigationService = navigationService;
             _vacationRepository = vacationRepository;
@@ -78,15 +82,20 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
         {
             await base.InitializeAsync(parameters);
 
-            if (parameters != null)
-            {
-                var vacation = await _vacationRepository.GetVacationByIdAsync(parameters.Id);
-                _id = vacation.Id;
-                VacationType = vacation.VacationType;
-                DateBegin = vacation.Start;
-                DateEnd = vacation.End;
-                VacationStatus = vacation.VacationStatus;
-            }
+            var vacation = parameters != null && parameters.Id != Guid.Empty ? await _vacationRepository.GetVacationByIdAsync(parameters.Id)
+                : new VacationModel()
+                {
+                    VacationStatus = VacationStatus.Approved,
+                    VacationType = VacationType.Undefined,
+                    Start = DateTime.Today,
+                    End = DateTime.Today
+                };
+
+            _id = vacation.Id;
+            VacationType = vacation.VacationType;
+            DateBegin = vacation.Start;
+            DateEnd = vacation.End;
+            VacationStatus = vacation.VacationStatus;
         }
 
         private void BackToHome()
@@ -105,10 +114,18 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
                 End = this.DateEnd,
                 Created = DateTime.Now,
             };
+            
+            await OperationFactory.CreateOperation(OperationContext)
+                .WithExpressionAsync((cancellation) => _vacationRepository.CreateOrUpdateVacationAsync(vacationModel))
+                .OnSuccess(vacationModels => BackToHome())
+                .OnError<AuthenticationException>(error => Debug.WriteLine(error))
+                .OnError<WebException>(error => Debug.WriteLine(error))
+                .OnError<Exception>(error => Debug.WriteLine(error))
+                .ExecuteAsync();
 
-            await _vacationRepository.CreateOrUpdateVacationAsync(vacationModel);
+            //await _vacationRepository.CreateOrUpdateVacationAsync(vacationModel);
 
-            BackToHome();
+            //BackToHome();
         }
     }
 

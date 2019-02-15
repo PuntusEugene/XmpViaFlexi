@@ -124,7 +124,6 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             BelowDateSeparator = new UIView().SetSeparatorStyle();
             StatusSegmentedControl = new UISegmentedControl(Strings.Approved, Strings.Closed)
             {
-                SelectedSegment = 0,
                 TintColor = AppColors.TextSecondary
             };
 

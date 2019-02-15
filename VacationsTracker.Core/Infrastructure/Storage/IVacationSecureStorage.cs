@@ -8,8 +8,6 @@ namespace VacationsTracker.Core.Infrastructure.Storage
 
         Task<string> GetAsync(string key);
 
-        Task<bool> RemoveAsync(string key);
-
-        void RemoveAll();
+        bool Remove(string key);
     }
 }

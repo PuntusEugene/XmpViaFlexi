@@ -1,10 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using VacationsTracker.Core.Domain;
 
 namespace VacationsTracker.Core.Repositories.Interfaces
 {
     public interface IIdentityRepository
     {
-        Task<bool> AuthorizationAsync(UserCredentialModel userCredentialModel);
+        Task<bool> AuthenticationAsync(UserCredentialModel userCredentialModel, CancellationToken cancellationToken);
+
+        bool Logout();
     }
 }

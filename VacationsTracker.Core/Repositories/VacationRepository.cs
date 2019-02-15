@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using VacationsTracker.Core.Api.Interfaces;
 using VacationsTracker.Core.DataTransferObjects;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Domain.Vacation;
 using VacationsTracker.Core.Repositories.Interfaces;
-using VacationsTracker.Core.SwaggerApi.Interfaces;
 
 namespace VacationsTracker.Core.Repositories
 {

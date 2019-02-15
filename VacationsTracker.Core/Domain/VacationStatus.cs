@@ -6,10 +6,10 @@ namespace VacationsTracker.Core.Domain.Vacation
 {
     public enum VacationStatus
     {
-        Approved,
-        Closed,
         Draft,
         Submitted,
-        InProgress
+        Approved,
+        InProgress,
+        Closed
     }
 }

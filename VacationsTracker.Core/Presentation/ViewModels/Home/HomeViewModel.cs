@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Security.Authentication;
 using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Commands;
+using FlexiMvvm.Operations;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
 using VacationsTracker.Core.Repositories.Interfaces;
@@ -14,6 +18,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
     {
         private readonly INavigationService _navigationService;
         private readonly IVacationRepository _vacationRepository;
+        private readonly IIdentityRepository _identityRepository;
         private ObservableCollection<VacationItemViewModel> _vacations;
         private bool _refreshing;
 
@@ -33,20 +38,30 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
 
         public ICommand RefreshCommand => CommandProvider.GetForAsync(Refresh);
 
-        public ICommand LogoutCommand => CommandProvider.Get(NavigateToLogin);
+        public ICommand LogoutCommand => CommandProvider.GetForAsync(NavigateToLogin);
 
-        public HomeViewModel(INavigationService navigationService, IVacationRepository vacationRepository)
+        public HomeViewModel(INavigationService navigationService, IVacationRepository vacationRepository, IIdentityRepository identityRepository, IOperationFactory operationFactory) : base(operationFactory)
         {
             _navigationService = navigationService;
             _vacationRepository = vacationRepository;
+            _identityRepository = identityRepository;
         }
 
         public async Task Refresh()
         {
             Refreshing = true;
 
-            var vacations = (await _vacationRepository.GetVacationsAsync()).Select(vacation => new VacationItemViewModel(vacation));
-            Vacations = new ObservableCollection<VacationItemViewModel>(vacations);
+            await OperationFactory.CreateOperation(OperationContext)
+                .WithExpressionAsync(cancellation => _vacationRepository.GetVacationsAsync())
+                .OnSuccess(vacationModels =>  
+                    {
+                        var vacations = vacationModels.Select(vacation => new VacationItemViewModel(vacation));
+                        Vacations = new ObservableCollection<VacationItemViewModel>(vacations);
+                    })
+                .OnError<AuthenticationException>(error => Debug.WriteLine(error.Exception))
+                .OnError<WebException>(error => Debug.WriteLine(error.Exception.Message))
+                .OnError<Exception>(error =>  Debug.WriteLine(error.Exception.Message))
+                .ExecuteAsync();
 
             Refreshing = false;
         }
@@ -65,9 +80,19 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
             _navigationService.NavigateToVacationDetails(this, parameters);
         }
 
-        private void NavigateToLogin()
+        private async Task NavigateToLogin()
         {
-            _navigationService.NavigateToLogin(this);
+            await OperationFactory.CreateOperation(OperationContext)
+                .WithExpression(_identityRepository.Logout)
+                .OnSuccess(isSuccess => 
+                {
+                    if (isSuccess)
+                    {
+                        _navigationService.NavigateToLogin(this);
+                    }
+                })
+                .OnError<Exception>(error => Debug.WriteLine(error))
+                .ExecuteAsync();
         }
     }
 }

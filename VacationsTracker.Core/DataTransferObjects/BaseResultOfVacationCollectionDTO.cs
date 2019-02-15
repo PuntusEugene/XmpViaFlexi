@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
+using VacationsTracker.Core.Domain;
 
 namespace VacationsTracker.Core.DataTransferObjects
 {
-    public class BaseResultOfVacationDTO
+    public class BaseResultOfVacationCollectionDTO
     {
         [JsonProperty("code")]
         public string Code { get; set; }
@@ -14,6 +13,6 @@ namespace VacationsTracker.Core.DataTransferObjects
         public string Message { get; set; }
 
         [JsonProperty("result")]
-        public VacationDTO Vacation { get; set; }
+        public IEnumerable<VacationDTO> Collection { get; set; }
     }
 }
