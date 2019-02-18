@@ -164,6 +164,10 @@ namespace VacationsTracker.iOS.Views.VacationDetails
                 .To(vm => vm.DateEnd)
                 .TwoWay()
                 .WithConvertion<DateToNSDateValueConverter>();
+
+            bindingSet.Bind(View.ActivityIndicator)
+                .For(v => v.Loading)
+                .To(vm => vm.Loading);
         }
 
         private UIViewController PagerFactory(object parameters)

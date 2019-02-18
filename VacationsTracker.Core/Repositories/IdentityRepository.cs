@@ -16,14 +16,14 @@ namespace VacationsTracker.Core.Repositories
             _identityApi = identityApi;
         }
 
-        public async Task<bool> AuthenticationAsync(UserCredentialModel userCredentialModel, CancellationToken cancellationToken)
+        public async Task AuthenticationAsync(UserCredentialModel userCredentialModel, CancellationToken cancellationToken)
         {
-            return await _identityApi.AuthenticationAsync(userCredentialModel.ToVacationDTO()); 
+            await _identityApi.AuthenticationAsync(userCredentialModel.ToVacationDTO(), cancellationToken); 
         }
 
-        public bool Logout()
+        public void Logout()
         {
-            return _identityApi.Logout();
+            _identityApi.Logout();
         }
     }
 }

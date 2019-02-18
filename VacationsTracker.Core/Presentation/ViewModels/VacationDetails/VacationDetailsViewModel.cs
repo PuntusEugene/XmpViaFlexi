@@ -4,25 +4,29 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Security.Authentication;
+using System.Threading;
 using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Commands;
 using FlexiMvvm.Operations;
 using VacationsTracker.Core.Domain;
+using VacationsTracker.Core.Domain.Exceptions;
 using VacationsTracker.Core.Domain.Vacation;
+using VacationsTracker.Core.Infrastructure.Operations;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.VacationPager;
 using VacationsTracker.Core.Repositories.Interfaces;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
 {
-    public class VacationDetailsViewModel : ViewModelBase<VacationDetailsParameters>
+    public class VacationDetailsViewModel : ViewModelBase<VacationDetailsParameters>, IViewModelWithOperation
     {
         private Guid _id;
         private VacationType _vacationType;
         private DateTime _dateBegin;
         private DateTime _dateEnd;
         private VacationStatus _vacationStatus;
+        private bool _loading;
         private readonly INavigationService _navigationService;
         private readonly IVacationRepository _vacationRepository;
         
@@ -62,6 +66,12 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
             set => Set(ref _vacationStatus, value);
         }
 
+        public bool Loading
+        {
+            get => _loading;
+            set => Set(ref _loading, value);
+        }
+
         public ObservableCollection<VacationTypePagerParameters> VacationTypes { get; }
 
         public ICommand BackToHomeCommand => CommandProvider.Get(BackToHome);
@@ -82,7 +92,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
         {
             await base.InitializeAsync(parameters);
 
-            var vacation = parameters != null && parameters.Id != Guid.Empty ? await _vacationRepository.GetVacationByIdAsync(parameters.Id)
+            var vacation = parameters != null && parameters.Id != Guid.Empty ? await _vacationRepository.GetVacationByIdAsync(parameters.Id, CancellationToken.None)
                 : new VacationModel()
                 {
                     VacationStatus = VacationStatus.Approved,
@@ -115,17 +125,17 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
                 Created = DateTime.Now,
             };
             
-            await OperationFactory.CreateOperation(OperationContext)
-                .WithExpressionAsync((cancellation) => _vacationRepository.CreateOrUpdateVacationAsync(vacationModel))
+            await OperationFactory
+                .CreateOperation(OperationContext)
+                .WithLoadingNotification()
+                .WithInternetConnectionCondition()
+                .WithExpressionAsync((cancellation) => _vacationRepository.CreateOrUpdateVacationAsync(vacationModel, cancellation))
                 .OnSuccess(vacationModels => BackToHome())
+                .OnError<InternetConnectionException>(error => Debug.WriteLine(error))
                 .OnError<AuthenticationException>(error => Debug.WriteLine(error))
                 .OnError<WebException>(error => Debug.WriteLine(error))
                 .OnError<Exception>(error => Debug.WriteLine(error))
                 .ExecuteAsync();
-
-            //await _vacationRepository.CreateOrUpdateVacationAsync(vacationModel);
-
-            //BackToHome();
         }
     }
 

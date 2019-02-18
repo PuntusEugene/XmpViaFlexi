@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Net.Http;
+using System.Security.Authentication;
+using System.Threading;
 using System.Threading.Tasks;
+using IdentityModel.Client;
 using VacationsTracker.Core.Api.Interfaces;
 using VacationsTracker.Core.DataTransferObjects;
 using VacationsTracker.Core.Infrastructure.Storage;
+using VacationsTracker.Core.Resourses;
 
 namespace VacationsTracker.Core.Api
 {
@@ -16,26 +21,52 @@ namespace VacationsTracker.Core.Api
             _secureStorage = secureStorage;
         }
 
-        public async Task<bool> AuthenticationAsync(UserCredentialDTO userCredentialModel)
+        public async Task AuthenticationAsync(UserCredentialDTO userCredentialModel, CancellationToken cancellationToken)
         {
-            var isSuccessAuthentication = userCredentialModel.Login == "ark" && userCredentialModel.Password == "123";
+            var identityServer = await DiscoveryClient.GetAsync(SettingApi.IdentityServiceUrl);
 
-            if (!isSuccessAuthentication)
-                return false;
+            if (identityServer.IsError)
+            {
+                throw new AuthenticationException(Strings.NotConnectToIdentity);
+            }
 
-            await _secureStorage.SetAsync(_tokenKey, Guid.NewGuid().ToString());
-            return true;
+            var authClient = new TokenClient(
+                identityServer.TokenEndpoint,
+                SettingApi.ClientId,
+                SettingApi.ClientSecret);
+
+            var userTokenResponse = await authClient.RequestResourceOwnerPasswordAsync(
+                userName: userCredentialModel.Login,
+                password: userCredentialModel.Password,
+                scope: SettingApi.Scope,
+                cancellationToken: cancellationToken);
+
+            if (userTokenResponse.IsError || userTokenResponse.AccessToken == null)
+            {
+                throw new AuthenticationException(Strings.InitializeTokeException);
+            }
+
+            //var isSuccessAuthentication = userCredentialModel.Login == "ark" && userCredentialModel.Password == "123";
+
+            //if (!isSuccessAuthentication)
+            //    throw new AuthenticationException();
+
+            await _secureStorage.SetAsync(_tokenKey, userTokenResponse.AccessToken);
         }
 
-        public async Task<bool> AuthorizationAsync()
+        public async Task<string> AuthorizationAsync()
         {
             var token = await _secureStorage.GetAsync(_tokenKey);
-            return token != null;
+
+            if(token == null)
+                throw new AuthenticationException();
+
+            return token;
         }
 
-        public bool Logout()
+        public void Logout()
         {
-            return _secureStorage.Remove(_tokenKey);
+            _secureStorage.Remove(_tokenKey);
         }
     }
 }

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Converters;
 
 namespace VacationsTracker.Core.Infrastructure.Storage
 {
@@ -21,6 +18,7 @@ namespace VacationsTracker.Core.Infrastructure.Storage
         {
             try
             {
+                await Task.Delay(0);
                 _dictionarySessionStorage.TryGetValue(key, out string value);
                 return value;
             }
@@ -48,6 +46,7 @@ namespace VacationsTracker.Core.Infrastructure.Storage
         {
             try
             {
+                await Task.Delay(0);
                 _dictionarySessionStorage.TryAdd(key, value);
             }
             catch (Exception e)

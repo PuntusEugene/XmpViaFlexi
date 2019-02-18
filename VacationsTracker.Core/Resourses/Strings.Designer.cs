@@ -160,6 +160,15 @@ namespace VacationsTracker.Core.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Initialize token exception.
+        /// </summary>
+        public static string InitializeTokeException {
+            get {
+                return ResourceManager.GetString("InitializeTokeException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to In progress.
         /// </summary>
         public static string InProgress {
@@ -237,6 +246,24 @@ namespace VacationsTracker.Core.Resourses {
         public static string NewWithPlus {
             get {
                 return ResourceManager.GetString("NewWithPlus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No internet connection.
+        /// </summary>
+        public static string NoInternetConnection {
+            get {
+                return ResourceManager.GetString("NoInternetConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot connect to Identity Server.
+        /// </summary>
+        public static string NotConnectToIdentity {
+            get {
+                return ResourceManager.GetString("NotConnectToIdentity", resourceCulture);
             }
         }
         

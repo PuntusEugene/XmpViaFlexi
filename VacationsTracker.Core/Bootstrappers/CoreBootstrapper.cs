@@ -36,7 +36,7 @@ namespace VacationsTracker.Core.Bootstrappers
 
             simpleIoc.Register<IVacationSecureStorage>(() => new VacationSimulatorSecureStorage());
 
-            simpleIoc.Register<IVacationApiContext>(() => new VacationApiContext());
+            simpleIoc.Register<IVacationApiContext>(() => new VacationRestApiContext());
             simpleIoc.Register<IIdentityApi>(() => new IdentityApi(simpleIoc.Get<IVacationSecureStorage>()));
             simpleIoc.Register<IVacationApi>(() => new VacationApi(simpleIoc.Get<IVacationApiContext>(), simpleIoc.Get<IIdentityApi>()));
             simpleIoc.Register<IIdentityRepository>(() => new IdentityRepository(simpleIoc.Get<IIdentityApi>()));

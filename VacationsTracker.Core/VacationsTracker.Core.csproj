@@ -7,10 +7,11 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="FlexiMvvm.Bindings.PreRelease" Version="0.9.7-prerelease" />
-    <PackageReference Include="FlexiMvvm.Common.PreRelease" Version="0.9.7-prerelease" />
+    <PackageReference Include="FlexiMvvm.Common.PreRelease" Version="0.9.6-prerelease" />
     <PackageReference Include="FlexiMvvm.Essentials.PreRelease" Version="0.9.7-prerelease" />
     <PackageReference Include="FlexiMvvm.Lifecycle.PreRelease" Version="0.9.7-prerelease" />
     <PackageReference Include="FlexiMvvm.Validation.PreRelease" Version="0.9.7-prerelease" />
+    <PackageReference Include="IdentityModel" Version="3.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="RestSharp" Version="106.6.7" />
     <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />

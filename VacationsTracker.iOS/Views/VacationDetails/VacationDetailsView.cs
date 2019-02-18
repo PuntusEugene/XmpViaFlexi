@@ -7,6 +7,7 @@ using VacationsTracker.Core.Domain.Vacation;
 using VacationsTracker.Core.Resourses;
 using VacationsTracker.iOS.Controls;
 using VacationsTracker.iOS.Design;
+using VacationsTracker.iOS.Views.ActivityIndicator;
 
 namespace VacationsTracker.iOS.Views.VacationDetails
 {
@@ -45,6 +46,8 @@ namespace VacationsTracker.iOS.Views.VacationDetails
         public UIDatePicker StartDatePicker { get; private set; }
 
         public UIDatePicker EndDatePicker { get; private set; }
+
+        public ActivityIndicatorView ActivityIndicator { get; private set; }
 
         public void HideDatePickers()
         {
@@ -146,6 +149,8 @@ namespace VacationsTracker.iOS.Views.VacationDetails
 
             DatePickerToolbar.SetItems(new[] { space, doneButton }, false);
             DatePickerToolbar.UserInteractionEnabled = true;
+
+            ActivityIndicator = new ActivityIndicatorView(80, 1);
         }
 
         protected override void SetupLayout()
@@ -162,7 +167,8 @@ namespace VacationsTracker.iOS.Views.VacationDetails
                     .AddLayoutSubview(StatusSegmentedControl))
                 .AddLayoutSubview(DatePickerToolbar)
                 .AddLayoutSubview(StartDatePicker)
-                .AddLayoutSubview(EndDatePicker);
+                .AddLayoutSubview(EndDatePicker)
+                .AddLayoutSubview(ActivityIndicator);
         }
 
         protected override void SetupLayoutConstraints()
@@ -267,6 +273,10 @@ namespace VacationsTracker.iOS.Views.VacationDetails
                 EndDatePicker.AtRightOf(this),
                 _datePickerEndCollapsed,
                 _datePickerEndExpanded);
+
+            this.AddConstraints(
+                ActivityIndicator.WithSameCenterX(this),
+                ActivityIndicator.WithSameCenterY(this));
 
         }
     }

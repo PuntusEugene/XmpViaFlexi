@@ -1,14 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using VacationsTracker.Core.DataTransferObjects;
 
 namespace VacationsTracker.Core.Api.Interfaces
 {
     public interface IIdentityApi
     {
-        Task<bool> AuthenticationAsync(UserCredentialDTO userCredentialModel);
+        Task AuthenticationAsync(UserCredentialDTO userCredentialModel, CancellationToken cancellationToken);
 
-        Task<bool> AuthorizationAsync();
+        Task<string> AuthorizationAsync();
 
-        bool Logout();
+        void Logout();
     }
 }

@@ -72,6 +72,9 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Navigation\NavigationTabBarService.cs" />
     <Compile Include="ValueConverters\DateToNSDateValueConverter.cs" />
+    <Compile Include="Views\ActivityIndicator\ActivityIndicatorBallScaleAnimation.cs" />
+    <Compile Include="Views\ActivityIndicator\ActivityIndicatorView.cs" />
+    <Compile Include="Views\ActivityIndicator\IActivityIndicator.cs" />
     <Compile Include="Views\RootTabBarController.cs" />
     <Compile Include="Views\Setting\SettingView.cs" />
     <Compile Include="Views\Setting\SettingViewController.cs" />
@@ -120,8 +123,8 @@
     <Reference Include="FlexiMvvm.Lifecycle, Version=0.9.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FlexiMvvm.Lifecycle.PreRelease.0.9.7-prerelease\lib\xamarinios10\FlexiMvvm.Lifecycle.dll</HintPath>
     </Reference>
-    <Reference Include="IdentityModel, Version=3.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\IdentityModel.3.6.1\lib\netstandard2.0\IdentityModel.dll</HintPath>
+    <Reference Include="IdentityModel, Version=3.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityModel.3.8.0\lib\netstandard2.0\IdentityModel.dll</HintPath>
     </Reference>
     <Reference Include="JetBrains.Annotations, Version=2018.3.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.2018.3.0\lib\netstandard2.0\JetBrains.Annotations.dll</HintPath>

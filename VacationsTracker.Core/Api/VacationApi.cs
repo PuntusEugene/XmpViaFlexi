@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Security.Authentication;
+using System.Threading;
 using System.Threading.Tasks;
 using RestSharp;
 using VacationsTracker.Core.Api.Interfaces;
 using VacationsTracker.Core.DataTransferObjects;
-using VacationsTracker.Core.Infrastructure.Storage;
 
 namespace VacationsTracker.Core.Api
 {
@@ -14,48 +12,36 @@ namespace VacationsTracker.Core.Api
     {
         private readonly IVacationApiContext _apiContext;
         private readonly IIdentityApi _identyApi;
-        private readonly string _url;
+        private string _url => SettingApi.SwaggerServiceUrl;
 
         public VacationApi(IVacationApiContext apiContext, IIdentityApi identyApi)
         {
-            //_url = "http://localhost:5000/api/vts/workflow";
-            //_url = "http://10.6.107.38:5000/api/vts/workflow";
-            _url = "https://vts-v2.azurewebsites.net/api/vts/workflow";
             _apiContext = apiContext;
             _identyApi = identyApi;
         }
 
-        public async Task<BaseResultOfVacationCollectionDTO> GetVacationCollectionAsync()
+        public async Task<BaseResultOfVacationCollectionDTO> GetVacationCollectionAsync(CancellationToken cancellationToken)
         {
-            await CheckAuthorization();
-            var asd = await _apiContext.SendRequestAsync<BaseResultOfVacationCollectionDTO>(_url, Method.GET);
-            return asd;
+            var token = await _identyApi.AuthorizationAsync();
+            return await _apiContext.SendRequestAsync<BaseResultOfVacationCollectionDTO>(_url, Method.GET, token);
         }
 
-        public async Task<BaseResultOfVacationDTO> CreateOrUpdateVacationAsync(VacationDTO vacationDto)
+        public async Task<BaseResultOfVacationDTO> CreateOrUpdateVacationAsync(VacationDTO vacationDto, CancellationToken cancellationToken)
         {
-            await CheckAuthorization();
-            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO, VacationDTO>(_url, Method.POST, vacationDto);
+            var token = await _identyApi.AuthorizationAsync();
+            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO, VacationDTO>(_url, Method.POST, token, vacationDto);
         }
 
-        public async Task<BaseResultOfVacationDTO> GetVacationAsync(Guid id)
+        public async Task<BaseResultOfVacationDTO> GetVacationAsync(Guid id, CancellationToken cancellationToken)
         {
-            await CheckAuthorization();
-            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO>(_url, Method.GET, "{id}", new []{new KeyValuePair<string, object>("id", id) });
+            var token = await _identyApi.AuthorizationAsync();
+            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO>(_url, Method.GET, token, "{id}", new []{new KeyValuePair<string, object>("id", id) });
         }
 
-        public async Task<BaseResultDTO> DeleteVacationAsync(Guid id)
+        public async Task<BaseResultDTO> DeleteVacationAsync(Guid id, CancellationToken cancellationToken)
         {
-            await CheckAuthorization();
-            return await _apiContext.SendRequestAsync<BaseResultDTO>(_url, Method.DELETE, "{id}", new[] { new KeyValuePair<string, object>("id", id) });
-        }
-
-        private async Task CheckAuthorization()
-        {
-            if (!await _identyApi.AuthorizationAsync())
-            {
-                throw new AuthenticationException();
-            }
+            var token = await _identyApi.AuthorizationAsync();
+            return await _apiContext.SendRequestAsync<BaseResultDTO>(_url, Method.DELETE, token, "{id}", new[] { new KeyValuePair<string, object>("id", id) });
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using VacationsTracker.Core.DataTransferObjects;
 
@@ -6,12 +7,12 @@ namespace VacationsTracker.Core.Api.Interfaces
 {
     public interface IVacationApi
     {
-        Task<BaseResultOfVacationCollectionDTO> GetVacationCollectionAsync();
+        Task<BaseResultOfVacationCollectionDTO> GetVacationCollectionAsync(CancellationToken cancellationToken);
 
-        Task<BaseResultOfVacationDTO> CreateOrUpdateVacationAsync(VacationDTO vacationDto);
+        Task<BaseResultOfVacationDTO> CreateOrUpdateVacationAsync(VacationDTO vacationDto, CancellationToken cancellationToken);
 
-        Task<BaseResultOfVacationDTO> GetVacationAsync(Guid id);
+        Task<BaseResultOfVacationDTO> GetVacationAsync(Guid id, CancellationToken cancellationToken);
 
-        Task<BaseResultDTO> DeleteVacationAsync(Guid id);
+        Task<BaseResultDTO> DeleteVacationAsync(Guid id, CancellationToken cancellationToken);
     }
 }

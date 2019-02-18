@@ -45,6 +45,10 @@ namespace VacationsTracker.iOS.Views.Login
             bindingSet.Bind(View.LoginButton)
                 .For(v => v.TouchUpInsideBinding())
                 .To(vm => vm.LoginCommand);
+
+            bindingSet.Bind(View.ActivityIndicatorView)
+                .For(v => v.Loading)
+                .To(vm => vm.Loading);
         }
     }
 }

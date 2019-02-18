@@ -8,19 +8,20 @@ using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Commands;
 using FlexiMvvm.Operations;
+using VacationsTracker.Core.Infrastructure.Operations;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
 using VacationsTracker.Core.Repositories.Interfaces;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Home
 {
-    public class HomeViewModel : ViewModelBase
+    public class HomeViewModel : ViewModelBase, IViewModelWithOperation
     {
         private readonly INavigationService _navigationService;
         private readonly IVacationRepository _vacationRepository;
         private readonly IIdentityRepository _identityRepository;
         private ObservableCollection<VacationItemViewModel> _vacations;
-        private bool _refreshing;
+        private bool _loading;
 
         public ObservableCollection<VacationItemViewModel> Vacations
         {
@@ -28,10 +29,10 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
             set => Set(ref _vacations, value);
         }
 
-        public bool Refreshing
+        public bool Loading
         {
-            get => _refreshing;
-            set => Set(ref _refreshing, value);
+            get => _loading;
+            set => Set(ref _loading, value);
         }
 
         public ICommand<VacationItemViewModel> VacationSelectedCommand => CommandProvider.Get<VacationItemViewModel>(NavigateToDetails);
@@ -49,10 +50,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
 
         public async Task Refresh()
         {
-            Refreshing = true;
-
-            await OperationFactory.CreateOperation(OperationContext)
-                .WithExpressionAsync(cancellation => _vacationRepository.GetVacationsAsync())
+            await OperationFactory
+                .CreateOperation(OperationContext)
+                .WithLoadingNotification()
+                .WithInternetConnectionCondition()
+                .WithExpressionAsync(cancellation => _vacationRepository.GetVacationsAsync(cancellation))
                 .OnSuccess(vacationModels =>  
                     {
                         var vacations = vacationModels.Select(vacation => new VacationItemViewModel(vacation));
@@ -62,8 +64,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
                 .OnError<WebException>(error => Debug.WriteLine(error.Exception.Message))
                 .OnError<Exception>(error =>  Debug.WriteLine(error.Exception.Message))
                 .ExecuteAsync();
-
-            Refreshing = false;
         }
 
         protected override async Task InitializeAsync()
@@ -82,15 +82,12 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
 
         private async Task NavigateToLogin()
         {
-            await OperationFactory.CreateOperation(OperationContext)
+            await OperationFactory
+                .CreateOperation(OperationContext)
+                .WithLoadingNotification()
+                .WithInternetConnectionCondition()
                 .WithExpression(_identityRepository.Logout)
-                .OnSuccess(isSuccess => 
-                {
-                    if (isSuccess)
-                    {
-                        _navigationService.NavigateToLogin(this);
-                    }
-                })
+                .OnSuccess(() => _navigationService.NavigateToLogin(this))
                 .OnError<Exception>(error => Debug.WriteLine(error))
                 .ExecuteAsync();
         }
