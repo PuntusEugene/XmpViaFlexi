@@ -213,4 +213,19 @@
   <data name="InitializeTokeException" xml:space="preserve">
     <value>Initialize token exception</value>
   </data>
+  <data name="ErrorTitleAlert" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="NotificationTitleAlert" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="OkTitleButtonAlert" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="NotActiveToken" xml:space="preserve">
+    <value>Current token authorization not activate</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Root</value>
+  </data>
 </root>

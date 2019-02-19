@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using RestSharp;
+using VacationsTracker.Core.Api.Parameters;
 
 namespace VacationsTracker.Core.Api.Interfaces
 {
@@ -10,10 +10,10 @@ namespace VacationsTracker.Core.Api.Interfaces
         Task<TResponse> SendRequestAsync<TResponse>(string url, Method method, string token, CancellationToken cancellationToken)
             where TResponse : class, new();
 
-        Task<TResponse> SendRequestAsync<TResponse>(string url, Method method, string token, string resourse, IEnumerable<KeyValuePair<string, object>> urlSegments, CancellationToken cancellationToken) 
+        Task<TResponse> SendRequestAsync<TResponse>(SharedContextParameters parameters, CancellationToken cancellationToken) 
             where TResponse : class, new();
 
-        Task<TResponse> SendRequestAsync<TResponse, TBodyRequest>(string url, Method method, string token, TBodyRequest bodyRequest, CancellationToken cancellationToken) 
+        Task<TResponse> SendRequestAsync<TResponse, TBodyRequest>(SharedContextParameters parameters, TBodyRequest bodyRequest, CancellationToken cancellationToken) 
             where TBodyRequest : class, new()
             where TResponse : class, new();
     }

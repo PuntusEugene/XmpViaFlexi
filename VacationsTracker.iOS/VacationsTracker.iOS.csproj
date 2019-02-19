@@ -68,10 +68,12 @@
     <Compile Include="Design\AppImages.cs" />
     <Compile Include="Design\AppStyles.cs" />
     <Compile Include="Design\AppColors.cs" />
+    <Compile Include="Infrastructure\DialogService.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Navigation\NavigationTabBarService.cs" />
     <Compile Include="ValueConverters\DateToNSDateValueConverter.cs" />
+    <Compile Include="ValueConverters\VacationStatusToSegmentValueConverter.cs" />
     <Compile Include="Views\ActivityIndicator\ActivityIndicatorBallScaleAnimation.cs" />
     <Compile Include="Views\ActivityIndicator\ActivityIndicatorView.cs" />
     <Compile Include="Views\ActivityIndicator\IActivityIndicator.cs" />
@@ -292,9 +294,7 @@
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infrastructure\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\VacationsTracker.Core\VacationsTracker.Core.csproj">
       <Project>{47bbac44-275a-4718-80ac-62a218ef914a}</Project>

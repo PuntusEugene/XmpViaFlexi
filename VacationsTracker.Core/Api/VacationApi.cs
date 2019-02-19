@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using RestSharp;
 using VacationsTracker.Core.Api.Interfaces;
+using VacationsTracker.Core.Api.Parameters;
 using VacationsTracker.Core.DataTransferObjects;
 
 namespace VacationsTracker.Core.Api
@@ -12,7 +12,7 @@ namespace VacationsTracker.Core.Api
     {
         private readonly IVacationApiContext _apiContext;
         private readonly IIdentityApi _identyApi;
-        private string _url => SettingApi.SwaggerServiceUrl;
+        private string _url => ApiSettings.SwaggerServiceUrl;
 
         public VacationApi(IVacationApiContext apiContext, IIdentityApi identyApi)
         {
@@ -29,19 +29,25 @@ namespace VacationsTracker.Core.Api
         public async Task<BaseResultOfVacationDTO> CreateOrUpdateVacationAsync(VacationDTO vacationDto, CancellationToken cancellationToken)
         {
             var token = await _identyApi.AuthorizationAsync();
-            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO, VacationDTO>(_url, Method.POST, token, vacationDto, cancellationToken);
+            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO, VacationDTO>(new SharedContextParameters(_url, Method.POST, token), vacationDto, cancellationToken);
         }
 
         public async Task<BaseResultOfVacationDTO> GetVacationAsync(Guid id, CancellationToken cancellationToken)
         {
             var token = await _identyApi.AuthorizationAsync();
-            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO>(_url, Method.GET, token, "{id}", new []{new KeyValuePair<string, object>("id", id) }, cancellationToken);
+            var parameters = new SharedContextParameters(_url, Method.GET, token)
+                .AddUrlSegment("{id}", "id", id);
+
+            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO>(parameters, cancellationToken);
         }
 
         public async Task<BaseResultDTO> DeleteVacationAsync(Guid id, CancellationToken cancellationToken)
         {
             var token = await _identyApi.AuthorizationAsync();
-            return await _apiContext.SendRequestAsync<BaseResultDTO>(_url, Method.DELETE, token, "{id}", new[] { new KeyValuePair<string, object>("id", id) }, cancellationToken);
+            var parameters = new SharedContextParameters(_url, Method.DELETE, token)
+                .AddUrlSegment("{id}", "id", id);
+
+            return await _apiContext.SendRequestAsync<BaseResultDTO>(parameters, cancellationToken);
         }
     }
 }

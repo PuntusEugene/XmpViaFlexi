@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using FlexiMvvm;
+﻿using FlexiMvvm;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Setting
 {

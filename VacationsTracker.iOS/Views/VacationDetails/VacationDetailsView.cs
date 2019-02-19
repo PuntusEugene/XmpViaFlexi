@@ -1,7 +1,6 @@
 ﻿using System;
 using Cirrious.FluentLayouts.Touch;
 using FlexiMvvm.Views;
-using ObjCRuntime;
 using UIKit;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Resourses;

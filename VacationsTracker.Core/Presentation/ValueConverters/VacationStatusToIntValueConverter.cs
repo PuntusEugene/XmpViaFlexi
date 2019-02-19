@@ -11,5 +11,10 @@ namespace VacationsTracker.Core.Presentation.ValueConverters
         {
             return ConversionResult<int>.SetValue((int)value);
         }
+
+        protected override ConversionResult<VacationStatus> ConvertBack(int value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return ConversionResult<VacationStatus>.SetValue((VacationStatus)value);
+        }
     }
 }

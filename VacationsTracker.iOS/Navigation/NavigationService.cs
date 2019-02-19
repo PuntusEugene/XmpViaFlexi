@@ -9,7 +9,6 @@ using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
 using VacationsTracker.iOS.Views;
 using VacationsTracker.iOS.Views.Home;
 using VacationsTracker.iOS.Views.Login;
-using VacationsTracker.iOS.Views.Setting;
 using VacationsTracker.iOS.Views.VacationDetails;
 
 namespace VacationsTracker.iOS.Navigation

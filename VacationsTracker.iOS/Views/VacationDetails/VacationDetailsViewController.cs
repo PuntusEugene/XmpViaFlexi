@@ -4,7 +4,6 @@ using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Collections;
 using FlexiMvvm.Views;
-using Foundation;
 using UIKit;
 using VacationsTracker.Core.Presentation.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
@@ -116,6 +115,7 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             bindingSet.Bind(VacationsDataSource)
                 .For(v => v.CurrentItemIndexAndCurrentItemIndexChangedBinding())
                 .To(vm => vm.VacationType)
+                .TwoWay()
                 .WithConvertion<VacationTypeToIntValueConverter>();
 
             bindingSet.Bind(View.DateBeginView.DayOfDateLabel)
@@ -151,7 +151,8 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             bindingSet.Bind(View.StatusSegmentedControl)
                 .For(v => v.SelectedSegmentAndValueChangedBinding())
                 .To(vm => vm.VacationStatus)
-                .WithConvertion<VacationStatusToIntValueConverter>();
+                .TwoWay()
+                .WithConvertion<VacationStatusToSegmentValueConverter>();
 
             bindingSet.Bind(View.StartDatePicker)
                 .For(v => v.DateAndValueChangedBinding())

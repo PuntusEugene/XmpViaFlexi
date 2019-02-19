@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Net;
 using System.Security.Authentication;
 using System.Threading.Tasks;
@@ -16,12 +15,13 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 {
     public class LoginViewModel : ViewModelBase, IViewModelWithOperation
     {
+        private readonly IIdentityRepository _identityRepository;
+        private readonly INavigationService _navigationService;
+        private readonly IDialogService _dialogService;
         private string _username = "ark";
         private string _password = "123";
         private bool _validCredentials = true;
         private bool _loading;
-        private readonly IIdentityRepository _identityRepository;
-        private readonly INavigationService _navigationService;
 
         public string Username
         {
@@ -49,10 +49,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
 
         public ICommand LoginCommand => CommandProvider.GetForAsync(Login);
 
-        public LoginViewModel(INavigationService navigationService, IIdentityRepository identityRepository, IOperationFactory operationFactory) : base(operationFactory)
+        public LoginViewModel(INavigationService navigationService, IIdentityRepository identityRepository, IDialogService dialogService, IOperationFactory operationFactory) : base(operationFactory)
         {
             _navigationService = navigationService;
             _identityRepository = identityRepository;
+            _dialogService = dialogService;
         }
 
         private async Task Login()
@@ -73,12 +74,13 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
                 .OnError<AuthenticationException>(LoginNotifyException)
                 .OnError<WebException>(LoginNotifyException)
                 .OnError<Exception>(LoginNotifyException)
+                .OnError<Exception>(LoginNotifyException)
                 .ExecuteAsync();
         }
 
         private void LoginNotifyException<T>(OperationError<T> error)  where T : Exception
         {
-            Debug.WriteLine(error.Exception.Message);
+            _dialogService.ShowError(error.Exception);
             ValidCredentials = false;
         }
     }

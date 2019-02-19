@@ -124,6 +124,15 @@ namespace VacationsTracker.Core.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Root.
+        /// </summary>
+        public static string CreatedBy {
+            get {
+                return ResourceManager.GetString("CreatedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Request.
         /// </summary>
         public static string DetailsViewTitle {
@@ -147,6 +156,15 @@ namespace VacationsTracker.Core.Resourses {
         public static string Draft {
             get {
                 return ResourceManager.GetString("Draft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string ErrorTitleAlert {
+            get {
+                return ResourceManager.GetString("ErrorTitleAlert", resourceCulture);
             }
         }
         
@@ -259,11 +277,38 @@ namespace VacationsTracker.Core.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current token authorization not activate.
+        /// </summary>
+        public static string NotActiveToken {
+            get {
+                return ResourceManager.GetString("NotActiveToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot connect to Identity Server.
         /// </summary>
         public static string NotConnectToIdentity {
             get {
                 return ResourceManager.GetString("NotConnectToIdentity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification.
+        /// </summary>
+        public static string NotificationTitleAlert {
+            get {
+                return ResourceManager.GetString("NotificationTitleAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string OkTitleButtonAlert {
+            get {
+                return ResourceManager.GetString("OkTitleButtonAlert", resourceCulture);
             }
         }
         

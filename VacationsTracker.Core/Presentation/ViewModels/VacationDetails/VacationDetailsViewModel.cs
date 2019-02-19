@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using System.Security.Authentication;
-using System.Threading;
 using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Commands;
@@ -15,19 +12,21 @@ using VacationsTracker.Core.Infrastructure.Operations;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.VacationPager;
 using VacationsTracker.Core.Repositories.Interfaces;
+using VacationsTracker.Core.Resourses;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
 {
     public class VacationDetailsViewModel : ViewModelBase<VacationDetailsParameters>, IViewModelWithOperation
     {
+        private readonly INavigationService _navigationService;
+        private readonly IVacationRepository _vacationRepository;
+        private readonly IDialogService _dialogService;
         private Guid _id;
         private VacationType _vacationType;
         private DateTime _dateBegin;
         private DateTime _dateEnd;
         private VacationStatus _vacationStatus;
         private bool _loading;
-        private readonly INavigationService _navigationService;
-        private readonly IVacationRepository _vacationRepository;
         
         public VacationType VacationType
         {
@@ -77,10 +76,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
 
         public ICommand SaveVacationCommand => CommandProvider.GetForAsync(SaveVacation);
 
-        public VacationDetailsViewModel(INavigationService navigationService, IVacationRepository vacationRepository, IOperationFactory operationFactory) : base(operationFactory)
+        public VacationDetailsViewModel(INavigationService navigationService, IVacationRepository vacationRepository, IDialogService dialogService, IOperationFactory operationFactory) : base(operationFactory)
         {
             _navigationService = navigationService;
             _vacationRepository = vacationRepository;
+            _dialogService = dialogService;
 
             VacationTypes = new ObservableCollection<VacationTypePagerParameters>(
                 Enum.GetValues(typeof(VacationType))
@@ -91,20 +91,38 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
         {
             await base.InitializeAsync(parameters);
 
-            var vacation = parameters != null && parameters.Id != Guid.Empty ? await _vacationRepository.GetVacationByIdAsync(parameters.Id, CancellationToken.None)
-                : new VacationModel()
+            await OperationFactory
+                .CreateOperation(OperationContext)
+                .WithLoadingNotification()
+                .WithInternetConnectionCondition()
+                .WithExpressionAsync((cancellation) =>
                 {
-                    VacationStatus = VacationStatus.Approved,
-                    VacationType = VacationType.Undefined,
-                    Start = DateTime.Today,
-                    End = DateTime.Today
-                };
+                    if (parameters != null && parameters.Id != Guid.Empty)
+                    {
+                        return _vacationRepository.GetVacationByIdAsync(parameters.Id, cancellation);
+                    }
 
-            _id = vacation.Id;
-            VacationType = vacation.VacationType;
-            DateBegin = vacation.Start;
-            DateEnd = vacation.End;
-            VacationStatus = vacation.VacationStatus;
+                    return Task.Run(() => new VacationModel()
+                    {
+                        VacationStatus = VacationStatus.Approved,
+                        VacationType = VacationType.Undefined,
+                        Start = DateTime.Today,
+                        End = DateTime.Today
+                    }, cancellation);
+                })
+                .OnSuccess(vacation =>
+                {
+                    _id = vacation.Id;
+                    VacationStatus = vacation.VacationStatus;
+                    VacationType = vacation.VacationType;
+                    DateBegin = vacation.Start;
+                    DateEnd = vacation.End;
+                })
+                .OnError<InternetConnectionException>(ShowError)
+                .OnError<AuthorizationException>(ShowError)
+                .OnError<WebException>(ShowError)
+                .OnError<Exception>(ShowError)
+                .ExecuteAsync();
         }
 
         private void BackToHome()
@@ -121,20 +139,26 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
                 VacationType = this.VacationType,
                 Start = this.DateBegin,
                 End = this.DateEnd,
+                CreatedBy = Strings.CreatedBy,
                 Created = DateTime.Now,
             };
-            
+
             await OperationFactory
                 .CreateOperation(OperationContext)
                 .WithLoadingNotification()
                 .WithInternetConnectionCondition()
                 .WithExpressionAsync((cancellation) => _vacationRepository.CreateOrUpdateVacationAsync(vacationModel, cancellation))
                 .OnSuccess(vacationModels => BackToHome())
-                .OnError<InternetConnectionException>(error => Debug.WriteLine(error))
-                .OnError<AuthenticationException>(error => Debug.WriteLine(error))
-                .OnError<WebException>(error => Debug.WriteLine(error))
-                .OnError<Exception>(error => Debug.WriteLine(error))
+                .OnError<InternetConnectionException>(ShowError)
+                .OnError<AuthorizationException>(ShowError)
+                .OnError<WebException>(ShowError)
+                .OnError<Exception>(ShowError)
                 .ExecuteAsync();
+        }
+
+        private void ShowError<T>(OperationError<T> error) where T : Exception
+        {
+            _dialogService.ShowError(error.Exception);
         }
     }
 

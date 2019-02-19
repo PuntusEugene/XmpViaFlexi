@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Authenticators;
+using VacationsTracker.Core.Api.Extensions;
 using VacationsTracker.Core.Api.Interfaces;
+using VacationsTracker.Core.Api.Parameters;
+using VacationsTracker.Core.Domain.Exceptions;
+using VacationsTracker.Core.Resourses;
 
 namespace VacationsTracker.Core.Api
 {
@@ -13,51 +17,42 @@ namespace VacationsTracker.Core.Api
         public async Task<TResponse> SendRequestAsync<TResponse>(string url, Method method, string token, CancellationToken cancellationToken)
             where TResponse : class, new()
         {
-            return await SendRequestAsync<TResponse, object>(url, method, token, null, cancellationToken);
+            return await SendRequestAsync<TResponse, object>(new SharedContextParameters(url, method, token), null, cancellationToken);
         }
 
-        public async Task<TResponse> SendRequestAsync<TResponse>(string url, Method method, string token, string resourse, IEnumerable<KeyValuePair<string, object>> urlSegments, CancellationToken cancellationToken)
+        public async Task<TResponse> SendRequestAsync<TResponse>(SharedContextParameters parameters, CancellationToken cancellationToken)
             where TResponse : class, new()
         {
-            var client = new RestClient(url)
+            return await SendRequestAsync<TResponse, object>(parameters, null, cancellationToken);
+        }
+
+        public async Task<TResponse> SendRequestAsync<TResponse, TBodyRequest>(SharedContextParameters parameters, TBodyRequest bodyRequest, CancellationToken cancellationToken)
+            where TBodyRequest : class, new()
+            where TResponse : class, new()
+        {
+            var client = new RestClient(parameters.Url)
             {
-                Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(token, "Bearer")
+                Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(parameters.Token, "Bearer")
             };
+
+            var request = new RestRequest(parameters.Method)
+                {
+                    JsonSerializer = new RestSharp.Serialization.Json.JsonSerializer()
+                        {DateFormat = ApiSettings.DateFormatString}
+                }
+                .AddJsonBody(bodyRequest)
+                .AddUrlSegments(parameters.Resourse, parameters.UrlSegments);
+
+            var response = await client.ExecuteTaskAsync(request, cancellationToken);
             
-            var request = new RestRequest(resourse, method);
-
-            foreach (var urlSegment in urlSegments)
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
-                request.AddUrlSegment(urlSegment.Key, urlSegment.Value);
+                throw new AuthorizationException(Strings.NotActiveToken);
             }
 
-            var response = await client.ExecuteTaskAsync(request, cancellationToken);
-            var data = JsonConvert.DeserializeObject<TResponse>(response.Content);
-
-            return data;
-        }
-
-        public async Task<TResponse> SendRequestAsync<TResponse, TRequest>(string url, Method method, string token, TRequest bodyRequest, CancellationToken cancellationToken)
-            where TRequest : class, new()
-            where TResponse : class, new()
-        {
-            var client = new RestClient(url)
-            {
-                Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(token, "Bearer")
-            };
-
-            var request = new RestRequest(method);
-
-            if (bodyRequest != null)
-            {
-                request.AddJsonBody(bodyRequest);
-            }
-
-            var response = await client.ExecuteTaskAsync(request, cancellationToken);
-            var data = JsonConvert.DeserializeObject<TResponse>(response.Content);
-
-            return data;
+            return JsonConvert.DeserializeObject<TResponse>(response.Content);
 
         }
     }
+
 }

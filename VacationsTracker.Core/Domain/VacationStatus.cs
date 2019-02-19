@@ -2,10 +2,10 @@
 {
     public enum VacationStatus
     {
-        Approved,
-        Closed,
         Draft,
         Submitted,
+        Approved,
         InProgress,
+        Closed,
     }
 }

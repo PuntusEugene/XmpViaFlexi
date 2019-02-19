@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using IdentityModel.Client;
 using VacationsTracker.Core.Api.Interfaces;
 using VacationsTracker.Core.DataTransferObjects;
+using VacationsTracker.Core.Domain.Exceptions;
 using VacationsTracker.Core.Infrastructure.Storage;
 using VacationsTracker.Core.Resourses;
 
@@ -21,7 +22,7 @@ namespace VacationsTracker.Core.Api
 
         public async Task AuthenticationAsync(UserCredentialDTO userCredentialModel, CancellationToken cancellationToken)
         {
-            var identityServer = await DiscoveryClient.GetAsync(SettingApi.IdentityServiceUrl);
+            var identityServer = await DiscoveryClient.GetAsync(ApiSettings.IdentityServiceUrl);
 
             if (identityServer.IsError)
             {
@@ -30,13 +31,13 @@ namespace VacationsTracker.Core.Api
 
             var authClient = new TokenClient(
                 identityServer.TokenEndpoint,
-                SettingApi.ClientId,
-                SettingApi.ClientSecret);
+                ApiSettings.ClientId,
+                ApiSettings.ClientSecret);
 
             var userTokenResponse = await authClient.RequestResourceOwnerPasswordAsync(
                 userCredentialModel.Login,
                 userCredentialModel.Password,
-                SettingApi.Scope,
+                ApiSettings.Scope,
                 cancellationToken: cancellationToken);
 
             if (userTokenResponse.IsError || userTokenResponse.AccessToken == null)
@@ -52,7 +53,7 @@ namespace VacationsTracker.Core.Api
             var token = await _secureStorage.GetAsync(_tokenKey);
 
             if(token == null)
-                throw new AuthenticationException();
+                throw new AuthorizationException(Strings.NotActiveToken);
 
             return token;
         }

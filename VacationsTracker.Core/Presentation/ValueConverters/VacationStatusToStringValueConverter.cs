@@ -22,7 +22,6 @@ namespace VacationsTracker.Core.Presentation.ValueConverters
                     text = Strings.Closed;
                     break;
 
-
                 case VacationStatus.Draft:
                     text = Strings.Draft;
                     break;
