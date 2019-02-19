@@ -1,10 +1,8 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using FlexiMvvm;
 using FlexiMvvm.Operations;
 using VacationsTracker.Core.Application.Connectivity;
-using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Domain.Exceptions;
 using VacationsTracker.Core.Resourses;
 

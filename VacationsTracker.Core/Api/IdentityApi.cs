@@ -1,6 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Security.Authentication;
+﻿using System.Security.Authentication;
 using System.Threading;
 using System.Threading.Tasks;
 using IdentityModel.Client;
@@ -36,20 +34,15 @@ namespace VacationsTracker.Core.Api
                 SettingApi.ClientSecret);
 
             var userTokenResponse = await authClient.RequestResourceOwnerPasswordAsync(
-                userName: userCredentialModel.Login,
-                password: userCredentialModel.Password,
-                scope: SettingApi.Scope,
+                userCredentialModel.Login,
+                userCredentialModel.Password,
+                SettingApi.Scope,
                 cancellationToken: cancellationToken);
 
             if (userTokenResponse.IsError || userTokenResponse.AccessToken == null)
             {
                 throw new AuthenticationException(Strings.InitializeTokeException);
             }
-
-            //var isSuccessAuthentication = userCredentialModel.Login == "ark" && userCredentialModel.Password == "123";
-
-            //if (!isSuccessAuthentication)
-            //    throw new AuthenticationException();
 
             await _secureStorage.SetAsync(_tokenKey, userTokenResponse.AccessToken);
         }

@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Security.Authentication;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using FlexiMvvm.Operations;
-using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Domain.Exceptions;
 
 namespace VacationsTracker.Core.Infrastructure

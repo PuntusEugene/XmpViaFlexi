@@ -3,7 +3,7 @@ using Cirrious.FluentLayouts.Touch;
 using FlexiMvvm.Views;
 using ObjCRuntime;
 using UIKit;
-using VacationsTracker.Core.Domain.Vacation;
+using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Resourses;
 using VacationsTracker.iOS.Controls;
 using VacationsTracker.iOS.Design;

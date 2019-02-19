@@ -1,5 +1,5 @@
 ﻿using FlexiMvvm;
-using VacationsTracker.Core.Domain.Vacation;
+using VacationsTracker.Core.Domain;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails.VacationPager
 {

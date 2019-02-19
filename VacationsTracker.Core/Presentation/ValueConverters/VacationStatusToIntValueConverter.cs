@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using FlexiMvvm.ValueConverters;
-using VacationsTracker.Core.Domain.Vacation;
+using VacationsTracker.Core.Domain;
 
 namespace VacationsTracker.Core.Presentation.ValueConverters
 {

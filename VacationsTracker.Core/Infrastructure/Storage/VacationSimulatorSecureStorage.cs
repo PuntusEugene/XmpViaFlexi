@@ -7,11 +7,11 @@ namespace VacationsTracker.Core.Infrastructure.Storage
 {
     public class VacationSimulatorSecureStorage : IVacationSecureStorage
     {
-        private static readonly ConcurrentDictionary<string, string> _dictionarySessionStorage;
+        private static readonly ConcurrentDictionary<string, string> DictionarySessionStorage;
 
         static VacationSimulatorSecureStorage()
         {
-            _dictionarySessionStorage = new ConcurrentDictionary<string, string>();
+            DictionarySessionStorage = new ConcurrentDictionary<string, string>();
         }
 
         public async Task<string> GetAsync(string key)
@@ -19,7 +19,7 @@ namespace VacationsTracker.Core.Infrastructure.Storage
             try
             {
                 await Task.Delay(0);
-                _dictionarySessionStorage.TryGetValue(key, out string value);
+                DictionarySessionStorage.TryGetValue(key, out string value);
                 return value;
             }
             catch (Exception e)
@@ -33,7 +33,7 @@ namespace VacationsTracker.Core.Infrastructure.Storage
         {
             try
             {
-                return _dictionarySessionStorage.TryRemove(key, out string value);
+                return DictionarySessionStorage.TryRemove(key, out string value);
             }
             catch (Exception e)
             {
@@ -47,7 +47,7 @@ namespace VacationsTracker.Core.Infrastructure.Storage
             try
             {
                 await Task.Delay(0);
-                _dictionarySessionStorage.TryAdd(key, value);
+                DictionarySessionStorage.TryAdd(key, value);
             }
             catch (Exception e)
             {

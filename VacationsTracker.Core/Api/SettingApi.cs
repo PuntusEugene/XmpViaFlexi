@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace VacationsTracker.Core.Api
+﻿namespace VacationsTracker.Core.Api
 {
     internal static class SettingApi
     {

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace VacationsTracker.Core.Domain.Vacation
+﻿namespace VacationsTracker.Core.Domain
 {
     public enum VacationStatus
     {
+        Approved,
+        Closed,
         Draft,
         Submitted,
-        Approved,
         InProgress,
-        Closed
     }
 }

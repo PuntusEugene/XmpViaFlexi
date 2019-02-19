@@ -23,25 +23,25 @@ namespace VacationsTracker.Core.Api
         public async Task<BaseResultOfVacationCollectionDTO> GetVacationCollectionAsync(CancellationToken cancellationToken)
         {
             var token = await _identyApi.AuthorizationAsync();
-            return await _apiContext.SendRequestAsync<BaseResultOfVacationCollectionDTO>(_url, Method.GET, token);
+            return await _apiContext.SendRequestAsync<BaseResultOfVacationCollectionDTO>(_url, Method.GET, token, cancellationToken);
         }
 
         public async Task<BaseResultOfVacationDTO> CreateOrUpdateVacationAsync(VacationDTO vacationDto, CancellationToken cancellationToken)
         {
             var token = await _identyApi.AuthorizationAsync();
-            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO, VacationDTO>(_url, Method.POST, token, vacationDto);
+            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO, VacationDTO>(_url, Method.POST, token, vacationDto, cancellationToken);
         }
 
         public async Task<BaseResultOfVacationDTO> GetVacationAsync(Guid id, CancellationToken cancellationToken)
         {
             var token = await _identyApi.AuthorizationAsync();
-            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO>(_url, Method.GET, token, "{id}", new []{new KeyValuePair<string, object>("id", id) });
+            return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO>(_url, Method.GET, token, "{id}", new []{new KeyValuePair<string, object>("id", id) }, cancellationToken);
         }
 
         public async Task<BaseResultDTO> DeleteVacationAsync(Guid id, CancellationToken cancellationToken)
         {
             var token = await _identyApi.AuthorizationAsync();
-            return await _apiContext.SendRequestAsync<BaseResultDTO>(_url, Method.DELETE, token, "{id}", new[] { new KeyValuePair<string, object>("id", id) });
+            return await _apiContext.SendRequestAsync<BaseResultDTO>(_url, Method.DELETE, token, "{id}", new[] { new KeyValuePair<string, object>("id", id) }, cancellationToken);
         }
     }
 }

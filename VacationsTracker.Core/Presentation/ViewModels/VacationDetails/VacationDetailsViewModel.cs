@@ -11,7 +11,6 @@ using FlexiMvvm.Commands;
 using FlexiMvvm.Operations;
 using VacationsTracker.Core.Domain;
 using VacationsTracker.Core.Domain.Exceptions;
-using VacationsTracker.Core.Domain.Vacation;
 using VacationsTracker.Core.Infrastructure.Operations;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.VacationPager;

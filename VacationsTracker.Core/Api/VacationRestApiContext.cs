@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
@@ -11,13 +10,13 @@ namespace VacationsTracker.Core.Api
 {
     public class VacationRestApiContext : IVacationApiContext
     {
-        public async Task<TResponse> SendRequestAsync<TResponse>(string url, Method method, string token)
+        public async Task<TResponse> SendRequestAsync<TResponse>(string url, Method method, string token, CancellationToken cancellationToken)
             where TResponse : class, new()
         {
-            return await SendRequestAsync<TResponse, object>(url, method, token, null);
+            return await SendRequestAsync<TResponse, object>(url, method, token, null, cancellationToken);
         }
 
-        public async Task<TResponse> SendRequestAsync<TResponse>(string url, Method method, string token, string resourse, IEnumerable<KeyValuePair<string, object>> urlSegments)
+        public async Task<TResponse> SendRequestAsync<TResponse>(string url, Method method, string token, string resourse, IEnumerable<KeyValuePair<string, object>> urlSegments, CancellationToken cancellationToken)
             where TResponse : class, new()
         {
             var client = new RestClient(url)
@@ -32,13 +31,13 @@ namespace VacationsTracker.Core.Api
                 request.AddUrlSegment(urlSegment.Key, urlSegment.Value);
             }
 
-            var response = await client.ExecuteTaskAsync(request);
+            var response = await client.ExecuteTaskAsync(request, cancellationToken);
             var data = JsonConvert.DeserializeObject<TResponse>(response.Content);
 
             return data;
         }
 
-        public async Task<TResponse> SendRequestAsync<TResponse, TRequest>(string url, Method method, string token, TRequest bodyRequest)
+        public async Task<TResponse> SendRequestAsync<TResponse, TRequest>(string url, Method method, string token, TRequest bodyRequest, CancellationToken cancellationToken)
             where TRequest : class, new()
             where TResponse : class, new()
         {
@@ -54,7 +53,7 @@ namespace VacationsTracker.Core.Api
                 request.AddJsonBody(bodyRequest);
             }
 
-            var response = await client.ExecuteTaskAsync(request);
+            var response = await client.ExecuteTaskAsync(request, cancellationToken);
             var data = JsonConvert.DeserializeObject<TResponse>(response.Content);
 
             return data;

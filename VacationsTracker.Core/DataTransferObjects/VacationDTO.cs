@@ -1,6 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
-using VacationsTracker.Core.Domain.Vacation;
+using VacationsTracker.Core.Domain;
 
 namespace VacationsTracker.Core.DataTransferObjects
 {

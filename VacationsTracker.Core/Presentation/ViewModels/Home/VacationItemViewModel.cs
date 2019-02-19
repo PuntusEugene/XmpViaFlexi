@@ -1,7 +1,6 @@
 ﻿using System;
 using FlexiMvvm;
 using VacationsTracker.Core.Domain;
-using VacationsTracker.Core.Domain.Vacation;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Home
 {

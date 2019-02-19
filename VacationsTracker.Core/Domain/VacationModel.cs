@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using VacationsTracker.Core.Domain.Vacation;
 
 namespace VacationsTracker.Core.Domain
 {

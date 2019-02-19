@@ -2,7 +2,7 @@
 using System.Globalization;
 using FlexiMvvm.ValueConverters;
 using UIKit;
-using VacationsTracker.Core.Domain.Vacation;
+using VacationsTracker.Core.Domain;
 using VacationsTracker.iOS.Design;
 
 namespace VacationsTracker.iOS.ValueConverters
