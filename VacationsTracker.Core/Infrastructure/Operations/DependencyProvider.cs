@@ -18,10 +18,14 @@ namespace VacationsTracker.Core.Infrastructure.Operations
         public T Get<T>() where T : class
         {
             if (typeof(T) == typeof(IConnectivityService))
+            {
                 return (T)_connectivityService;
+            }
 
             if (typeof(T) == typeof(IDialogService))
+            {
                 return (T)_dialogService;
+            }
 
             throw new NotSupportedException($"Type \"{typeof(T)}\" is not registered.");
         }

@@ -31,7 +31,7 @@ namespace VacationsTracker.iOS.Views.Login
                 UserInteractionEnabled = false
             };
 
-            this.SetNeedsDisplay();
+            SetNeedsDisplay();
 
             InvalidCredentialLabel = new UILabel().SetCredentialLabel(Strings.InvalidCredential);
 
@@ -71,28 +71,28 @@ namespace VacationsTracker.iOS.Views.Login
                 BackgroundView.FullSizeOf(this));
 
             this.AddConstraints(
-                InvalidCredentialLabel.AtLeftOf(this, AppDimens.Inset6x),
-                InvalidCredentialLabel.AtRightOf(this, AppDimens.Inset6x),
-                InvalidCredentialLabel.Height().EqualTo(AppDimens.Inset8x),
-                InvalidCredentialLabel.Above(LoginTextField, AppDimens.Inset4x));
+                InvalidCredentialLabel.AtLeftOf(this, AppDimens.Inset6X),
+                InvalidCredentialLabel.AtRightOf(this, AppDimens.Inset6X),
+                InvalidCredentialLabel.Height().EqualTo(AppDimens.Inset8X),
+                InvalidCredentialLabel.Above(LoginTextField, AppDimens.Inset4X));
 
             this.AddConstraints(
-                LoginTextField.AtLeftOf(this, AppDimens.Inset6x),
-                LoginTextField.AtRightOf(this, AppDimens.Inset6x),
-                LoginTextField.Height().EqualTo(AppDimens.Inset6x),
-                LoginTextField.Above(PasswordTextField, AppDimens.Inset2x));
+                LoginTextField.AtLeftOf(this, AppDimens.Inset6X),
+                LoginTextField.AtRightOf(this, AppDimens.Inset6X),
+                LoginTextField.Height().EqualTo(AppDimens.Inset6X),
+                LoginTextField.Above(PasswordTextField, AppDimens.Inset2X));
 
             this.AddConstraints(
                 PasswordTextField.WithSameLeft(LoginTextField),
                 PasswordTextField.WithSameRight(LoginTextField),
-                PasswordTextField.Height().EqualTo(AppDimens.Inset6x),
+                PasswordTextField.Height().EqualTo(AppDimens.Inset6X),
                 PasswordTextField.WithSameCenterY(this));
 
             this.AddConstraints(
                 LoginButton.WithSameLeft(LoginTextField),
-                LoginButton.Below(PasswordTextField, AppDimens.Inset2x),
+                LoginButton.Below(PasswordTextField, AppDimens.Inset2X),
                 LoginButton.WithSameRight(LoginTextField),
-                LoginButton.Height().EqualTo(AppDimens.Inset6x));
+                LoginButton.Height().EqualTo(AppDimens.Inset6X));
 
             this.AddConstraints(
                 ActivityIndicatorView.WithSameCenterX(this),

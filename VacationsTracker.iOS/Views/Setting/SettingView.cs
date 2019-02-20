@@ -69,15 +69,15 @@ namespace VacationsTracker.iOS.Views.Setting
 
             this.AddConstraints(
                 AvatarImageView.WithSameCenterX(this),
-                AvatarImageView.AtTopOf(this, AppDimens.Inset4x));
+                AvatarImageView.AtTopOf(this, AppDimens.Inset4X));
 
             this.AddConstraints(
                 AvatarLabel.WithSameCenterX(this),
-                AvatarLabel.Below(AvatarImageView, AppDimens.Inset1x));
+                AvatarLabel.Below(AvatarImageView, AppDimens.Inset1X));
 
             this.AddConstraints(
                 ChoiceAllButton.AtLeftOf(this),
-                ChoiceAllButton.Below(AvatarLabel, AppDimens.Inset1x),
+                ChoiceAllButton.Below(AvatarLabel, AppDimens.Inset1X),
                 ChoiceAllButton.AtRightOf(this),
                 ChoiceAllButton.Height().EqualTo(AppDimens.ButtonSize));
 

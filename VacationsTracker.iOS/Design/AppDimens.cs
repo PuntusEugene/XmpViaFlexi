@@ -4,23 +4,23 @@ namespace VacationsTracker.iOS.Design
 {
     public static class AppDimens
     {
-        public static readonly nfloat Inset1x = 8;
+        public static readonly nfloat Inset1X = 8;
 
-        public static readonly nfloat Inset2x = 16;
+        public static readonly nfloat Inset2X = 16;
 
-        public static readonly nfloat Inset3x = 24;
+        public static readonly nfloat Inset3X = 24;
 
-        public static readonly nfloat Inset4x = 32;
+        public static readonly nfloat Inset4X = 32;
 
-        public static readonly nfloat Inset5x = 40;
+        public static readonly nfloat Inset5X = 40;
 
-        public static readonly nfloat Inset6x = 48;
+        public static readonly nfloat Inset6X = 48;
 
-        public static readonly nfloat Inset7x = 56;
+        public static readonly nfloat Inset7X = 56;
 
-        public static readonly nfloat Inset8x = 64;
+        public static readonly nfloat Inset8X = 64;
 
-        public static readonly nfloat Inset9x = 72;
+        public static readonly nfloat Inset9X = 72;
 
         public static readonly nfloat SeparatorSize = 2;
 

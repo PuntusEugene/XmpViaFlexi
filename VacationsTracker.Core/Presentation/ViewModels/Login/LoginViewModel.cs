@@ -62,13 +62,15 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             ValidCredentials = userCredentialModel.Validation();
 
             if(!ValidCredentials)
+            {
                 return;
+            }
 
             await OperationFactory
                 .CreateOperation(OperationContext)
                 .WithLoadingNotification()
                 .WithInternetConnectionCondition()
-                .WithExpressionAsync(cancellation => _identityRepository.AuthenticationAsync(userCredentialModel, cancellation))
+                .WithExpressionAsync(cancellation => _identityRepository.LoginAsync(userCredentialModel, cancellation))
                 .OnSuccess(() => _navigationService.NavigateToHome(this))
                 .OnError<InternetConnectionException>(LoginNotifyException)
                 .OnError<AuthenticationException>(LoginNotifyException)

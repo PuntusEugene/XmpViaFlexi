@@ -1,9 +1,6 @@
 ﻿using FlexiMvvm.Views;
 using UIKit;
 using VacationsTracker.Core.Presentation.ViewModels;
-using VacationsTracker.iOS.Design;
-using VacationsTracker.iOS.Views.Login;
-using VacationsTracker.iOS.Views.Setting;
 
 namespace VacationsTracker.iOS.Views
 {
@@ -12,7 +9,7 @@ namespace VacationsTracker.iOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            this.View.BackgroundColor = UIColor.GroupTableViewBackgroundColor;
+            View.BackgroundColor = UIColor.GroupTableViewBackgroundColor;
         }
     }
 }

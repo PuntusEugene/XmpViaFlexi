@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
+using VacationsTracker.Core.DataTransferObjects.Interfaces;
 
 namespace VacationsTracker.Core.DataTransferObjects
 {
-    public class BaseResultDTO
+    public class BaseResultDTO : IDataTransferObject
     {
         [JsonProperty("code")]
         public string Code { get; set; }

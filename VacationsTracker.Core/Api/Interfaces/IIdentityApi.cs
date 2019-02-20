@@ -6,9 +6,9 @@ namespace VacationsTracker.Core.Api.Interfaces
 {
     public interface IIdentityApi
     {
-        Task AuthenticationAsync(UserCredentialDTO userCredentialModel, CancellationToken cancellationToken);
+        Task LoginAsync(UserCredentialDTO userCredentialModel, CancellationToken cancellationToken);
 
-        Task<string> AuthorizationAsync();
+        Task<string> GetAuthorizationTokenAsync();
 
         void Logout();
     }

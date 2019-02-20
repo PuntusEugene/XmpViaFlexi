@@ -1,10 +1,11 @@
 ﻿using System;
 using Newtonsoft.Json;
+using VacationsTracker.Core.DataTransferObjects.Interfaces;
 using VacationsTracker.Core.Domain;
 
 namespace VacationsTracker.Core.DataTransferObjects
 {
-    public class VacationDTO
+    public class VacationDTO : IDataTransferObject
     {
         [JsonProperty("id")]
         public Guid Id { get; set; }

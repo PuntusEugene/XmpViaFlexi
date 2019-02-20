@@ -33,7 +33,7 @@ namespace VacationsTracker.Core.Infrastructure.Storage
         {
             try
             {
-                return DictionarySessionStorage.TryRemove(key, out string value);
+                return DictionarySessionStorage.TryRemove(key, out _);
             }
             catch (Exception e)
             {

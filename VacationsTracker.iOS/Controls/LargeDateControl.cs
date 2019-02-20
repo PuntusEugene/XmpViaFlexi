@@ -52,16 +52,16 @@ namespace VacationsTracker.iOS.Controls
             this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
             this.AddConstraints(
-                DayOfDateLabel.AtLeftOf(this,AppDimens.Inset1x),
+                DayOfDateLabel.AtLeftOf(this,AppDimens.Inset1X),
                 DayOfDateLabel.AtTopOf(this));
 
             this.AddConstraints(
-                MonthOfDateLabel.ToRightOf(DayOfDateLabel,AppDimens.Inset1x),
+                MonthOfDateLabel.ToRightOf(DayOfDateLabel,AppDimens.Inset1X),
                 MonthOfDateLabel.WithSameTop(DayOfDateLabel),
                 MonthOfDateLabel.WithRelativeHeight(DayOfDateLabel, 0.5f));
 
             this.AddConstraints(
-                YearOfDateLabel.Below(MonthOfDateLabel, AppDimens.Inset1x),
+                YearOfDateLabel.Below(MonthOfDateLabel, AppDimens.Inset1X),
                 YearOfDateLabel.WithSameLeft(MonthOfDateLabel),
                 YearOfDateLabel.WithSameRight(MonthOfDateLabel));
         }

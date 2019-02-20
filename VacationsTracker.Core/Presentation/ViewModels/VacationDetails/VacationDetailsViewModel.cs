@@ -42,7 +42,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
                 Set(ref _dateBegin, value);
 
                 if (_dateBegin > _dateEnd)
+                {
                     DateEnd = _dateBegin;
+                }
             }
         }
 
@@ -54,7 +56,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
                 Set(ref _dateEnd, value);
 
                 if (_dateEnd < _dateBegin)
+                {
                     DateBegin = _dateEnd;
+                }
             }
         }
 
@@ -135,10 +139,10 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
             var vacationModel = new VacationModel()
             {
                 Id = _id,
-                VacationStatus = this.VacationStatus,
-                VacationType = this.VacationType,
-                Start = this.DateBegin,
-                End = this.DateEnd,
+                VacationStatus = VacationStatus,
+                VacationType = VacationType,
+                Start = DateBegin,
+                End = DateEnd,
                 CreatedBy = Strings.CreatedBy,
                 Created = DateTime.Now,
             };

@@ -56,30 +56,30 @@ namespace VacationsTracker.iOS.Views.Home.VacationsTable
             this.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
             this.AddConstraints(
-                VacationTypeImageView.AtLeftOf(this, AppDimens.Inset1x),
+                VacationTypeImageView.AtLeftOf(this, AppDimens.Inset1X),
                 VacationTypeImageView.WithSameCenterY(this),
-                VacationTypeImageView.Height().EqualTo(AppDimens.Inset5x),
-                VacationTypeImageView.Width().EqualTo(AppDimens.Inset5x));
+                VacationTypeImageView.Height().EqualTo(AppDimens.Inset5X),
+                VacationTypeImageView.Width().EqualTo(AppDimens.Inset5X));
 
             this.AddConstraints(
-                VacationDurationLabel.AtTopOf(this, AppDimens.Inset1x),
-                VacationDurationLabel.ToRightOf(VacationTypeImageView, AppDimens.Inset1x)
+                VacationDurationLabel.AtTopOf(this, AppDimens.Inset1X),
+                VacationDurationLabel.ToRightOf(VacationTypeImageView, AppDimens.Inset1X)
                 );
 
             this.AddConstraints(
                 VacationTypeLabel.Below(VacationDurationLabel, 4),
                 VacationTypeLabel.WithSameLeft(VacationDurationLabel),
-                VacationTypeLabel.AtBottomOf(this, AppDimens.Inset1x));
+                VacationTypeLabel.AtBottomOf(this, AppDimens.Inset1X));
 
             this.AddConstraints(
                 VacationStatusLabel.Height().EqualTo(56),
-                VacationStatusLabel.AtRightOf(ArrowImageView, AppDimens.Inset2x),
+                VacationStatusLabel.AtRightOf(ArrowImageView, AppDimens.Inset2X),
                 VacationStatusLabel.WithSameCenterY(this));
 
             this.AddConstraints(
-                ArrowImageView.AtRightOf(this, AppDimens.Inset1x),
-                ArrowImageView.Width().EqualTo(AppDimens.Inset1x),
-                ArrowImageView.Height().EqualTo(AppDimens.Inset1x),
+                ArrowImageView.AtRightOf(this, AppDimens.Inset1X),
+                ArrowImageView.Width().EqualTo(AppDimens.Inset1X),
+                ArrowImageView.Height().EqualTo(AppDimens.Inset1X),
                 ArrowImageView.WithSameCenterY(this));
         }
     }

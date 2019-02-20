@@ -68,16 +68,15 @@
     <Compile Include="Design\AppImages.cs" />
     <Compile Include="Design\AppStyles.cs" />
     <Compile Include="Design\AppColors.cs" />
+    <Compile Include="Extensions\CurrentItemIndexChangedWeakSubscribeExtensions.cs" />
     <Compile Include="Infrastructure\DialogService.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Navigation\NavigationTabBarService.cs" />
     <Compile Include="ValueConverters\DateToNSDateValueConverter.cs" />
     <Compile Include="ValueConverters\VacationStatusToSegmentValueConverter.cs" />
     <Compile Include="Views\ActivityIndicator\ActivityIndicatorBallScaleAnimation.cs" />
     <Compile Include="Views\ActivityIndicator\ActivityIndicatorView.cs" />
     <Compile Include="Views\ActivityIndicator\IActivityIndicator.cs" />
-    <Compile Include="Views\RootTabBarController.cs" />
     <Compile Include="Views\Setting\SettingView.cs" />
     <Compile Include="Views\Setting\SettingViewController.cs" />
     <Compile Include="Views\VacationDetails\VacationDetailsView.cs" />

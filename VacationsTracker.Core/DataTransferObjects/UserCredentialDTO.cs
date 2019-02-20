@@ -1,6 +1,9 @@
-﻿namespace VacationsTracker.Core.DataTransferObjects
+﻿using VacationsTracker.Core.DataTransferObjects.Interfaces;
+// ReSharper disable All
+
+namespace VacationsTracker.Core.DataTransferObjects
 {
-    public class UserCredentialDTO
+    public class UserCredentialDTO : IDataTransferObject
     {
         public string Login { get; private set; }
 

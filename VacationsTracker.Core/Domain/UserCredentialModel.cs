@@ -2,7 +2,7 @@
 
 namespace VacationsTracker.Core.Domain
 {
-    public class UserCredentialModel : IValidation
+    public class UserCredentialModel : IDomainModel
     {
         public UserCredentialModel(string login, string password)
         {

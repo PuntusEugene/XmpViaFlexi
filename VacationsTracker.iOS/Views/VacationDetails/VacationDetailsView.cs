@@ -66,7 +66,7 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             _datePickerEndExpanded.Active = false;
             _datePickerEndCollapsed.Active = true;
 
-            UIView.Animate(0.3, LayoutIfNeeded);
+            Animate(0.3, LayoutIfNeeded);
         }
 
         public void ShowStartDatePicker()
@@ -85,7 +85,7 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             _datePickerStartCollapsed.Active = false;
             _datePickerStartExpanded.Active = true;
 
-            UIView.Animate(0.3, LayoutIfNeeded);
+            Animate(0.3, LayoutIfNeeded);
         }
 
         public void ShowEndDatePicker()
@@ -104,7 +104,7 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             _datePickerEndCollapsed.Active = false;
             _datePickerEndExpanded.Active = true;
 
-            UIView.Animate(0.3, LayoutIfNeeded);
+            Animate(0.3, LayoutIfNeeded);
         }
 
         protected override void SetupSubviews()
@@ -193,43 +193,43 @@ namespace VacationsTracker.iOS.Views.VacationDetails
                 _contentViewCollapsedByToolbar);
 
             this.AddConstraints(
-                VacationsPager.AtTopOf(ContentView, AppDimens.Inset3x),
+                VacationsPager.AtTopOf(ContentView, AppDimens.Inset3X),
                 VacationsPager.WithSameCenterX(ContentView),
                 VacationsPager.WithRelativeHeight(ContentView, 0.3f),
                 VacationsPager.WithSameWidth(ContentView));
 
             this.AddConstraints(
                 VacationPageControl.WithSameCenterX(ContentView),
-                VacationPageControl.Below(VacationsPager, AppDimens.Inset1x),
+                VacationPageControl.Below(VacationsPager, AppDimens.Inset1X),
                 VacationPageControl.WithSameWidth(ContentView),
-                VacationPageControl.Height().EqualTo(AppDimens.Inset2x));
+                VacationPageControl.Height().EqualTo(AppDimens.Inset2X));
 
             this.AddConstraints(
                 AboveDateSeparator.AtLeftOf(ContentView),
-                AboveDateSeparator.Below(VacationPageControl, AppDimens.Inset1x),
+                AboveDateSeparator.Below(VacationPageControl, AppDimens.Inset1X),
                 AboveDateSeparator.AtRightOf(ContentView),
                 AboveDateSeparator.Height().EqualTo(AppDimens.SeparatorSize));
 
             this.AddConstraints(
-                DateBeginView.Below(AboveDateSeparator, AppDimens.Inset1x),
+                DateBeginView.Below(AboveDateSeparator, AppDimens.Inset1X),
                 DateBeginView.AtLeftOf(ContentView),
                 DateBeginView.WithRelativeWidth(ContentView, 0.5f),
-                DateBeginView.Height().EqualTo(AppDimens.Inset9x));
+                DateBeginView.Height().EqualTo(AppDimens.Inset9X));
 
             this.AddConstraints(
                 DateEndView.ToRightOf(DateBeginView),
                 DateEndView.Below(AboveDateSeparator),
                 DateEndView.WithRelativeWidth(ContentView, 0.5f),
-                DateEndView.Height().EqualTo(AppDimens.Inset9x));
+                DateEndView.Height().EqualTo(AppDimens.Inset9X));
 
             this.AddConstraints(
                 BelowDateSeparator.AtLeftOf(ContentView),
-                BelowDateSeparator.Below(DateBeginView, AppDimens.Inset1x),
+                BelowDateSeparator.Below(DateBeginView, AppDimens.Inset1X),
                 BelowDateSeparator.AtRightOf(ContentView),
                 BelowDateSeparator.Height().EqualTo(AppDimens.SeparatorSize));
 
             this.AddConstraints(
-                StatusSegmentedControl.Below(BelowDateSeparator, AppDimens.Inset4x),
+                StatusSegmentedControl.Below(BelowDateSeparator, AppDimens.Inset4X),
                 StatusSegmentedControl.WithSameCenterX(ContentView));
 
             _toolbarBottom = DatePickerToolbar.AtBottomOf(this);

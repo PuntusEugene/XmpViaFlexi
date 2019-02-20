@@ -10,11 +10,25 @@ namespace VacationsTracker.Core.DataTransferObjects
         static MapperExtension()
         {
             Mapper.Initialize(cfg =>
-                {
-                    cfg.CreateMap<VacationDTO, VacationModel>().ReverseMap();
-                    cfg.CreateMap<UserCredentialDTO, UserCredentialModel>().ReverseMap();
-                });
+            {
+                cfg.CreateMap<VacationDTO, VacationModel>().ReverseMap();
+                cfg.CreateMap<UserCredentialDTO, UserCredentialModel>().ReverseMap();
+            });
         }
+
+        //public static TModel ToVacationModel<TModel, TDTO>(this TDTO dto)
+        //    where TModel : IDomainModel
+        //    where TDTO : IDataTransferObject
+        //{
+        //    return Mapper.Map<TModel>(dto);
+        //}
+
+        //public static TDTO ToVacationDTO<TModel, TDTO>(this TModel model)
+        //    where TModel : IDomainModel
+        //    where TDTO : IDataTransferObject
+        //{
+        //    return Mapper.Map<TDTO>(model);
+        //}
 
         public static VacationModel ToVacationModel(this VacationDTO vacationDto)
         {

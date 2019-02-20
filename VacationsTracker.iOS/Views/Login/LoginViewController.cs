@@ -23,7 +23,9 @@ namespace VacationsTracker.iOS.Views.Login
             base.ViewDidLoad();
 
             if (NavigationController != null)
+            {
                 NavigationController.NavigationBarHidden = true;
+            }
         }
 
         public override void Bind(BindingSet<LoginViewModel> bindingSet)

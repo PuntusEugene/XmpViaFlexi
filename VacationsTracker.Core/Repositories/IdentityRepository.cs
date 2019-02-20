@@ -16,9 +16,9 @@ namespace VacationsTracker.Core.Repositories
             _identityApi = identityApi;
         }
 
-        public async Task AuthenticationAsync(UserCredentialModel userCredentialModel, CancellationToken cancellationToken)
+        public async Task LoginAsync(UserCredentialModel userCredentialModel, CancellationToken cancellationToken)
         {
-            await _identityApi.AuthenticationAsync(userCredentialModel.ToVacationDTO(), cancellationToken); 
+            await _identityApi.LoginAsync(userCredentialModel.ToVacationDTO(), cancellationToken); 
         }
 
         public void Logout()

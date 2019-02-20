@@ -7,7 +7,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.VacationDetails
     {
         public Guid Id
         {
-            get => Guid.Parse(Bundle.GetString(key: nameof(Id)));
+            get => Guid.Parse(Bundle.GetString(key: nameof(Id)) ?? throw new InvalidOperationException());
             set => Bundle.SetString(value.ToString(), nameof(Id));
         }
     }

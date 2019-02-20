@@ -12,7 +12,7 @@ namespace VacationsTracker.iOS.Design
             }
 
             button.BackgroundColor = AppColors.ButtonPrimary;
-            button.Layer.CornerRadius = AppDimens.Inset1x;
+            button.Layer.CornerRadius = AppDimens.Inset1X;
 
             return button;
         }
@@ -29,7 +29,7 @@ namespace VacationsTracker.iOS.Design
             textField.BorderStyle = UITextBorderStyle.RoundedRect;
             textField.BackgroundColor = AppColors.ContentPrimary;
             textField.Enabled = true;
-            textField.Layer.CornerRadius = AppDimens.Inset1x;
+            textField.Layer.CornerRadius = AppDimens.Inset1X;
 
             return textField;
         }
@@ -48,7 +48,7 @@ namespace VacationsTracker.iOS.Design
             label.TextAlignment = UITextAlignment.Center;
             label.Font = UIFont.FromName(label.Font.Name, 10f);
             label.Layer.MasksToBounds = true;
-            label.Layer.CornerRadius = AppDimens.Inset1x;
+            label.Layer.CornerRadius = AppDimens.Inset1X;
 
             return label;
         }
@@ -112,7 +112,7 @@ namespace VacationsTracker.iOS.Design
         public static UIButton SetChoiceButtonStyle(this UIButton button, string text)
         {
             button.SetTitle(text, UIControlState.Normal);
-            button.TitleEdgeInsets = new UIEdgeInsets(AppDimens.Inset1x, 0, AppDimens.Inset1x, AppDimens.Inset2x);
+            button.TitleEdgeInsets = new UIEdgeInsets(AppDimens.Inset1X, 0, AppDimens.Inset1X, AppDimens.Inset2X);
             button.HorizontalAlignment = UIControlContentHorizontalAlignment.Right;
             button.Layer.MasksToBounds = true;
             button.Layer.BorderColor = AppColors.TextBody.CGColor;

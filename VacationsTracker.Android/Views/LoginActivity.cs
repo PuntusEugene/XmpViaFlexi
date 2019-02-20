@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
 using FlexiMvvm.Views.V7;
-using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
 
 namespace VacationsTracker.Android.Views

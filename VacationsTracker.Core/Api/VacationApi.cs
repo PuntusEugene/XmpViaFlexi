@@ -22,19 +22,19 @@ namespace VacationsTracker.Core.Api
 
         public async Task<BaseResultOfVacationCollectionDTO> GetVacationCollectionAsync(CancellationToken cancellationToken)
         {
-            var token = await _identyApi.AuthorizationAsync();
+            var token = await _identyApi.GetAuthorizationTokenAsync();
             return await _apiContext.SendRequestAsync<BaseResultOfVacationCollectionDTO>(_url, Method.GET, token, cancellationToken);
         }
 
         public async Task<BaseResultOfVacationDTO> CreateOrUpdateVacationAsync(VacationDTO vacationDto, CancellationToken cancellationToken)
         {
-            var token = await _identyApi.AuthorizationAsync();
+            var token = await _identyApi.GetAuthorizationTokenAsync();
             return await _apiContext.SendRequestAsync<BaseResultOfVacationDTO, VacationDTO>(new SharedContextParameters(_url, Method.POST, token), vacationDto, cancellationToken);
         }
 
         public async Task<BaseResultOfVacationDTO> GetVacationAsync(Guid id, CancellationToken cancellationToken)
         {
-            var token = await _identyApi.AuthorizationAsync();
+            var token = await _identyApi.GetAuthorizationTokenAsync();
             var parameters = new SharedContextParameters(_url, Method.GET, token)
                 .AddUrlSegment("{id}", "id", id);
 
@@ -43,7 +43,7 @@ namespace VacationsTracker.Core.Api
 
         public async Task<BaseResultDTO> DeleteVacationAsync(Guid id, CancellationToken cancellationToken)
         {
-            var token = await _identyApi.AuthorizationAsync();
+            var token = await _identyApi.GetAuthorizationTokenAsync();
             var parameters = new SharedContextParameters(_url, Method.DELETE, token)
                 .AddUrlSegment("{id}", "id", id);
 

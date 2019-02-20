@@ -1,8 +1,9 @@
 ﻿using System;
+using VacationsTracker.Core.Domain.Interfaces;
 
 namespace VacationsTracker.Core.Domain
 {
-    public class VacationModel
+    public class VacationModel : IDomainModel
     {
         public Guid Id { get; set; }
 
@@ -17,5 +18,12 @@ namespace VacationsTracker.Core.Domain
         public string CreatedBy { get; set; }
 
         public DateTime Created { get; set; }
+
+        public bool Validation()
+        {
+            return Start >= End 
+                   && !string.IsNullOrWhiteSpace(CreatedBy) 
+                   && Created > DateTime.MinValue;
+        }
     }
 }

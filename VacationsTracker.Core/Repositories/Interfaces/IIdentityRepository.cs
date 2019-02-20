@@ -6,7 +6,7 @@ namespace VacationsTracker.Core.Repositories.Interfaces
 {
     public interface IIdentityRepository
     {
-        Task AuthenticationAsync(UserCredentialModel userCredentialModel, CancellationToken cancellationToken);
+        Task LoginAsync(UserCredentialModel userCredentialModel, CancellationToken cancellationToken);
 
         void Logout();
     }

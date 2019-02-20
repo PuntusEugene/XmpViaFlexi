@@ -38,11 +38,11 @@ namespace VacationsTracker.iOS.Views.VacationDetails.VacationsPager
             this.AddConstraints(
                 VacationTypeImageView.WithSameCenterX(this),
                 VacationTypeImageView.WithSameCenterY(this),
-                VacationTypeImageView.Width().EqualTo(AppDimens.Inset8x),
-                VacationTypeImageView.Height().EqualTo(AppDimens.Inset8x));
+                VacationTypeImageView.Width().EqualTo(AppDimens.Inset8X),
+                VacationTypeImageView.Height().EqualTo(AppDimens.Inset8X));
 
             this.AddConstraints(
-                VacationTypeLabel.Below(VacationTypeImageView, AppDimens.Inset1x),
+                VacationTypeLabel.Below(VacationTypeImageView, AppDimens.Inset1X),
                 VacationTypeLabel.WithSameCenterX(this));
         }
     }

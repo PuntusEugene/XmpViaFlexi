@@ -10,6 +10,7 @@ using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.VacationPager;
 using VacationsTracker.Core.Resourses;
 using VacationsTracker.iOS.Design;
+using VacationsTracker.iOS.Extensions;
 using VacationsTracker.iOS.ValueConverters;
 using VacationsTracker.iOS.Views.VacationDetails.VacationsPager;
 
@@ -52,8 +53,8 @@ namespace VacationsTracker.iOS.Views.VacationDetails
             _backButton.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
             _backButton.AddConstraints(backImageView.AtLeftOf(_backButton),
                 backImageView.WithSameCenterY(_backButton),
-                backImageView.Width().EqualTo(AppDimens.Inset3x),
-                backImageView.Height().EqualTo(AppDimens.Inset3x));
+                backImageView.Width().EqualTo(AppDimens.Inset3X),
+                backImageView.Height().EqualTo(AppDimens.Inset3X));
 
             _backButton.AddConstraints(backLabel.ToRightOf(backImageView),
                 backLabel.WithSameCenterY(_backButton),
@@ -79,8 +80,8 @@ namespace VacationsTracker.iOS.Views.VacationDetails
 
             VacationsPageViewController.DataSource = VacationsDataSource;
 
-            VacationsDataSource.CurrentItemIndexChanged +=
-                (sender, args) => View.VacationPageControl.CurrentPage = args.Index;
+            VacationsDataSource.CurrentItemIndexChangedWeakSubscribe((sender, args) =>
+                View.VacationPageControl.CurrentPage = args.Index);
 
             var tapGestureStart = new UITapGestureRecognizer(() => { View.ShowStartDatePicker(); });
             View.DateBeginView.AddGestureRecognizer(tapGestureStart);

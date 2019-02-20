@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using FlexiMvvm;
 using FlexiMvvm.ValueConverters;
 using Foundation;
 
@@ -18,7 +19,7 @@ namespace VacationsTracker.iOS.ValueConverters
         protected override ConversionResult<DateTime> ConvertBack(NSDate value, Type targetType, object parameter, CultureInfo culture)
         {
             var date = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(2001, 1, 1, 0, 0, 0))
-                .AddSeconds(value.SecondsSinceReferenceDate);
+                .AddSeconds(value.NotNull().SecondsSinceReferenceDate);
 
             return ConversionResult<DateTime>.SetValue(date);
         }

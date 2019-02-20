@@ -1,4 +1,6 @@
-﻿using System.Security.Authentication;
+﻿using System.Diagnostics;
+using System.Net.Http;
+using System.Security.Authentication;
 using System.Threading;
 using System.Threading.Tasks;
 using IdentityModel.Client;
@@ -20,8 +22,13 @@ namespace VacationsTracker.Core.Api
             _secureStorage = secureStorage;
         }
 
-        public async Task AuthenticationAsync(UserCredentialDTO userCredentialModel, CancellationToken cancellationToken)
+        public async Task LoginAsync(UserCredentialDTO userCredentialModel, CancellationToken cancellationToken)
         {
+            var client = new HttpClient();
+            var response = await client.SendAsync(new HttpRequestMessage(HttpMethod.Get, ApiSettings.IdentityServiceUrl), cancellationToken);
+            var responseContent = await response.Content.ReadAsStringAsync();
+            Debug.WriteLine(responseContent);
+
             var identityServer = await DiscoveryClient.GetAsync(ApiSettings.IdentityServiceUrl);
 
             if (identityServer.IsError)
@@ -48,14 +55,17 @@ namespace VacationsTracker.Core.Api
             await _secureStorage.SetAsync(_tokenKey, userTokenResponse.AccessToken);
         }
 
-        public async Task<string> AuthorizationAsync()
+        public async Task<string> GetAuthorizationTokenAsync()
         {
             var token = await _secureStorage.GetAsync(_tokenKey);
 
-            if(token == null)
-                throw new AuthorizationException(Strings.NotActiveToken);
+            if(token != null)
+            {
+                return token;
+            }
 
-            return token;
+            throw new AuthorizationException(Strings.NotActiveToken);
+
         }
 
         public void Logout()

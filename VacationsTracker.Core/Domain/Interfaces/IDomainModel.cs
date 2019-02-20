@@ -1,6 +1,6 @@
 ﻿namespace VacationsTracker.Core.Domain.Interfaces
 {
-    public interface IValidation
+    public interface IDomainModel
     {
         bool Validation();
     }
