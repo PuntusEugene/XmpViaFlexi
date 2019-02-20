@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System.Threading.Tasks;
+using Android.App;
 using Android.OS;
 using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
@@ -10,13 +11,16 @@ using VacationsTracker.Core.Presentation.ViewModels;
 
 namespace VacationsTracker.Android.Views
 {
-    [Activity(
+    [Activity(Theme = "@style/AppTheme.SplashScreen",
         MainLauncher = true,
         NoHistory = true)]
     public class SplashScreenActivity : FlxAppCompatActivity<EntryViewModel>
     {
+        private Task _taskWait;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            _taskWait = Task.Delay(3000);
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             var config = new BootstrapperConfig();
@@ -29,6 +33,8 @@ namespace VacationsTracker.Android.Views
             compositeBootstrapper.Execute(config);
 
             base.OnCreate(savedInstanceState);
+
+            _taskWait.Wait();
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using FlexiMvvm.Bootstrappers;
 using FlexiMvvm.Ioc;
+using VacationsTracker.Android.Infrastructure;
 using VacationsTracker.Android.Navigation;
 using VacationsTracker.Core.Bootstrappers;
+using VacationsTracker.Core.Infrastructure.Operations;
 using VacationsTracker.Core.Navigation;
 
 namespace VacationsTracker.Android.Bootstrappers
@@ -18,6 +20,7 @@ namespace VacationsTracker.Android.Bootstrappers
         private void SetupDependencies(ISimpleIoc simpleIoc)
         {
             simpleIoc.Register<INavigationService>(() => new NavigationService());
+            simpleIoc.Register<IDialogService>(() => new DialogService());
         }
     }
 }

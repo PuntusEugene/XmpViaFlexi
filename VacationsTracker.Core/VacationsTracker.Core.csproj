@@ -37,6 +37,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Resourses\ResxToXmlFileTransformer.log">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -46,10 +50,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ResxToXmlFileTransformer.log</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>

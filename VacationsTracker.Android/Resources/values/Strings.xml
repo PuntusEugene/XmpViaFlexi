@@ -25,7 +25,16 @@
     <string name="sick_days">Sick days</string>
     <string name="sign_in">SIGN IN</string>
     <string name="submitted">Submitted</string>
-    <string name="title_details_view">Request</string>
-    <string name="title_new">New</string>
+    <string name="details_view_title">Request</string>
+    <string name="new_title">New</string>
     <string name="undefined">Undefined</string>
+    <string name="avatar_title">Arkadiy Dobkin</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="not_connect_to_identity">Cannot connect to Identity Server</string>
+    <string name="initialize_toke_exception">Initialize token exception</string>
+    <string name="error_title_alert">Error</string>
+    <string name="notification_title_alert">Notification</string>
+    <string name="ok_title_button_alert">OK</string>
+    <string name="not_active_token">Current token authorization not activate</string>
+    <string name="created_by">Root</string>
 </resources>
