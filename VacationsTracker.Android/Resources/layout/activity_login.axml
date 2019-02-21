@@ -1,38 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-	android:gravity="center"
-	android:background="@drawable/login_bg">
+    style="@style/AppTheme.LinearLayout">
 
 	<android.support.design.widget.TextInputLayout
 		android:id="@+id/loginTextInput"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		style="@style/AppTheme.TextInputLayout">
 		<android.support.design.widget.TextInputEditText
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:singleLine="true"
+			style="@style/AppTheme.TextInputEditText"
+			android:imeOptions="actionNext"
 			android:hint="@string/login"/>
 		</android.support.design.widget.TextInputLayout>
-	
+
 	<android.support.design.widget.TextInputLayout
 		android:id="@+id/passwordTextInput"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		style="@style/AppTheme.TextInputLayout">
 		<android.support.design.widget.TextInputEditText
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:singleLine="true"
-			android:password="true"
-			android:hint="@string/password"/>
+			style="@style/AppTheme.TextInputEditText"
+			android:hint="@string/password"
+			android:imeOptions="actionDone"
+			android:password="true"/>
 		</android.support.design.widget.TextInputLayout>
 
 	<Button
 		android:id="@+id/loginButton"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/login" />
+		android:text="@string/sign_in"
+		style="@style/AppTheme.Button"/>
 
 </LinearLayout>

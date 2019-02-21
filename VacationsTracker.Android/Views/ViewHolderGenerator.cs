@@ -7,7 +7,6 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.Design.Widget;
 
-
 namespace VacationsTracker.Android.Views
 {
     public partial class LoginActivityViewHolder

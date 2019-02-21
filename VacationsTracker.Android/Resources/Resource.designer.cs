@@ -1187,44 +1187,44 @@ namespace VacationsTracker.Android
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0c004b
-			public const int abc_background_cache_hint_selector_material_dark = 2131492939;
+			// aapt resource value: 0x7f0c0054
+			public const int abc_background_cache_hint_selector_material_dark = 2131492948;
 			
-			// aapt resource value: 0x7f0c004c
-			public const int abc_background_cache_hint_selector_material_light = 2131492940;
+			// aapt resource value: 0x7f0c0055
+			public const int abc_background_cache_hint_selector_material_light = 2131492949;
 			
-			// aapt resource value: 0x7f0c004d
-			public const int abc_btn_colored_borderless_text_material = 2131492941;
+			// aapt resource value: 0x7f0c0056
+			public const int abc_btn_colored_borderless_text_material = 2131492950;
 			
-			// aapt resource value: 0x7f0c004e
-			public const int abc_btn_colored_text_material = 2131492942;
+			// aapt resource value: 0x7f0c0057
+			public const int abc_btn_colored_text_material = 2131492951;
 			
-			// aapt resource value: 0x7f0c004f
-			public const int abc_color_highlight_material = 2131492943;
+			// aapt resource value: 0x7f0c0058
+			public const int abc_color_highlight_material = 2131492952;
 			
-			// aapt resource value: 0x7f0c0050
-			public const int abc_hint_foreground_material_dark = 2131492944;
+			// aapt resource value: 0x7f0c0059
+			public const int abc_hint_foreground_material_dark = 2131492953;
 			
-			// aapt resource value: 0x7f0c0051
-			public const int abc_hint_foreground_material_light = 2131492945;
+			// aapt resource value: 0x7f0c005a
+			public const int abc_hint_foreground_material_light = 2131492954;
 			
 			// aapt resource value: 0x7f0c0000
 			public const int abc_input_method_navigation_guard = 2131492864;
 			
-			// aapt resource value: 0x7f0c0052
-			public const int abc_primary_text_disable_only_material_dark = 2131492946;
+			// aapt resource value: 0x7f0c005b
+			public const int abc_primary_text_disable_only_material_dark = 2131492955;
 			
-			// aapt resource value: 0x7f0c0053
-			public const int abc_primary_text_disable_only_material_light = 2131492947;
+			// aapt resource value: 0x7f0c005c
+			public const int abc_primary_text_disable_only_material_light = 2131492956;
 			
-			// aapt resource value: 0x7f0c0054
-			public const int abc_primary_text_material_dark = 2131492948;
+			// aapt resource value: 0x7f0c005d
+			public const int abc_primary_text_material_dark = 2131492957;
 			
-			// aapt resource value: 0x7f0c0055
-			public const int abc_primary_text_material_light = 2131492949;
+			// aapt resource value: 0x7f0c005e
+			public const int abc_primary_text_material_light = 2131492958;
 			
-			// aapt resource value: 0x7f0c0056
-			public const int abc_search_url_text = 2131492950;
+			// aapt resource value: 0x7f0c005f
+			public const int abc_search_url_text = 2131492959;
 			
 			// aapt resource value: 0x7f0c0001
 			public const int abc_search_url_text_normal = 2131492865;
@@ -1235,29 +1235,29 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0c0003
 			public const int abc_search_url_text_selected = 2131492867;
 			
-			// aapt resource value: 0x7f0c0057
-			public const int abc_secondary_text_material_dark = 2131492951;
+			// aapt resource value: 0x7f0c0060
+			public const int abc_secondary_text_material_dark = 2131492960;
 			
-			// aapt resource value: 0x7f0c0058
-			public const int abc_secondary_text_material_light = 2131492952;
+			// aapt resource value: 0x7f0c0061
+			public const int abc_secondary_text_material_light = 2131492961;
 			
-			// aapt resource value: 0x7f0c0059
-			public const int abc_tint_btn_checkable = 2131492953;
+			// aapt resource value: 0x7f0c0062
+			public const int abc_tint_btn_checkable = 2131492962;
 			
-			// aapt resource value: 0x7f0c005a
-			public const int abc_tint_default = 2131492954;
+			// aapt resource value: 0x7f0c0063
+			public const int abc_tint_default = 2131492963;
 			
-			// aapt resource value: 0x7f0c005b
-			public const int abc_tint_edittext = 2131492955;
+			// aapt resource value: 0x7f0c0064
+			public const int abc_tint_edittext = 2131492964;
 			
-			// aapt resource value: 0x7f0c005c
-			public const int abc_tint_seek_thumb = 2131492956;
+			// aapt resource value: 0x7f0c0065
+			public const int abc_tint_seek_thumb = 2131492965;
 			
-			// aapt resource value: 0x7f0c005d
-			public const int abc_tint_spinner = 2131492957;
+			// aapt resource value: 0x7f0c0066
+			public const int abc_tint_spinner = 2131492966;
 			
-			// aapt resource value: 0x7f0c005e
-			public const int abc_tint_switch_track = 2131492958;
+			// aapt resource value: 0x7f0c0067
+			public const int abc_tint_switch_track = 2131492967;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int accent_material_dark = 2131492868;
@@ -1301,8 +1301,20 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0c0011
 			public const int button_material_light = 2131492881;
 			
-			// aapt resource value: 0x7f0c0049
-			public const int colorAccent = 2131492937;
+			// aapt resource value: 0x7f0c004c
+			public const int colorAccent = 2131492940;
+			
+			// aapt resource value: 0x7f0c004f
+			public const int colorButton = 2131492943;
+			
+			// aapt resource value: 0x7f0c0050
+			public const int colorButtonText = 2131492944;
+			
+			// aapt resource value: 0x7f0c004d
+			public const int colorError = 2131492941;
+			
+			// aapt resource value: 0x7f0c004e
+			public const int colorHeader = 2131492942;
 			
 			// aapt resource value: 0x7f0c0047
 			public const int colorPrimary = 2131492935;
@@ -1310,11 +1322,23 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0c0048
 			public const int colorPrimaryDark = 2131492936;
 			
+			// aapt resource value: 0x7f0c0049
+			public const int colorSecondary = 2131492937;
+			
+			// aapt resource value: 0x7f0c004a
+			public const int colorSecondaryDark = 2131492938;
+			
+			// aapt resource value: 0x7f0c0051
+			public const int colorTextInputEdit = 2131492945;
+			
+			// aapt resource value: 0x7f0c0052
+			public const int colorTextInputHint = 2131492946;
+			
 			// aapt resource value: 0x7f0c003c
 			public const int design_bottom_navigation_shadow_color = 2131492924;
 			
-			// aapt resource value: 0x7f0c005f
-			public const int design_error = 2131492959;
+			// aapt resource value: 0x7f0c0068
+			public const int design_error = 2131492968;
 			
 			// aapt resource value: 0x7f0c003d
 			public const int design_fab_shadow_end_color = 2131492925;
@@ -1340,8 +1364,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0c0044
 			public const int design_snackbar_background_color = 2131492932;
 			
-			// aapt resource value: 0x7f0c0060
-			public const int design_tint_password_toggle = 2131492960;
+			// aapt resource value: 0x7f0c0069
+			public const int design_tint_password_toggle = 2131492969;
 			
 			// aapt resource value: 0x7f0c0012
 			public const int dim_foreground_disabled_material_dark = 2131492882;
@@ -1370,8 +1394,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0c001a
 			public const int highlighted_text_material_light = 2131492890;
 			
-			// aapt resource value: 0x7f0c004a
-			public const int ic_launcher_background = 2131492938;
+			// aapt resource value: 0x7f0c0053
+			public const int ic_launcher_background = 2131492947;
 			
 			// aapt resource value: 0x7f0c001b
 			public const int material_blue_grey_800 = 2131492891;
@@ -1466,11 +1490,11 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0c0036
 			public const int switch_thumb_disabled_material_light = 2131492918;
 			
-			// aapt resource value: 0x7f0c0061
-			public const int switch_thumb_material_dark = 2131492961;
+			// aapt resource value: 0x7f0c006a
+			public const int switch_thumb_material_dark = 2131492970;
 			
-			// aapt resource value: 0x7f0c0062
-			public const int switch_thumb_material_light = 2131492962;
+			// aapt resource value: 0x7f0c006b
+			public const int switch_thumb_material_light = 2131492971;
 			
 			// aapt resource value: 0x7f0c0037
 			public const int switch_thumb_normal_material_dark = 2131492919;
@@ -1484,6 +1508,9 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0c003a
 			public const int tooltip_background_light = 2131492922;
 			
+			// aapt resource value: 0x7f0c004b
+			public const int windowBackground = 2131492939;
+			
 			static Color()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -1496,6 +1523,33 @@ namespace VacationsTracker.Android
 		
 		public partial class Dimension
 		{
+			
+			// aapt resource value: 0x7f07009b
+			public const int Inset1X = 2131165339;
+			
+			// aapt resource value: 0x7f07009c
+			public const int Inset2X = 2131165340;
+			
+			// aapt resource value: 0x7f07009d
+			public const int Inset3X = 2131165341;
+			
+			// aapt resource value: 0x7f07009e
+			public const int Inset4X = 2131165342;
+			
+			// aapt resource value: 0x7f07009f
+			public const int Inset5X = 2131165343;
+			
+			// aapt resource value: 0x7f0700a0
+			public const int Inset6X = 2131165344;
+			
+			// aapt resource value: 0x7f0700a1
+			public const int Inset7X = 2131165345;
+			
+			// aapt resource value: 0x7f0700a2
+			public const int Inset8X = 2131165346;
+			
+			// aapt resource value: 0x7f0700a3
+			public const int Inset9X = 2131165347;
 			
 			// aapt resource value: 0x7f070012
 			public const int abc_action_bar_content_inset_material = 2131165202;
@@ -3403,8 +3457,26 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0a0180
 			public const int AppTheme = 2131362176;
 			
+			// aapt resource value: 0x7f0a0187
+			public const int AppTheme_Button = 2131362183;
+			
+			// aapt resource value: 0x7f0a0182
+			public const int AppTheme_Dark_NoActionBar = 2131362178;
+			
+			// aapt resource value: 0x7f0a0183
+			public const int AppTheme_Light = 2131362179;
+			
+			// aapt resource value: 0x7f0a0184
+			public const int AppTheme_LinearLayout = 2131362180;
+			
 			// aapt resource value: 0x7f0a0181
 			public const int AppTheme_SplashScreen = 2131362177;
+			
+			// aapt resource value: 0x7f0a0186
+			public const int AppTheme_TextInputEditText = 2131362182;
+			
+			// aapt resource value: 0x7f0a0185
+			public const int AppTheme_TextInputLayout = 2131362181;
 			
 			// aapt resource value: 0x7f0a009a
 			public const int Base_AlertDialog_AppCompat = 2131361946;

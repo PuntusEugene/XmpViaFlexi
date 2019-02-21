@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2c3e50</color>
-    <color name="colorPrimaryDark">#1B3147</color>
-    <color name="colorAccent">#3498db</color>
+  <color name="colorPrimary">#3bc4d6</color>
+  <color name="colorPrimaryDark">#2d757f</color>
+
+  <color name="colorSecondary">#a3c644</color>
+  <color name="colorSecondaryDark">#677c2b</color>
+
+  <color name="windowBackground">#fff</color>
+  <color name="colorAccent">#a3c644</color>
+  <color name="colorError">#a24c6d</color>
+  <color name="colorHeader">#fff</color>
+
+  <color name="colorButton">#3bc4d6</color>
+  <color name="colorButtonText">#fff</color>
+
+  <color name="colorTextInputEdit">#fff</color>
+  <color name="colorTextInputHint">#e0e0e0</color>
 </resources>

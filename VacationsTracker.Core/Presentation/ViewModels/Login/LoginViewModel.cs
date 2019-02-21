@@ -19,6 +19,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         private readonly INavigationService _navigationService;
         private readonly IDialogService _dialogService;
         private string _username = "ark";
+        private string _usernameError;
         private string _password = "123";
         private bool _validCredentials = true;
         private bool _loading;
@@ -45,6 +46,12 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         {
             get => _loading;
             set => Set(ref _loading, value);
+        }
+
+        public string UsernameError
+        {
+            get => _usernameError;
+            set => Set(ref _usernameError, value);
         }
 
         public ICommand LoginCommand => CommandProvider.GetForAsync(Login);
@@ -84,6 +91,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         {
             _dialogService.ShowError(error.Exception);
             ValidCredentials = false;
+            UsernameError = error.Exception.Message;
         }
     }
 }
