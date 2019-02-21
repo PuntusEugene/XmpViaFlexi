@@ -228,4 +228,10 @@
   <data name="CreatedBy" xml:space="preserve">
     <value>Root</value>
   </data>
+  <data name="LoginIsEmpty" xml:space="preserve">
+    <value>Login is empty</value>
+  </data>
+  <data name="PasswordIsEmpty" xml:space="preserve">
+    <value>Password is empty</value>
+  </data>
 </root>

@@ -16,4 +16,5 @@
 
   <color name="colorTextInputEdit">#fff</color>
   <color name="colorTextInputHint">#e0e0e0</color>
+  <color name="colorTextInputError">#ff0000</color>
 </resources>

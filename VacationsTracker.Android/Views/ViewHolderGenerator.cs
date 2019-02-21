@@ -13,6 +13,7 @@ namespace VacationsTracker.Android.Views
     {
          private readonly Activity activity;
 
+         private TextView invalidCredentialLabel;
          private TextInputLayout loginTextInput;
          private TextInputLayout passwordTextInput;
          private Button loginButton;
@@ -23,6 +24,10 @@ namespace VacationsTracker.Android.Views
 
             this.activity = activity;
         }
+
+        
+        public TextView InvalidCredentialLabel =>
+            invalidCredentialLabel ?? (invalidCredentialLabel = activity.FindViewById<TextView>(Resource.Id.invalidCredentialLabel));
 
         
         public TextInputLayout LoginTextInput =>

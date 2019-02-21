@@ -10,6 +10,7 @@ using VacationsTracker.Core.Domain.Exceptions;
 using VacationsTracker.Core.Infrastructure.Operations;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Repositories.Interfaces;
+using VacationsTracker.Core.Resourses;
 
 namespace VacationsTracker.Core.Presentation.ViewModels.Login
 {
@@ -19,21 +20,30 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         private readonly INavigationService _navigationService;
         private readonly IDialogService _dialogService;
         private string _username = "ark";
-        private string _usernameError;
         private string _password = "123";
         private bool _validCredentials = true;
         private bool _loading;
+        private string _loginEmptyError;
+        private string _passwordEmptyError;
 
         public string Username
         {
             get => _username;
-            set => Set(ref _username, value);
+            set
+            {
+                Set(ref _username, value);
+                LoginEmptyError = string.Empty;
+            }
         }
 
         public string Password
         {
             get => _password;
-            set => Set(ref _password, value);
+            set
+            {
+                Set(ref _password, value);
+                PasswordEmptyError = string.Empty;
+            }
         }
 
         public bool ValidCredentials
@@ -48,11 +58,18 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
             set => Set(ref _loading, value);
         }
 
-        public string UsernameError
+        public string LoginEmptyError
         {
-            get => _usernameError;
-            set => Set(ref _usernameError, value);
+            get => _loginEmptyError;
+            set => Set(ref _loginEmptyError, value);
         }
+
+        public string PasswordEmptyError
+        {
+            get => _passwordEmptyError;
+            set => Set(ref _passwordEmptyError, value);
+        }
+        
 
         public ICommand LoginCommand => CommandProvider.GetForAsync(Login);
 
@@ -66,10 +83,18 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         private async Task Login()
         {
             var userCredentialModel = new UserCredentialModel(Username, Password);
-            ValidCredentials = userCredentialModel.Validation();
 
-            if(!ValidCredentials)
+            if (!userCredentialModel.Validation())
             {
+                if (string.IsNullOrWhiteSpace(userCredentialModel.Login))
+                {
+                    LoginEmptyError = Strings.LoginIsEmpty;
+                }
+
+                if (string.IsNullOrWhiteSpace(userCredentialModel.Password))
+                {
+                    PasswordEmptyError = Strings.PasswordIsEmpty;
+                }
                 return;
             }
 
@@ -91,7 +116,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Login
         {
             _dialogService.ShowError(error.Exception);
             ValidCredentials = false;
-            UsernameError = error.Exception.Message;
         }
     }
 }

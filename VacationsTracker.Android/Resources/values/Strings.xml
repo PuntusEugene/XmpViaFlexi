@@ -37,4 +37,6 @@
     <string name="ok_title_button_alert">OK</string>
     <string name="not_active_token">Current token authorization not activate</string>
     <string name="created_by">Root</string>
+    <string name="login_is_empty">Login is empty</string>
+    <string name="password_is_empty">Password is empty</string>
 </resources>

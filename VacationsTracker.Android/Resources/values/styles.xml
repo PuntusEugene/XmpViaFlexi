@@ -30,17 +30,16 @@
 
     <style name="AppTheme.TextInputLayout" parent ="AppTheme.Dark.NoActionBar">
       <item name="android:layout_width">match_parent</item>
-      <item name="android:layout_height">wrap_content</item>
+      <item name="android:layout_height">84dp</item>
       <item name="android:paddingVertical">4dp</item>
       <item name="android:textColorHint">@color/colorTextInputHint</item>
-      <item name="android:layout_height">68dp</item>
     </style>
 
-    <style name="AppTheme.TextInputEditText">
+  <style name="AppTheme.TextInputEditText">
       <item name="android:layout_width">match_parent</item>
       <item name="android:layout_height">wrap_content</item>
       <item name="android:singleLine">true</item>
-      <item name="android:padding">12dp</item>
+      <item name="android:paddingHorizontal">12dp</item>
       <item name="android:textColor">@color/colorTextInputEdit</item>
       <item name="android:backgroundTint">@color/colorSecondary</item>
     </style>
@@ -51,6 +50,19 @@
       <item name="android:paddingVertical">4dp</item>
       <item name="android:textColor">@color/colorButtonText</item>
       <item name="android:backgroundTint">@color/colorButton</item>
+    </style>
+
+    <style name="ErrorText">
+      <item name="android:textSize">10sp</item>
+      <item name="android:textColor">@color/colorTextInputError</item>
+    </style>
+
+    <style name="LoginErrorText" parent="ErrorText">
+      <item name="android:text">@string/login_is_empty</item>
+    </style>
+
+    <style name="PasswordErrorText" parent="ErrorText">
+      <item name="android:text">@string/password_is_empty</item>
     </style>
 
 </resources>

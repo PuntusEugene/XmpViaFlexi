@@ -241,6 +241,15 @@ namespace VacationsTracker.Core.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login is empty.
+        /// </summary>
+        public static string LoginIsEmpty {
+            get {
+                return ResourceManager.GetString("LoginIsEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
         public static string Logout {
@@ -327,6 +336,15 @@ namespace VacationsTracker.Core.Resourses {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is empty.
+        /// </summary>
+        public static string PasswordIsEmpty {
+            get {
+                return ResourceManager.GetString("PasswordIsEmpty", resourceCulture);
             }
         }
         

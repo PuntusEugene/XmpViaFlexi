@@ -62,8 +62,14 @@
     <Compile Include="Bootstrappers\AndroidBootstrapper.cs" />
     <Compile Include="Infrastructure\DialogService.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
+    <AndroidResource Include="Resources\drawable\RoundTextView.xml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibleStateInvertedValueConverter.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibleStateValueConverter.cs" />
     <Compile Include="Views\LoginActivity.cs" />
     <Compile Include="Views\SplashScreenActivity.cs" />
     <Compile Include="Views\ViewHolderGenerator.cs">

@@ -2,7 +2,9 @@
 using Android.OS;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views.V7;
+using VacationsTracker.Android.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
+using VacationsTracker.Core.Resourses;
 
 namespace VacationsTracker.Android.Views
 {
@@ -24,6 +26,11 @@ namespace VacationsTracker.Android.Views
         {
             base.Bind(bindingSet);
 
+            bindingSet.Bind(ActivityViewHolder.InvalidCredentialLabel)
+                .For(v => v.Visibility)
+                .To(vm => vm.ValidCredentials)
+                .WithConvertion<BooleanToVisibleStateInvertedValueConverter>();
+
             bindingSet.Bind(ActivityViewHolder.LoginTextInput.EditText)
                 .For(v => v.TextAndTextChangedBinding())
                 .To(vm => vm.Username);
@@ -38,7 +45,11 @@ namespace VacationsTracker.Android.Views
 
             bindingSet.Bind(ActivityViewHolder.LoginTextInput)
                 .For(v => v.Error)
-                .To(vm => vm.UsernameError);
+                .To(vm => vm.LoginEmptyError);
+
+            bindingSet.Bind(ActivityViewHolder.PasswordTextInput)
+                .For(v => v.Error)
+                .To(vm => vm.PasswordEmptyError);
         }
     }
 }
