@@ -65,4 +65,46 @@
       <item name="android:text">@string/password_is_empty</item>
     </style>
 
+  <style name="VacationTypeImageView">
+    <item name="android:layout_width">@dimen/Inset14X</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:src">@drawable/icon_request_blue</item>
+  </style>
+
+  <style name="VacationDurationTextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:text">MAR 20 - MAR 31</item>
+    <item name="android:textColor">@color/colorAccent</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textSize">20sp</item>
+  </style>
+
+  <style name="VacationTypeTextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:text">Regular</item>
+    <item name="android:textSize">12sp</item>
+  </style>
+
+  <style name="VacationStatusTextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:text">Approved</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+    <style name="SeparatorView">
+      <item name="android:layout_width">match_parent</item>
+      <item name="android:layout_height">@dimen/SeparatorSize</item>
+    </style>
+
+    <style name="SeparatorCellView" parent="SeparatorView">
+      <item name="android:background">@color/colorSeparatorCell</item>
+    </style>
+
+    <style name="SeparatorDetailView" parent="SeparatorView">
+      <item name="android:background">@color/colorSeparatorDetail</item>
+    </style>
+
 </resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/CellSize"
+	android:background="@color/windowBackground">
+	
+	<ImageView
+		android:id="@+id/vacationTypeImageView"
+		style="@style/VacationTypeImageView"
+		android:layout_marginHorizontal="@dimen/Inset3X"/>
+
+	<TextView		
+		android:id="@+id/vacationDurationTextView"
+		style="@style/VacationDurationTextView"
+		android:layout_marginTop="@dimen/Inset3X"
+		android:layout_toRightOf="@id/vacationTypeImageView"
+		android:layout_alignTop="@id/vacationTypeImageView"/>
+	
+	<TextView
+		android:id="@+id/vacationTypeTextView"
+		style="@style/VacationTypeTextView"
+		android:layout_marginBottom="@dimen/Inset1X"
+		android:layout_alignLeft="@id/vacationDurationTextView"
+		android:layout_below="@id/vacationDurationTextView"/>
+	
+	<TextView
+		android:id="@+id/vacationStatusTextView"
+		style="@style/VacationStatusTextView"
+		android:layout_alignParentRight="true"
+		android:layout_centerInParent="true"
+		android:layout_marginRight="@dimen/Inset8X"/>
+
+	<View
+		style="@style/SeparatorCellView"
+		android:layout_toRightOf="@id/vacationTypeImageView"
+		android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

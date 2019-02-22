@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+
+	<android.support.v7.widget.RecyclerView
+		android:id="@+id/vacations_recycler_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"/>
+	
+	<android.support.design.widget.FloatingActionButton
+		android:id="@+id/add_vacation_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:fabSize="normal"
+		android:src="@android:drawable/ic_input_add"
+        android:layout_gravity="bottom|right"
+		android:tint="@color/colorButtonText"
+		android:layout_marginRight="24dp"
+		android:layout_marginBottom="40dp"
+        app:layout_anchor="@id/vacations_recycler_view"
+        app:layout_anchorGravity="bottom|right|end"
+	/>
+		
+
+</android.support.design.widget.CoordinatorLayout>

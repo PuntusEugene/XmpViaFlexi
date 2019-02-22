@@ -13,7 +13,7 @@
 		android:textAlignment="center"
 		android:paddingHorizontal="12dp"
 		android:paddingVertical="16dp"
-		android:background="@drawable/RoundTextView"
+		android:background="@drawable/round_text_view"
 		android:layout_marginBottom="16dp"/>
 
 	<android.support.design.widget.TextInputLayout

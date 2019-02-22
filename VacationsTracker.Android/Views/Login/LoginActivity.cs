@@ -4,14 +4,13 @@ using FlexiMvvm.Bindings;
 using FlexiMvvm.Views.V7;
 using VacationsTracker.Android.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
-using VacationsTracker.Core.Resourses;
 
-namespace VacationsTracker.Android.Views
+namespace VacationsTracker.Android.Views.Login
 {
     [Activity(Label = "LoginActivity", Theme = "@style/AppTheme.Dark.NoActionBar")]
-    public class LoginActivity : FlxBindableAppCompatActivity<LoginViewModel>
+    internal class LoginActivity : FlxBindableAppCompatActivity<LoginViewModel>
     {
-        private LoginActivityViewHolder ActivityViewHolder { get; set; }
+        private LoginActivityViewHolder ViewHolder { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -19,35 +18,35 @@ namespace VacationsTracker.Android.Views
 
             SetContentView(Resource.Layout.activity_login);
 
-            ActivityViewHolder = new LoginActivityViewHolder(this);
+            ViewHolder = new LoginActivityViewHolder(this);
         }
 
         public override void Bind(BindingSet<LoginViewModel> bindingSet)
         {
             base.Bind(bindingSet);
 
-            bindingSet.Bind(ActivityViewHolder.InvalidCredentialLabel)
+            bindingSet.Bind(ViewHolder.InvalidCredentialLabel)
                 .For(v => v.Visibility)
                 .To(vm => vm.ValidCredentials)
                 .WithConvertion<BooleanToVisibleStateInvertedValueConverter>();
 
-            bindingSet.Bind(ActivityViewHolder.LoginTextInput.EditText)
+            bindingSet.Bind(ViewHolder.LoginTextInput.EditText)
                 .For(v => v.TextAndTextChangedBinding())
                 .To(vm => vm.Username);
 
-            bindingSet.Bind(ActivityViewHolder.PasswordTextInput.EditText)
+            bindingSet.Bind(ViewHolder.PasswordTextInput.EditText)
                 .For(v => v.TextAndTextChangedBinding())
                 .To(vm => vm.Password);
 
-            bindingSet.Bind(ActivityViewHolder.LoginButton)
+            bindingSet.Bind(ViewHolder.LoginButton)
                 .For(v => v.ClickBinding())
                 .To(vm => vm.LoginCommand);
 
-            bindingSet.Bind(ActivityViewHolder.LoginTextInput)
+            bindingSet.Bind(ViewHolder.LoginTextInput)
                 .For(v => v.Error)
                 .To(vm => vm.LoginEmptyError);
 
-            bindingSet.Bind(ActivityViewHolder.PasswordTextInput)
+            bindingSet.Bind(ViewHolder.PasswordTextInput)
                 .For(v => v.Error)
                 .To(vm => vm.PasswordEmptyError);
         }

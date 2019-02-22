@@ -59,10 +59,11 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bindings\ImageViewBinding.cs" />
     <Compile Include="Bootstrappers\AndroidBootstrapper.cs" />
     <Compile Include="Infrastructure\DialogService.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
-    <AndroidResource Include="Resources\drawable\RoundTextView.xml">
+    <AndroidResource Include="Resources\drawable\round_text_view.xml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
@@ -70,8 +71,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueConverters\BooleanToVisibleStateInvertedValueConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibleStateValueConverter.cs" />
-    <Compile Include="Views\LoginActivity.cs" />
+    <Compile Include="ValueConverters\VacationTypeToResourceImageValueConverter.cs" />
+    <Compile Include="Views\Home\HomeActivity.cs" />
+    <Compile Include="Views\Home\Vacations\VacationItemCellViewHolder.cs" />
+    <Compile Include="Views\Home\Vacations\VacationsAdapter.cs" />
+    <Compile Include="Views\Login\LoginActivity.cs" />
     <Compile Include="Views\SplashScreenActivity.cs" />
+    <Compile Include="Views\VacationDetails\VacationDetailActivity.cs" />
     <Compile Include="Views\ViewHolderGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,6 +150,19 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Login_bg.jpg" />
     <AndroidResource Include="Resources\values\dimens.xml" />
+    <AndroidResource Include="Resources\layout\activity_home.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\round_button.xml" />
+    <AndroidResource Include="Resources\layout\cell_vacation_item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Icon_Request_Blue.png" />
+    <AndroidResource Include="Resources\drawable\Icon_Request_Dark.png" />
+    <AndroidResource Include="Resources\drawable\Icon_Request_Gray.png" />
+    <AndroidResource Include="Resources\drawable\Icon_Request_Green.png" />
+    <AndroidResource Include="Resources\drawable\Icon_Request_Plum.png" />
+    <AndroidResource Include="Resources\drawable\Icon_Request_Orange.png" />
     <Content Include="Views\ViewHolderGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ViewHolderGenerator.cs</LastGenOutput>

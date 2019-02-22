@@ -18,7 +18,9 @@
         { "com.facebook.share.widget.ShareButton", "Xamarin.Facebook.Share.Widget.ShareButton" },
         { "com.google.android.gms.maps.MapView", "Android.Gms.Maps.MapView"},
         { "com.github.chrisbanes.photoview.PhotoView", "ImageViews.Photo.PhotoView"},
-        { "android.support.design.widget.TextInputLayout", "TextInputLayout"}
+        { "android.support.design.widget.TextInputLayout", "TextInputLayout"},
+        { "android.support.design.widget.FloatingActionButton", "FloatingActionButton"},
+        { "android.support.v7.widget.RecyclerView", "RecyclerView"}		
     };
     LayoutDefinitionOptions.LayoutTypeNamePostfix = "ViewHolder";
     LayoutDefinitionOptions.GenerateAnnotations = false;

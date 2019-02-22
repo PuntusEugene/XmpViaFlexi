@@ -9,6 +9,29 @@ using Android.Support.Design.Widget;
 
 namespace VacationsTracker.Android.Views
 {
+    public partial class HomeActivityViewHolder
+    {
+         private readonly Activity activity;
+
+         private RecyclerView vacationsRecyclerView;
+         private FloatingActionButton addVacationButton;
+
+        public HomeActivityViewHolder( Activity activity)
+        {
+            if (activity == null) throw new ArgumentNullException(nameof(activity));
+
+            this.activity = activity;
+        }
+
+        
+        public RecyclerView VacationsRecyclerView =>
+            vacationsRecyclerView ?? (vacationsRecyclerView = activity.FindViewById<RecyclerView>(Resource.Id.vacations_recycler_view));
+
+        
+        public FloatingActionButton AddVacationButton =>
+            addVacationButton ?? (addVacationButton = activity.FindViewById<FloatingActionButton>(Resource.Id.add_vacation_button));
+    }
+
     public partial class LoginActivityViewHolder
     {
          private readonly Activity activity;
@@ -40,6 +63,32 @@ namespace VacationsTracker.Android.Views
         
         public Button LoginButton =>
             loginButton ?? (loginButton = activity.FindViewById<Button>(Resource.Id.loginButton));
+    }
+
+    public partial class VacationItemCellViewHolder
+    {
+         private ImageView vacationTypeImageView;
+         private TextView vacationDurationTextView;
+         private TextView vacationTypeTextView;
+         private TextView vacationStatusTextView;
+
+
+
+        
+        public ImageView VacationTypeImageView =>
+            vacationTypeImageView ?? (vacationTypeImageView = ItemView.FindViewById<ImageView>(Resource.Id.vacationTypeImageView));
+
+        
+        public TextView VacationDurationTextView =>
+            vacationDurationTextView ?? (vacationDurationTextView = ItemView.FindViewById<TextView>(Resource.Id.vacationDurationTextView));
+
+        
+        public TextView VacationTypeTextView =>
+            vacationTypeTextView ?? (vacationTypeTextView = ItemView.FindViewById<TextView>(Resource.Id.vacationTypeTextView));
+
+        
+        public TextView VacationStatusTextView =>
+            vacationStatusTextView ?? (vacationStatusTextView = ItemView.FindViewById<TextView>(Resource.Id.vacationStatusTextView));
     }
 
 }

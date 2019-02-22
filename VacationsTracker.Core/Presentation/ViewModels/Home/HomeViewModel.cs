@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using FlexiMvvm;
+using FlexiMvvm.Collections;
 using FlexiMvvm.Commands;
 using FlexiMvvm.Operations;
 using VacationsTracker.Core.Domain.Exceptions;
@@ -20,14 +20,9 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
         private readonly IVacationRepository _vacationRepository;
         private readonly IIdentityRepository _identityRepository;
         private readonly IDialogService _dialogService;
-        private ObservableCollection<VacationItemViewModel> _vacations;
         private bool _loading;
 
-        public ObservableCollection<VacationItemViewModel> Vacations
-        {
-            get => _vacations;
-            set => Set(ref _vacations, value);
-        }
+        public RangeObservableCollection<VacationItemViewModel> Vacations { get; } = new RangeObservableCollection<VacationItemViewModel>();
 
         public bool Loading
         {
@@ -49,7 +44,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
             _dialogService = dialogService;
         }
 
-        public async Task Refresh()
+        private async Task Refresh()
         {
             await OperationFactory
                 .CreateOperation(OperationContext)
@@ -58,8 +53,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
                 .WithExpressionAsync(cancellation => _vacationRepository.GetVacationsAsync(cancellation))
                 .OnSuccess(vacationModels =>  
                     {
+                        Vacations.Clear();
                         var vacations = vacationModels.Select(vacation => new VacationItemViewModel(vacation));
-                        Vacations = new ObservableCollection<VacationItemViewModel>(vacations);
+                        Vacations.AddRange(vacations);
+                        Vacations.AddRange(vacations);
+                        Vacations.AddRange(vacations);
                     })
                 .OnError<AuthorizationException>(error => _dialogService.ShowError(error.Exception))
                 .OnError<WebException>(error => _dialogService.ShowError(error.Exception))

@@ -9,4 +9,11 @@
   <dimen name="Inset7X">28dp</dimen>
   <dimen name="Inset8X">32dp</dimen>
   <dimen name="Inset9X">36dp</dimen>
+  <dimen name="Inset10X">40dp</dimen>
+  <dimen name="Inset11X">44dp</dimen>
+  <dimen name="Inset12X">48dp</dimen>
+  <dimen name="Inset13X">52dp</dimen>
+  <dimen name="Inset14X">56dp</dimen>
+  <dimen name="SeparatorSize">1dp</dimen>
+  <dimen name="CellSize">72dp</dimen>
 </resources>

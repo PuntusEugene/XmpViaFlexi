@@ -7,7 +7,7 @@
   <color name="colorSecondaryDark">#677c2b</color>
 
   <color name="windowBackground">#fff</color>
-  <color name="colorAccent">#a3c644</color>
+  <color name="colorAccent">#3bc4d6</color>
   <color name="colorError">#a24c6d</color>
   <color name="colorHeader">#fff</color>
 
@@ -17,4 +17,9 @@
   <color name="colorTextInputEdit">#fff</color>
   <color name="colorTextInputHint">#e0e0e0</color>
   <color name="colorTextInputError">#ff0000</color>
+
+  <color name="colorTextBody">#999999</color>
+
+  <color name="colorSeparatorCell">#999999</color>
+  <color name="colorSeparatorDetail">#3bc4d6</color>
 </resources>

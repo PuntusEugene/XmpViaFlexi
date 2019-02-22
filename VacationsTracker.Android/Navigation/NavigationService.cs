@@ -2,6 +2,8 @@
 using FlexiMvvm;
 using FlexiMvvm.Navigation;
 using VacationsTracker.Android.Views;
+using VacationsTracker.Android.Views.Home;
+using VacationsTracker.Android.Views.Login;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Home;
@@ -26,7 +28,10 @@ namespace VacationsTracker.Android.Navigation
 
         public void NavigateToHome(LoginViewModel fromViewModel)
         {
-            throw new System.NotImplementedException();
+            var loginActivity = GetActivity<LoginViewModel, LoginActivity>(fromViewModel);
+            var homeIntent = new Intent(loginActivity, typeof(HomeActivity));
+            homeIntent.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask);
+            loginActivity.NotNull().StartActivity(homeIntent);
         }
 
         public void NavigateToVacationDetails(HomeViewModel fromViewModel, VacationDetailsParameters parameters)
