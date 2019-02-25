@@ -41,7 +41,10 @@ namespace VacationsTracker.Android.Navigation
 
         public void NavigateToLogin(HomeViewModel fromViewModel)
         {
-            throw new System.NotImplementedException();
+            var homeActivity = GetActivity<HomeViewModel, HomeActivity>(fromViewModel);
+            var loginIntent = new Intent(homeActivity, typeof(LoginActivity));
+            loginIntent.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask);
+            homeActivity.NotNull().StartActivity(loginIntent);
         }
     }
 }

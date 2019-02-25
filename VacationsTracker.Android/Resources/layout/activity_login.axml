@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/AppTheme.LinearLayout">
+    style="@style/AppTheme.Dark.NoActionBar.LinearLayout">
 
 	<TextView
 	android:id="@+id/invalidCredentialLabel"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-		android:text="@string/invalid_credential"
-		android:textColor="@color/colorError"
-		android:textSize="12sp"
-		android:textAlignment="center"
-		android:paddingHorizontal="12dp"
-		android:paddingVertical="16dp"
-		android:background="@drawable/round_text_view"
-		android:layout_marginBottom="16dp"/>
+	android:text="@string/invalid_credential"
+	android:textColor="@color/colorError"
+	android:textSize="12sp"
+	android:textAlignment="center"
+	android:paddingHorizontal="@dimen/Inset3X"
+	android:paddingVertical="@dimen/Inset4X"
+	android:background="@drawable/round_text_view"
+	android:layout_marginBottom="@dimen/Inset4X"/>
 
 	<android.support.design.widget.TextInputLayout
 		android:id="@+id/loginTextInput"
@@ -40,6 +40,21 @@
 	<Button
 		android:id="@+id/loginButton"
 		android:text="@string/sign_in"
-		style="@style/AppTheme.Button"/>
+		style="@style/AppTheme.Dark.NoActionBar.Button"
+		android:textStyle="bold"/>
 
+	<!--<ImageView android:id="@+id/progress_ring"
+		android:layout_marginVertical="@dimen/Inset2X"
+		android:src="@drawable/progress_ring_animate"
+		android:background="@color/colorButton"
+		style="@style/AppTheme.Dark.NoActionBar.Button"/>
+
+	<ImageView android:id="@+id/progress_ring_second"
+		android:background="@drawable/progress_ring_animate_second"
+		android:layout_height="@dimen/Inset12X"
+		android:layout_width="@dimen/Inset12X"
+		android:layout_gravity="center"/>-->
+
+	
+>
 </LinearLayout>

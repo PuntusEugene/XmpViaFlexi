@@ -2314,26 +2314,26 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020075
-			public const int avd_hide_password_1 = 2130837621;
+			// aapt resource value: 0x7f020078
+			public const int avd_hide_password_1 = 2130837624;
 			
-			// aapt resource value: 0x7f020076
-			public const int avd_hide_password_2 = 2130837622;
+			// aapt resource value: 0x7f020079
+			public const int avd_hide_password_2 = 2130837625;
 			
-			// aapt resource value: 0x7f020077
-			public const int avd_hide_password_3 = 2130837623;
+			// aapt resource value: 0x7f02007a
+			public const int avd_hide_password_3 = 2130837626;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020078
-			public const int avd_show_password_1 = 2130837624;
+			// aapt resource value: 0x7f02007b
+			public const int avd_show_password_1 = 2130837627;
 			
-			// aapt resource value: 0x7f020079
-			public const int avd_show_password_2 = 2130837625;
+			// aapt resource value: 0x7f02007c
+			public const int avd_show_password_2 = 2130837628;
 			
-			// aapt resource value: 0x7f02007a
-			public const int avd_show_password_3 = 2130837626;
+			// aapt resource value: 0x7f02007d
+			public const int avd_show_password_3 = 2130837629;
 			
 			// aapt resource value: 0x7f020055
 			public const int design_bottom_navigation_item_background = 2130837589;
@@ -2401,11 +2401,11 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f02006a
 			public const int notification_icon_background = 2130837610;
 			
-			// aapt resource value: 0x7f020073
-			public const int notification_template_icon_bg = 2130837619;
+			// aapt resource value: 0x7f020076
+			public const int notification_template_icon_bg = 2130837622;
 			
-			// aapt resource value: 0x7f020074
-			public const int notification_template_icon_low_bg = 2130837620;
+			// aapt resource value: 0x7f020077
+			public const int notification_template_icon_low_bg = 2130837623;
 			
 			// aapt resource value: 0x7f02006b
 			public const int notification_tile_bg = 2130837611;
@@ -2414,22 +2414,31 @@ namespace VacationsTracker.Android
 			public const int notify_panel_notification_icon_bg = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int round_button = 2130837613;
+			public const int progress_ring = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int round_text_view = 2130837614;
+			public const int progress_ring_animate = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int Splash_bg = 2130837615;
+			public const int progress_ring_animate_second = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int splash_screen = 2130837616;
+			public const int round_button = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int tooltip_frame_dark = 2130837617;
+			public const int round_text_view = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int tooltip_frame_light = 2130837618;
+			public const int Splash_bg = 2130837618;
+			
+			// aapt resource value: 0x7f020073
+			public const int splash_screen = 2130837619;
+			
+			// aapt resource value: 0x7f020074
+			public const int tooltip_frame_dark = 2130837620;
+			
+			// aapt resource value: 0x7f020075
+			public const int tooltip_frame_light = 2130837621;
 			
 			static Drawable()
 			{
@@ -2462,8 +2471,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080037
 			public const int SYM = 2131230775;
 			
-			// aapt resource value: 0x7f0800a6
-			public const int action0 = 2131230886;
+			// aapt resource value: 0x7f0800aa
+			public const int action0 = 2131230890;
 			
 			// aapt resource value: 0x7f08007c
 			public const int action_bar = 2131230844;
@@ -2486,17 +2495,17 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f08005a
 			public const int action_bar_title = 2131230810;
 			
-			// aapt resource value: 0x7f0800a3
-			public const int action_container = 2131230883;
+			// aapt resource value: 0x7f0800a7
+			public const int action_container = 2131230887;
 			
 			// aapt resource value: 0x7f08007d
 			public const int action_context_bar = 2131230845;
 			
-			// aapt resource value: 0x7f0800aa
-			public const int action_divider = 2131230890;
+			// aapt resource value: 0x7f0800ae
+			public const int action_divider = 2131230894;
 			
-			// aapt resource value: 0x7f0800a4
-			public const int action_image = 2131230884;
+			// aapt resource value: 0x7f0800a8
+			public const int action_image = 2131230888;
 			
 			// aapt resource value: 0x7f080003
 			public const int action_menu_divider = 2131230723;
@@ -2513,11 +2522,11 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f08005c
 			public const int action_mode_close_button = 2131230812;
 			
-			// aapt resource value: 0x7f0800a5
-			public const int action_text = 2131230885;
+			// aapt resource value: 0x7f0800a9
+			public const int action_text = 2131230889;
 			
-			// aapt resource value: 0x7f0800b3
-			public const int actions = 2131230899;
+			// aapt resource value: 0x7f0800b7
+			public const int actions = 2131230903;
 			
 			// aapt resource value: 0x7f08005d
 			public const int activity_chooser_view_content = 2131230813;
@@ -2525,8 +2534,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080027
 			public const int add = 2131230759;
 			
-			// aapt resource value: 0x7f08008c
-			public const int add_vacation_button = 2131230860;
+			// aapt resource value: 0x7f08008d
+			public const int add_vacation_button = 2131230861;
 			
 			// aapt resource value: 0x7f080070
 			public const int alertTitle = 2131230832;
@@ -2555,8 +2564,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080063
 			public const int buttonPanel = 2131230819;
 			
-			// aapt resource value: 0x7f0800a7
-			public const int cancel_action = 2131230887;
+			// aapt resource value: 0x7f0800ab
+			public const int cancel_action = 2131230891;
 			
 			// aapt resource value: 0x7f080045
 			public const int center = 2131230789;
@@ -2570,8 +2579,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080073
 			public const int checkbox = 2131230835;
 			
-			// aapt resource value: 0x7f0800af
-			public const int chronometer = 2131230895;
+			// aapt resource value: 0x7f0800b3
+			public const int chronometer = 2131230899;
 			
 			// aapt resource value: 0x7f08004e
 			public const int clip_horizontal = 2131230798;
@@ -2582,14 +2591,14 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080039
 			public const int collapseActionView = 2131230777;
 			
-			// aapt resource value: 0x7f080097
-			public const int container = 2131230871;
+			// aapt resource value: 0x7f08009b
+			public const int container = 2131230875;
 			
 			// aapt resource value: 0x7f080066
 			public const int contentPanel = 2131230822;
 			
-			// aapt resource value: 0x7f080098
-			public const int coordinator = 2131230872;
+			// aapt resource value: 0x7f08009c
+			public const int coordinator = 2131230876;
 			
 			// aapt resource value: 0x7f08006d
 			public const int custom = 2131230829;
@@ -2603,20 +2612,20 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080060
 			public const int default_activity_button = 2131230816;
 			
-			// aapt resource value: 0x7f08009a
-			public const int design_bottom_sheet = 2131230874;
-			
-			// aapt resource value: 0x7f0800a1
-			public const int design_menu_item_action_area = 2131230881;
-			
-			// aapt resource value: 0x7f0800a0
-			public const int design_menu_item_action_area_stub = 2131230880;
-			
-			// aapt resource value: 0x7f08009f
-			public const int design_menu_item_text = 2131230879;
-			
 			// aapt resource value: 0x7f08009e
-			public const int design_navigation_view = 2131230878;
+			public const int design_bottom_sheet = 2131230878;
+			
+			// aapt resource value: 0x7f0800a5
+			public const int design_menu_item_action_area = 2131230885;
+			
+			// aapt resource value: 0x7f0800a4
+			public const int design_menu_item_action_area_stub = 2131230884;
+			
+			// aapt resource value: 0x7f0800a3
+			public const int design_menu_item_text = 2131230883;
+			
+			// aapt resource value: 0x7f0800a2
+			public const int design_navigation_view = 2131230882;
 			
 			// aapt resource value: 0x7f080020
 			public const int disableHome = 2131230752;
@@ -2627,8 +2636,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080030
 			public const int end = 2131230768;
 			
-			// aapt resource value: 0x7f0800b5
-			public const int end_padder = 2131230901;
+			// aapt resource value: 0x7f0800b9
+			public const int end_padder = 2131230905;
 			
 			// aapt resource value: 0x7f08003f
 			public const int enterAlways = 2131230783;
@@ -2669,11 +2678,14 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080021
 			public const int homeAsUp = 2131230753;
 			
+			// aapt resource value: 0x7f08008e
+			public const int home_toolbar = 2131230862;
+			
 			// aapt resource value: 0x7f080062
 			public const int icon = 2131230818;
 			
-			// aapt resource value: 0x7f0800b4
-			public const int icon_group = 2131230900;
+			// aapt resource value: 0x7f0800b8
+			public const int icon_group = 2131230904;
 			
 			// aapt resource value: 0x7f08003a
 			public const int ifRoom = 2131230778;
@@ -2681,11 +2693,11 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f08005f
 			public const int image = 2131230815;
 			
-			// aapt resource value: 0x7f0800b0
-			public const int info = 2131230896;
+			// aapt resource value: 0x7f0800b4
+			public const int info = 2131230900;
 			
-			// aapt resource value: 0x7f08008d
-			public const int invalidCredentialLabel = 2131230861;
+			// aapt resource value: 0x7f080090
+			public const int invalidCredentialLabel = 2131230864;
 			
 			// aapt resource value: 0x7f080059
 			public const int italic = 2131230809;
@@ -2693,8 +2705,11 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080000
 			public const int item_touch_helper_previous_elevation = 2131230720;
 			
-			// aapt resource value: 0x7f080096
-			public const int largeLabel = 2131230870;
+			// aapt resource value: 0x7f08009a
+			public const int largeLabel = 2131230874;
+			
+			// aapt resource value: 0x7f080094
+			public const int last_update_time = 2131230868;
 			
 			// aapt resource value: 0x7f080049
 			public const int left = 2131230793;
@@ -2711,20 +2726,23 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f080090
-			public const int loginButton = 2131230864;
+			// aapt resource value: 0x7f080093
+			public const int loginButton = 2131230867;
 			
-			// aapt resource value: 0x7f08008e
-			public const int loginTextInput = 2131230862;
+			// aapt resource value: 0x7f080091
+			public const int loginTextInput = 2131230865;
 			
-			// aapt resource value: 0x7f0800b8
-			public const int masked = 2131230904;
+			// aapt resource value: 0x7f08008f
+			public const int logout_button = 2131230863;
 			
-			// aapt resource value: 0x7f0800a9
-			public const int media_actions = 2131230889;
+			// aapt resource value: 0x7f0800bc
+			public const int masked = 2131230908;
 			
-			// aapt resource value: 0x7f0800b6
-			public const int message = 2131230902;
+			// aapt resource value: 0x7f0800ad
+			public const int media_actions = 2131230893;
+			
+			// aapt resource value: 0x7f0800ba
+			public const int message = 2131230906;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2735,8 +2753,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080028
 			public const int multiply = 2131230760;
 			
-			// aapt resource value: 0x7f08009d
-			public const int navigation_header_container = 2131230877;
+			// aapt resource value: 0x7f0800a1
+			public const int navigation_header_container = 2131230881;
 			
 			// aapt resource value: 0x7f08003b
 			public const int never = 2131230779;
@@ -2747,14 +2765,14 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f08001e
 			public const int normal = 2131230750;
 			
-			// aapt resource value: 0x7f0800b2
-			public const int notification_background = 2131230898;
+			// aapt resource value: 0x7f0800b6
+			public const int notification_background = 2131230902;
 			
-			// aapt resource value: 0x7f0800ac
-			public const int notification_main_column = 2131230892;
+			// aapt resource value: 0x7f0800b0
+			public const int notification_main_column = 2131230896;
 			
-			// aapt resource value: 0x7f0800ab
-			public const int notification_main_column_container = 2131230891;
+			// aapt resource value: 0x7f0800af
+			public const int notification_main_column_container = 2131230895;
 			
 			// aapt resource value: 0x7f08004c
 			public const int parallax = 2131230796;
@@ -2765,8 +2783,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f08000b
 			public const int parent_matrix = 2131230731;
 			
-			// aapt resource value: 0x7f08008f
-			public const int passwordTextInput = 2131230863;
+			// aapt resource value: 0x7f080092
+			public const int passwordTextInput = 2131230866;
 			
 			// aapt resource value: 0x7f08004d
 			public const int pin = 2131230797;
@@ -2783,11 +2801,11 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f08004a
 			public const int right = 2131230794;
 			
-			// aapt resource value: 0x7f0800b1
-			public const int right_icon = 2131230897;
+			// aapt resource value: 0x7f0800b5
+			public const int right_icon = 2131230901;
 			
-			// aapt resource value: 0x7f0800ad
-			public const int right_side = 2131230893;
+			// aapt resource value: 0x7f0800b1
+			public const int right_side = 2131230897;
 			
 			// aapt resource value: 0x7f08000c
 			public const int save_image_matrix = 2131230732;
@@ -2861,14 +2879,14 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080025
 			public const int showTitle = 2131230757;
 			
-			// aapt resource value: 0x7f080095
-			public const int smallLabel = 2131230869;
+			// aapt resource value: 0x7f080099
+			public const int smallLabel = 2131230873;
 			
-			// aapt resource value: 0x7f08009c
-			public const int snackbar_action = 2131230876;
+			// aapt resource value: 0x7f0800a0
+			public const int snackbar_action = 2131230880;
 			
-			// aapt resource value: 0x7f08009b
-			public const int snackbar_text = 2131230875;
+			// aapt resource value: 0x7f08009f
+			public const int snackbar_text = 2131230879;
 			
 			// aapt resource value: 0x7f080043
 			public const int snap = 2131230787;
@@ -2891,14 +2909,17 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f08004b
 			public const int start = 2131230795;
 			
-			// aapt resource value: 0x7f0800a8
-			public const int status_bar_latest_event_content = 2131230888;
+			// aapt resource value: 0x7f0800ac
+			public const int status_bar_latest_event_content = 2131230892;
 			
 			// aapt resource value: 0x7f080076
 			public const int submenuarrow = 2131230838;
 			
 			// aapt resource value: 0x7f080087
 			public const int submit_area = 2131230855;
+			
+			// aapt resource value: 0x7f08008b
+			public const int swipe_refresh = 2131230859;
 			
 			// aapt resource value: 0x7f08001f
 			public const int tabMode = 2131230751;
@@ -2918,8 +2939,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080069
 			public const int textSpacerNoTitle = 2131230825;
 			
-			// aapt resource value: 0x7f0800a2
-			public const int text_input_password_toggle = 2131230882;
+			// aapt resource value: 0x7f0800a6
+			public const int text_input_password_toggle = 2131230886;
 			
 			// aapt resource value: 0x7f080014
 			public const int textinput_counter = 2131230740;
@@ -2927,8 +2948,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080015
 			public const int textinput_error = 2131230741;
 			
-			// aapt resource value: 0x7f0800ae
-			public const int time = 2131230894;
+			// aapt resource value: 0x7f0800b2
+			public const int time = 2131230898;
 			
 			// aapt resource value: 0x7f08001c
 			public const int title = 2131230748;
@@ -2945,8 +2966,8 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f08006e
 			public const int topPanel = 2131230830;
 			
-			// aapt resource value: 0x7f080099
-			public const int touch_outside = 2131230873;
+			// aapt resource value: 0x7f08009d
+			public const int touch_outside = 2131230877;
 			
 			// aapt resource value: 0x7f08000f
 			public const int transition_current_scene = 2131230735;
@@ -2972,26 +2993,26 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080026
 			public const int useLogo = 2131230758;
 			
-			// aapt resource value: 0x7f080092
-			public const int vacationDurationTextView = 2131230866;
+			// aapt resource value: 0x7f080096
+			public const int vacationDurationTextView = 2131230870;
 			
-			// aapt resource value: 0x7f080094
-			public const int vacationStatusTextView = 2131230868;
+			// aapt resource value: 0x7f080098
+			public const int vacationStatusTextView = 2131230872;
 			
-			// aapt resource value: 0x7f080091
-			public const int vacationTypeImageView = 2131230865;
+			// aapt resource value: 0x7f080095
+			public const int vacationTypeImageView = 2131230869;
 			
-			// aapt resource value: 0x7f080093
-			public const int vacationTypeTextView = 2131230867;
+			// aapt resource value: 0x7f080097
+			public const int vacationTypeTextView = 2131230871;
 			
-			// aapt resource value: 0x7f08008b
-			public const int vacations_recycler_view = 2131230859;
+			// aapt resource value: 0x7f08008c
+			public const int vacations_recycler_view = 2131230860;
 			
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800b7
-			public const int visible = 2131230903;
+			// aapt resource value: 0x7f0800bb
+			public const int visible = 2131230907;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;
@@ -3140,109 +3161,112 @@ namespace VacationsTracker.Android
 			public const int activity_login = 2130968603;
 			
 			// aapt resource value: 0x7f04001c
-			public const int cell_vacation_item = 2130968604;
+			public const int cell_vacation_header = 2130968604;
 			
 			// aapt resource value: 0x7f04001d
-			public const int design_bottom_navigation_item = 2130968605;
+			public const int cell_vacation_item = 2130968605;
 			
 			// aapt resource value: 0x7f04001e
-			public const int design_bottom_sheet_dialog = 2130968606;
+			public const int design_bottom_navigation_item = 2130968606;
 			
 			// aapt resource value: 0x7f04001f
-			public const int design_layout_snackbar = 2130968607;
+			public const int design_bottom_sheet_dialog = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int design_layout_snackbar_include = 2130968608;
+			public const int design_layout_snackbar = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int design_layout_tab_icon = 2130968609;
+			public const int design_layout_snackbar_include = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int design_layout_tab_text = 2130968610;
+			public const int design_layout_tab_icon = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int design_menu_item_action_area = 2130968611;
+			public const int design_layout_tab_text = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int design_navigation_item = 2130968612;
+			public const int design_menu_item_action_area = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int design_navigation_item_header = 2130968613;
+			public const int design_navigation_item = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int design_navigation_item_separator = 2130968614;
+			public const int design_navigation_item_header = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int design_navigation_item_subheader = 2130968615;
+			public const int design_navigation_item_separator = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int design_navigation_menu = 2130968616;
+			public const int design_navigation_item_subheader = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int design_navigation_menu_item = 2130968617;
+			public const int design_navigation_menu = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int design_text_input_password_icon = 2130968618;
+			public const int design_navigation_menu_item = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int notification_action = 2130968619;
+			public const int design_text_input_password_icon = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int notification_action_tombstone = 2130968620;
+			public const int notification_action = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int notification_media_action = 2130968621;
+			public const int notification_action_tombstone = 2130968621;
 			
 			// aapt resource value: 0x7f04002e
-			public const int notification_media_cancel_action = 2130968622;
+			public const int notification_media_action = 2130968622;
 			
 			// aapt resource value: 0x7f04002f
-			public const int notification_template_big_media = 2130968623;
+			public const int notification_media_cancel_action = 2130968623;
 			
 			// aapt resource value: 0x7f040030
-			public const int notification_template_big_media_custom = 2130968624;
+			public const int notification_template_big_media = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int notification_template_big_media_narrow = 2130968625;
+			public const int notification_template_big_media_custom = 2130968625;
 			
 			// aapt resource value: 0x7f040032
-			public const int notification_template_big_media_narrow_custom = 2130968626;
+			public const int notification_template_big_media_narrow = 2130968626;
 			
 			// aapt resource value: 0x7f040033
-			public const int notification_template_custom_big = 2130968627;
+			public const int notification_template_big_media_narrow_custom = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int notification_template_icon_group = 2130968628;
+			public const int notification_template_custom_big = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int notification_template_lines_media = 2130968629;
+			public const int notification_template_icon_group = 2130968629;
 			
 			// aapt resource value: 0x7f040036
-			public const int notification_template_media = 2130968630;
+			public const int notification_template_lines_media = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int notification_template_media_custom = 2130968631;
+			public const int notification_template_media = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int notification_template_part_chronometer = 2130968632;
+			public const int notification_template_media_custom = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int notification_template_part_time = 2130968633;
+			public const int notification_template_part_chronometer = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int select_dialog_item_material = 2130968634;
+			public const int notification_template_part_time = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int select_dialog_multichoice_material = 2130968635;
+			public const int select_dialog_item_material = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int select_dialog_singlechoice_material = 2130968636;
+			public const int select_dialog_multichoice_material = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int support_simple_spinner_dropdown_item = 2130968637;
+			public const int select_dialog_singlechoice_material = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int tooltip = 2130968638;
+			public const int support_simple_spinner_dropdown_item = 2130968638;
+			
+			// aapt resource value: 0x7f04003f
+			public const int tooltip = 2130968639;
 			
 			static Layout()
 			{
@@ -3414,6 +3438,9 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f09002f
 			public const int exceptional_leave = 2131296303;
 			
+			// aapt resource value: 0x7f09004e
+			public const int fab_scroll_translation_autohide_behavior = 2131296334;
+			
 			// aapt resource value: 0x7f090030
 			public const int in_progress = 2131296304;
 			
@@ -3428,6 +3455,9 @@ namespace VacationsTracker.Android
 			
 			// aapt resource value: 0x7f090033
 			public const int keyboard_next = 2131296307;
+			
+			// aapt resource value: 0x7f09004f
+			public const int last_update_text = 2131296335;
 			
 			// aapt resource value: 0x7f090034
 			public const int leave_without_pay = 2131296308;
@@ -3547,26 +3577,32 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0a0180
 			public const int AppTheme = 2131362176;
 			
-			// aapt resource value: 0x7f0a0187
-			public const int AppTheme_Button = 2131362183;
+			// aapt resource value: 0x7f0a0183
+			public const int AppTheme_CustomToolbar = 2131362179;
 			
 			// aapt resource value: 0x7f0a0182
 			public const int AppTheme_Dark_NoActionBar = 2131362178;
 			
-			// aapt resource value: 0x7f0a0183
-			public const int AppTheme_Light = 2131362179;
+			// aapt resource value: 0x7f0a0189
+			public const int AppTheme_Dark_NoActionBar_Button = 2131362185;
+			
+			// aapt resource value: 0x7f0a0186
+			public const int AppTheme_Dark_NoActionBar_LinearLayout = 2131362182;
 			
 			// aapt resource value: 0x7f0a0184
-			public const int AppTheme_LinearLayout = 2131362180;
+			public const int AppTheme_Light = 2131362180;
+			
+			// aapt resource value: 0x7f0a0185
+			public const int AppTheme_Light_NoActionBar = 2131362181;
 			
 			// aapt resource value: 0x7f0a0181
 			public const int AppTheme_SplashScreen = 2131362177;
 			
-			// aapt resource value: 0x7f0a0186
-			public const int AppTheme_TextInputEditText = 2131362182;
+			// aapt resource value: 0x7f0a0188
+			public const int AppTheme_TextInputEditText = 2131362184;
 			
-			// aapt resource value: 0x7f0a0185
-			public const int AppTheme_TextInputLayout = 2131362181;
+			// aapt resource value: 0x7f0a0187
+			public const int AppTheme_TextInputLayout = 2131362183;
 			
 			// aapt resource value: 0x7f0a009a
 			public const int Base_AlertDialog_AppCompat = 2131361946;
@@ -4057,14 +4093,17 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0a0161
 			public const int Base_Widget_Design_TabLayout = 2131362145;
 			
-			// aapt resource value: 0x7f0a0188
-			public const int ErrorText = 2131362184;
-			
-			// aapt resource value: 0x7f0a0189
-			public const int LoginErrorText = 2131362185;
-			
 			// aapt resource value: 0x7f0a018a
-			public const int PasswordErrorText = 2131362186;
+			public const int ErrorText = 2131362186;
+			
+			// aapt resource value: 0x7f0a0194
+			public const int FloatingActionButton = 2131362196;
+			
+			// aapt resource value: 0x7f0a018b
+			public const int LoginErrorText = 2131362187;
+			
+			// aapt resource value: 0x7f0a018c
+			public const int PasswordErrorText = 2131362188;
 			
 			// aapt resource value: 0x7f0a001e
 			public const int Platform_AppCompat = 2131361822;
@@ -4150,14 +4189,14 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0a0038
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131361848;
 			
-			// aapt resource value: 0x7f0a0190
-			public const int SeparatorCellView = 2131362192;
+			// aapt resource value: 0x7f0a0192
+			public const int SeparatorCellView = 2131362194;
+			
+			// aapt resource value: 0x7f0a0193
+			public const int SeparatorDetailView = 2131362195;
 			
 			// aapt resource value: 0x7f0a0191
-			public const int SeparatorDetailView = 2131362193;
-			
-			// aapt resource value: 0x7f0a018f
-			public const int SeparatorView = 2131362191;
+			public const int SeparatorView = 2131362193;
 			
 			// aapt resource value: 0x7f0a00c7
 			public const int TextAppearance_AppCompat = 2131361991;
@@ -4465,17 +4504,23 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0a010d
 			public const int ThemeOverlay_AppCompat_Light = 2131362061;
 			
-			// aapt resource value: 0x7f0a018c
-			public const int VacationDurationTextView = 2131362188;
+			// aapt resource value: 0x7f0a0195
+			public const int ToolbarButtonStyle = 2131362197;
+			
+			// aapt resource value: 0x7f0a0196
+			public const int ToolbarTheme = 2131362198;
 			
 			// aapt resource value: 0x7f0a018e
-			public const int VacationStatusTextView = 2131362190;
+			public const int VacationDurationTextView = 2131362190;
 			
-			// aapt resource value: 0x7f0a018b
-			public const int VacationTypeImageView = 2131362187;
+			// aapt resource value: 0x7f0a0190
+			public const int VacationStatusTextView = 2131362192;
 			
 			// aapt resource value: 0x7f0a018d
-			public const int VacationTypeTextView = 2131362189;
+			public const int VacationTypeImageView = 2131362189;
+			
+			// aapt resource value: 0x7f0a018f
+			public const int VacationTypeTextView = 2131362191;
 			
 			// aapt resource value: 0x7f0a010e
 			public const int Widget_AppCompat_ActionBar = 2131362062;

@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bindings\ImageViewBinding.cs" />
+    <Compile Include="Bindings\SwipeRefreshLayoutBinding.cs" />
     <Compile Include="Bootstrappers\AndroidBootstrapper.cs" />
     <Compile Include="Infrastructure\DialogService.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
@@ -73,7 +74,9 @@
     <Compile Include="ValueConverters\BooleanToVisibleStateValueConverter.cs" />
     <Compile Include="ValueConverters\VacationTypeToResourceImageValueConverter.cs" />
     <Compile Include="Views\Home\HomeActivity.cs" />
+    <Compile Include="Views\Home\ScrollAwareFABBehavior.cs" />
     <Compile Include="Views\Home\Vacations\VacationItemCellViewHolder.cs" />
+    <Compile Include="Views\Home\Vacations\VacationHeaderCellViewHolder.cs" />
     <Compile Include="Views\Home\Vacations\VacationsAdapter.cs" />
     <Compile Include="Views\Login\LoginActivity.cs" />
     <Compile Include="Views\SplashScreenActivity.cs" />
@@ -163,6 +166,12 @@
     <AndroidResource Include="Resources\drawable\Icon_Request_Green.png" />
     <AndroidResource Include="Resources\drawable\Icon_Request_Plum.png" />
     <AndroidResource Include="Resources\drawable\Icon_Request_Orange.png" />
+    <AndroidResource Include="Resources\layout\cell_vacation_header.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\progress_ring.xml" />
+    <AndroidResource Include="Resources\drawable\progress_ring_animate.xml" />
+    <AndroidResource Include="Resources\drawable\progress_ring_animate_second.xml" />
     <Content Include="Views\ViewHolderGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ViewHolderGenerator.cs</LastGenOutput>

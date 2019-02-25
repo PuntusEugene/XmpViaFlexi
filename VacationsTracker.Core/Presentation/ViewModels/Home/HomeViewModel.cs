@@ -21,6 +21,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
         private readonly IIdentityRepository _identityRepository;
         private readonly IDialogService _dialogService;
         private bool _loading;
+        private DateTime _lastUpdateTime;
 
         public RangeObservableCollection<VacationItemViewModel> Vacations { get; } = new RangeObservableCollection<VacationItemViewModel>();
 
@@ -28,6 +29,11 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
         {
             get => _loading;
             set => Set(ref _loading, value);
+        }
+        public DateTime LastUpdateTime
+        {
+            get => _lastUpdateTime;
+            set => Set(ref _lastUpdateTime, value);
         }
 
         public ICommand<VacationItemViewModel> VacationSelectedCommand => CommandProvider.Get<VacationItemViewModel>(NavigateToDetails);
@@ -58,6 +64,8 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
                         Vacations.AddRange(vacations);
                         Vacations.AddRange(vacations);
                         Vacations.AddRange(vacations);
+
+                        LastUpdateTime = DateTime.Now;
                     })
                 .OnError<AuthorizationException>(error => _dialogService.ShowError(error.Exception))
                 .OnError<WebException>(error => _dialogService.ShowError(error.Exception))

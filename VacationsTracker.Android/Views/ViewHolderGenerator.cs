@@ -6,6 +6,8 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using Android.Support.Design.Widget;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
+using Android.Support.V4.Widget;
 
 namespace VacationsTracker.Android.Views
 {
@@ -13,8 +15,11 @@ namespace VacationsTracker.Android.Views
     {
          private readonly Activity activity;
 
+         private SwipeRefreshLayout swipeRefresh;
          private RecyclerView vacationsRecyclerView;
          private FloatingActionButton addVacationButton;
+         private Toolbar homeToolbar;
+         private Button logoutButton;
 
         public HomeActivityViewHolder( Activity activity)
         {
@@ -24,12 +29,24 @@ namespace VacationsTracker.Android.Views
         }
 
         
+        public SwipeRefreshLayout SwipeRefresh =>
+            swipeRefresh ?? (swipeRefresh = activity.FindViewById<SwipeRefreshLayout>(Resource.Id.swipe_refresh));
+
+        
         public RecyclerView VacationsRecyclerView =>
             vacationsRecyclerView ?? (vacationsRecyclerView = activity.FindViewById<RecyclerView>(Resource.Id.vacations_recycler_view));
 
         
         public FloatingActionButton AddVacationButton =>
             addVacationButton ?? (addVacationButton = activity.FindViewById<FloatingActionButton>(Resource.Id.add_vacation_button));
+
+        
+        public Toolbar HomeToolbar =>
+            homeToolbar ?? (homeToolbar = activity.FindViewById<Toolbar>(Resource.Id.home_toolbar));
+
+        
+        public Button LogoutButton =>
+            logoutButton ?? (logoutButton = activity.FindViewById<Button>(Resource.Id.logout_button));
     }
 
     public partial class LoginActivityViewHolder
@@ -40,6 +57,8 @@ namespace VacationsTracker.Android.Views
          private TextInputLayout loginTextInput;
          private TextInputLayout passwordTextInput;
          private Button loginButton;
+         private ImageView progressRing;
+         private ImageView progressRingSecond;
 
         public LoginActivityViewHolder( Activity activity)
         {
@@ -63,6 +82,25 @@ namespace VacationsTracker.Android.Views
         
         public Button LoginButton =>
             loginButton ?? (loginButton = activity.FindViewById<Button>(Resource.Id.loginButton));
+
+        
+        public ImageView ProgressRing =>
+            progressRing ?? (progressRing = activity.FindViewById<ImageView>(Resource.Id.progress_ring));
+
+        
+        public ImageView ProgressRingSecond =>
+            progressRingSecond ?? (progressRingSecond = activity.FindViewById<ImageView>(Resource.Id.progress_ring_second));
+    }
+
+    public partial class VacationHeaderCellViewHolder
+    {
+         private TextView lastUpdateTime;
+
+
+
+        
+        public TextView LastUpdateTime =>
+            lastUpdateTime ?? (lastUpdateTime = ItemView.FindViewById<TextView>(Resource.Id.last_update_time));
     }
 
     public partial class VacationItemCellViewHolder

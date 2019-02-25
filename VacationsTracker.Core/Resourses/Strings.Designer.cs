@@ -178,6 +178,15 @@ namespace VacationsTracker.Core.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HideMyFab.ScrollAwareFABBehavior.
+        /// </summary>
+        public static string fab_scroll_translation_autohide_behavior {
+            get {
+                return ResourceManager.GetString("fab_scroll_translation_autohide_behavior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Initialize token exception.
         /// </summary>
         public static string InitializeTokeException {
@@ -219,6 +228,15 @@ namespace VacationsTracker.Core.Resourses {
         public static string KeyboardNext {
             get {
                 return ResourceManager.GetString("KeyboardNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last update.
+        /// </summary>
+        public static string LastUpdateText {
+            get {
+                return ResourceManager.GetString("LastUpdateText", resourceCulture);
             }
         }
         

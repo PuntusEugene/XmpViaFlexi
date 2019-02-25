@@ -39,4 +39,6 @@
     <string name="created_by">Root</string>
     <string name="login_is_empty">Login is empty</string>
     <string name="password_is_empty">Password is empty</string>
+    <string name="fab_scroll_translation_autohide_behavior">HideMyFab.ScrollAwareFABBehavior</string>
+    <string name="last_update_text">Last update</string>
 </resources>

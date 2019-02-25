@@ -234,4 +234,10 @@
   <data name="PasswordIsEmpty" xml:space="preserve">
     <value>Password is empty</value>
   </data>
+  <data name="fab_scroll_translation_autohide_behavior" xml:space="preserve">
+    <value>HideMyFab.ScrollAwareFABBehavior</value>
+  </data>
+  <data name="LastUpdateText" xml:space="preserve">
+    <value>Last update</value>
+  </data>
 </root>

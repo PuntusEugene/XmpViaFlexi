@@ -19,5 +19,12 @@ namespace VacationsTracker.Android.Views.Home.Vacations
 
             return new VacationItemCellViewHolder(view);
         }
+
+        protected override RecyclerViewObservableViewHolder OnCreateHeaderViewHolder(ViewGroup parent)
+        {
+            var view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.cell_vacation_header, parent, false);
+
+            return new VacationHeaderCellViewHolder(view);
+        }
     }
 }

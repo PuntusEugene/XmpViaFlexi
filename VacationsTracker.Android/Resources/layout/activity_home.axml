@@ -3,27 +3,56 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:fitsSystemWindows="true">	
 
-
-	<android.support.v7.widget.RecyclerView
-		android:id="@+id/vacations_recycler_view"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"/>
+	<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	app:layout_behavior="@string/appbar_scrolling_view_behavior">
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/vacations_recycler_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"/>
+	</android.support.v4.widget.SwipeRefreshLayout>
 	
 	<android.support.design.widget.FloatingActionButton
 		android:id="@+id/add_vacation_button"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
+		app:layout_anchor="@id/vacations_recycler_view"
 		app:fabSize="normal"
-		android:src="@android:drawable/ic_input_add"
-        android:layout_gravity="bottom|right"
-		android:tint="@color/colorButtonText"
-		android:layout_marginRight="24dp"
-		android:layout_marginBottom="40dp"
-        app:layout_anchor="@id/vacations_recycler_view"
-        app:layout_anchorGravity="bottom|right|end"
-	/>
-		
+		app:layout_anchorGravity="bottom|right|end"		
+		style="@style/FloatingActionButton"
+		app:layout_behavior="HideMyFab.ScrollAwareFABBehavior"
+	/>   
+			
+	<android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/home_toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:theme="@style/ToolbarTheme">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:textColor="@color/colorHeader"
+				android:textSize="20sp"
+				android:textStyle="bold"
+				android:text="@string/all_requsts" />
+
+			<Button 
+				android:id="@+id/logout_button"
+				android:layout_gravity="center|left"
+				android:text="@string/logout"
+				style="@style/ToolbarButtonStyle"/>
+
+		</android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
 
 </android.support.design.widget.CoordinatorLayout>
