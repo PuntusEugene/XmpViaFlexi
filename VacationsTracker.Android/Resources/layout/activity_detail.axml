@@ -54,7 +54,7 @@
 		app:layout_constraintRight_toRightOf="parent"/>
 
 	<RadioGroup
-		android:id="@+id/type_radio_group"
+		android:id="@+id/status_radio_group"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"

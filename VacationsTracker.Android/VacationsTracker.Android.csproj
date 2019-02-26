@@ -80,6 +80,7 @@
     <Compile Include="Views\Home\Vacations\VacationsAdapter.cs" />
     <Compile Include="Views\Login\LoginActivity.cs" />
     <Compile Include="Views\SplashScreenActivity.cs" />
+    <Compile Include="Views\VacationDetails\DatePickerFragment.cs" />
     <Compile Include="Views\VacationDetails\VacationDetailActivity.cs" />
     <Compile Include="Views\ViewHolderGenerator.cs">
       <AutoGen>True</AutoGen>

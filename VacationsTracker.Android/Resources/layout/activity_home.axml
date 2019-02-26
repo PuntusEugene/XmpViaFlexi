@@ -22,7 +22,7 @@
 		android:id="@+id/add_vacation_button"
 		app:layout_anchor="@id/vacations_recycler_view"
 		app:fabSize="normal"
-		app:layout_anchorGravity="bottom|right|end"		
+		app:layout_anchorGravity="bottom|right|end"	
 		style="@style/FloatingActionButton"
 		app:layout_behavior="HideMyFab.ScrollAwareFABBehavior"
 	/>   

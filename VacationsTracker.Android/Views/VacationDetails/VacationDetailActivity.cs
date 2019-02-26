@@ -1,7 +1,9 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.OS;
 using Android.Support.V4.Content;
 using FlexiMvvm.Bindings;
+using FlexiMvvm.Views;
 using FlexiMvvm.Views.V7;
 using VacationsTracker.Core.Presentation.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
@@ -27,9 +29,12 @@ namespace VacationsTracker.Android.Views.VacationDetails
             ViewHolder.DateFromViewHolder.YearOfDate.SetTextColor(primaryColor);
 
             var secondaryColor = ContextCompat.GetColorStateList(this.ApplicationContext, Resource.Color.colorSecondary);
-            ViewHolder.DateToViewHolder.DayOfDate.SetTextColor(primaryColor);
-            ViewHolder.DateToViewHolder.MonthOfDate.SetTextColor(primaryColor);
-            ViewHolder.DateToViewHolder.YearOfDate.SetTextColor(primaryColor);
+            ViewHolder.DateToViewHolder.DayOfDate.SetTextColor(secondaryColor);
+            ViewHolder.DateToViewHolder.MonthOfDate.SetTextColor(secondaryColor);
+            ViewHolder.DateToViewHolder.YearOfDate.SetTextColor(secondaryColor);
+
+            ViewHolder.DateFromViewHolder.DateFrom.ClickWeakSubscribe(DateFromSelect_OnClick);
+            ViewHolder.DateToViewHolder.DateFrom.ClickWeakSubscribe(DateToSelect_OnClick);
 
             SetSupportActionBar(ViewHolder.HomeToolbar);
         }
@@ -81,9 +86,32 @@ namespace VacationsTracker.Android.Views.VacationDetails
                 .To(vm => vm.DateEnd)
                 .WithConvertion<YearOfDateToStringValueConverter>();
 
+            bindingSet.Bind(ViewHolder.StatusRadioGroup)
+                .For(v => v.CheckAndCheckedChangeBinding)
+                .To(vm => vm.)
+                .WithConvertion<RadioGroupValueConverter>();
+
             bindingSet.Bind(ViewHolder.FabSaveButton)
                 .For(v => v.ClickBinding())
                 .To(vm => vm.BackToHomeCommand);
+        }
+
+        void DateFromSelect_OnClick(object sender, EventArgs eventArgs)
+        {
+            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            {
+                ViewModel.DateBegin = time;
+            });
+            frag.Show(FragmentManager, DatePickerFragment.TAG);
+        }
+
+        void DateToSelect_OnClick(object sender, EventArgs eventArgs)
+        {
+            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            {
+                ViewModel.DateEnd = time;
+            });
+            frag.Show(FragmentManager, DatePickerFragment.TAG);
         }
     }
 }

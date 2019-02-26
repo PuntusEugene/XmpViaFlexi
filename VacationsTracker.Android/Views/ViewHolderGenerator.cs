@@ -207,6 +207,7 @@ namespace VacationsTracker.Android.Views
     {
          private readonly View rootView;
 
+         private ConstraintLayout dateFrom;
          private View centerView;
          private TextView dayOfDate;
          private TextView monthOfDate;
@@ -218,6 +219,10 @@ namespace VacationsTracker.Android.Views
 
             this.rootView = rootView;
         }
+
+        
+        public ConstraintLayout DateFrom =>
+            dateFrom ?? (dateFrom = (ConstraintLayout)rootView);
 
         
         public View CenterView =>
