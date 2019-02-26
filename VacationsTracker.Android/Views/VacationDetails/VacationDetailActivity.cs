@@ -86,11 +86,6 @@ namespace VacationsTracker.Android.Views.VacationDetails
                 .To(vm => vm.DateEnd)
                 .WithConvertion<YearOfDateToStringValueConverter>();
 
-            bindingSet.Bind(ViewHolder.StatusRadioGroup)
-                .For(v => v.CheckAndCheckedChangeBinding)
-                .To(vm => vm.)
-                .WithConvertion<RadioGroupValueConverter>();
-
             bindingSet.Bind(ViewHolder.FabSaveButton)
                 .For(v => v.ClickBinding())
                 .To(vm => vm.BackToHomeCommand);

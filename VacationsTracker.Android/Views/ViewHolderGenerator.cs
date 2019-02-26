@@ -21,7 +21,7 @@ namespace VacationsTracker.Android.Views
          private LargeDateLayoutViewHolder dateFromViewHolder;
          private LargeDateLayoutViewHolder dateToViewHolder;
          private View separatorDateSecond;
-         private RadioGroup typeRadioGroup;
+         private RadioGroup statusRadioGroup;
          private RadioButton approvedRadio;
          private RadioButton closedRadio;
          private View separatorThird;
@@ -58,8 +58,8 @@ namespace VacationsTracker.Android.Views
             separatorDateSecond ?? (separatorDateSecond = activity.FindViewById<View>(Resource.Id.separator_date_second));
 
         
-        public RadioGroup TypeRadioGroup =>
-            typeRadioGroup ?? (typeRadioGroup = activity.FindViewById<RadioGroup>(Resource.Id.type_radio_group));
+        public RadioGroup StatusRadioGroup =>
+            statusRadioGroup ?? (statusRadioGroup = activity.FindViewById<RadioGroup>(Resource.Id.status_radio_group));
 
         
         public RadioButton ApprovedRadio =>
