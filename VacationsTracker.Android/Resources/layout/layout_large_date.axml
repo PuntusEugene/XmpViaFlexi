@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<View
+		android:id="@+id/center_view"
+		android:layout_width="1dp"
+		android:layout_height="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"/>
+	
+	<TextView
+		android:id="@+id/day_of_date"
+		android:text="20"
+		android:textSize="72sp"
+		android:textStyle="bold"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/center_view"
+		app:layout_constraintBottom_toBottomOf="parent"/>
+
+	<TextView
+		android:id="@+id/month_of_date"
+		android:text="MAR"
+		android:textSize="28sp"
+		android:textStyle="bold"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/Inset2X"
+		android:layout_marginTop="@dimen/Inset2X"
+        app:layout_constraintLeft_toRightOf="@id/center_view"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+	<TextView
+		android:id="@+id/year_of_date"
+		android:text="2017"
+		android:textSize="20sp"
+		android:textStyle="bold"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="@dimen/Inset1X"
+		app:layout_constraintTop_toBottomOf="@id/month_of_date"
+        app:layout_constraintRight_toRightOf="@id/month_of_date"
+		app:layout_constraintBottom_toBottomOf="@id/day_of_date"/>
+
+</android.support.constraint.ConstraintLayout>

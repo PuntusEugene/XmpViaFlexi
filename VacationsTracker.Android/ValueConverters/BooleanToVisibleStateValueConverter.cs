@@ -9,7 +9,7 @@ namespace VacationsTracker.Android.ValueConverters
     {
         protected override ConversionResult<ViewStates> Convert(bool value, Type targetType, object parameter, CultureInfo culture)
         {
-            var viewState = value ? ViewStates.Visible : ViewStates.Invisible;
+            var viewState = value ? ViewStates.Visible : ViewStates.Gone;
 
             return ConversionResult<ViewStates>.SetValue(viewState);
         }

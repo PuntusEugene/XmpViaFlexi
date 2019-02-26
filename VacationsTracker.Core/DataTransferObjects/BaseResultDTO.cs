@@ -3,7 +3,7 @@ using VacationsTracker.Core.DataTransferObjects.Interfaces;
 
 namespace VacationsTracker.Core.DataTransferObjects
 {
-    public class BaseResultDTO : IDataTransferObject
+    internal class BaseResultDTO : IDataTransferObject
     {
         [JsonProperty("code")]
         public string Code { get; set; }

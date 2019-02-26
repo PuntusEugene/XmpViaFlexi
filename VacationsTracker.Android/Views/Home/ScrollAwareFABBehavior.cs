@@ -11,6 +11,7 @@ using Java.Lang;
 namespace VacationsTracker.Android.Views.Home
 {
     [Register("HideMyFab.ScrollAwareFABBehavior")]
+    // ReSharper disable once InconsistentNaming
     public class ScrollAwareFABBehavior : CoordinatorLayout.Behavior
     {
         public ScrollAwareFABBehavior(Context context, IAttributeSet attrs) : base(context, attrs)

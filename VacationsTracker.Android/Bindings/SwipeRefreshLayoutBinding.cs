@@ -1,8 +1,6 @@
 ﻿using System;
 using Android.Support.Annotation;
 using Android.Support.V4.Widget;
-using Android.Text;
-using Android.Widget;
 using FlexiMvvm;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Bindings.Custom;

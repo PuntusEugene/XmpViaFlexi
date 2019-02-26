@@ -9,7 +9,7 @@ using VacationsTracker.Core.Repositories.Interfaces;
 
 namespace VacationsTracker.Core.Repositories
 {
-    public class VacationRepository : IVacationRepository
+    internal class VacationRepository : IVacationRepository
     {
         private readonly IVacationApi _vacationApi;
 

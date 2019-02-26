@@ -8,9 +8,88 @@ using Android.Widget;
 using Android.Support.Design.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V4.Widget;
+using Android.Support.Constraints;
 
 namespace VacationsTracker.Android.Views
 {
+    public partial class DetailActivityViewHolder
+    {
+         private readonly Activity activity;
+
+         private View typePager;
+         private View separatorDateFirst;
+         private LargeDateLayoutViewHolder dateFromViewHolder;
+         private LargeDateLayoutViewHolder dateToViewHolder;
+         private View separatorDateSecond;
+         private RadioGroup typeRadioGroup;
+         private RadioButton approvedRadio;
+         private RadioButton closedRadio;
+         private View separatorThird;
+         private FloatingActionButton fabSaveButton;
+         private Toolbar homeToolbar;
+         private Button backButton;
+         private Button saveButton;
+
+        public DetailActivityViewHolder( Activity activity)
+        {
+            if (activity == null) throw new ArgumentNullException(nameof(activity));
+
+            this.activity = activity;
+        }
+
+        
+        public View TypePager =>
+            typePager ?? (typePager = activity.FindViewById<View>(Resource.Id.type_pager));
+
+        
+        public View SeparatorDateFirst =>
+            separatorDateFirst ?? (separatorDateFirst = activity.FindViewById<View>(Resource.Id.separator_date_first));
+
+        
+        public LargeDateLayoutViewHolder DateFromViewHolder =>
+            dateFromViewHolder ?? (dateFromViewHolder = new LargeDateLayoutViewHolder(activity.FindViewById<ConstraintLayout>(Resource.Id.date_from)));
+
+        
+        public LargeDateLayoutViewHolder DateToViewHolder =>
+            dateToViewHolder ?? (dateToViewHolder = new LargeDateLayoutViewHolder(activity.FindViewById<ConstraintLayout>(Resource.Id.date_to)));
+
+        
+        public View SeparatorDateSecond =>
+            separatorDateSecond ?? (separatorDateSecond = activity.FindViewById<View>(Resource.Id.separator_date_second));
+
+        
+        public RadioGroup TypeRadioGroup =>
+            typeRadioGroup ?? (typeRadioGroup = activity.FindViewById<RadioGroup>(Resource.Id.type_radio_group));
+
+        
+        public RadioButton ApprovedRadio =>
+            approvedRadio ?? (approvedRadio = activity.FindViewById<RadioButton>(Resource.Id.approved_radio));
+
+        
+        public RadioButton ClosedRadio =>
+            closedRadio ?? (closedRadio = activity.FindViewById<RadioButton>(Resource.Id.closed_radio));
+
+        
+        public View SeparatorThird =>
+            separatorThird ?? (separatorThird = activity.FindViewById<View>(Resource.Id.separator_third));
+
+        
+        public FloatingActionButton FabSaveButton =>
+            fabSaveButton ?? (fabSaveButton = activity.FindViewById<FloatingActionButton>(Resource.Id.fab_save_button));
+
+        
+        public Toolbar HomeToolbar =>
+            homeToolbar ?? (homeToolbar = activity.FindViewById<Toolbar>(Resource.Id.home_toolbar));
+
+        
+        public Button BackButton =>
+            backButton ?? (backButton = activity.FindViewById<Button>(Resource.Id.back_button));
+
+        
+        public Button SaveButton =>
+            saveButton ?? (saveButton = activity.FindViewById<Button>(Resource.Id.save_button));
+    }
+
     public partial class HomeActivityViewHolder
     {
          private readonly Activity activity;
@@ -57,7 +136,6 @@ namespace VacationsTracker.Android.Views
          private TextInputLayout loginTextInput;
          private TextInputLayout passwordTextInput;
          private Button loginButton;
-         private ImageView progressRing;
          private ImageView progressRingSecond;
 
         public LoginActivityViewHolder( Activity activity)
@@ -82,10 +160,6 @@ namespace VacationsTracker.Android.Views
         
         public Button LoginButton =>
             loginButton ?? (loginButton = activity.FindViewById<Button>(Resource.Id.loginButton));
-
-        
-        public ImageView ProgressRing =>
-            progressRing ?? (progressRing = activity.FindViewById<ImageView>(Resource.Id.progress_ring));
 
         
         public ImageView ProgressRingSecond =>
@@ -127,6 +201,39 @@ namespace VacationsTracker.Android.Views
         
         public TextView VacationStatusTextView =>
             vacationStatusTextView ?? (vacationStatusTextView = ItemView.FindViewById<TextView>(Resource.Id.vacationStatusTextView));
+    }
+
+    public partial class LargeDateLayoutViewHolder
+    {
+         private readonly View rootView;
+
+         private View centerView;
+         private TextView dayOfDate;
+         private TextView monthOfDate;
+         private TextView yearOfDate;
+
+        public LargeDateLayoutViewHolder( View rootView)
+        {
+            if (rootView == null) throw new ArgumentNullException(nameof(rootView));
+
+            this.rootView = rootView;
+        }
+
+        
+        public View CenterView =>
+            centerView ?? (centerView = rootView.FindViewById<View>(Resource.Id.center_view));
+
+        
+        public TextView DayOfDate =>
+            dayOfDate ?? (dayOfDate = rootView.FindViewById<TextView>(Resource.Id.day_of_date));
+
+        
+        public TextView MonthOfDate =>
+            monthOfDate ?? (monthOfDate = rootView.FindViewById<TextView>(Resource.Id.month_of_date));
+
+        
+        public TextView YearOfDate =>
+            yearOfDate ?? (yearOfDate = rootView.FindViewById<TextView>(Resource.Id.year_of_date));
     }
 
 }

@@ -6,4 +6,4 @@
                  android:fromDegrees="0.0"
                  android:toDegrees="360.0"
                  android:repeatCount="infinite"
-                 android:duration="3000"/>
+                 android:duration="5000"/>

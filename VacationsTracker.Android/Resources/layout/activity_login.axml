@@ -37,24 +37,30 @@
 			android:password="true"/>
 		</android.support.design.widget.TextInputLayout>
 
-	<Button
-		android:id="@+id/loginButton"
-		android:text="@string/sign_in"
-		style="@style/AppTheme.Dark.NoActionBar.Button"
-		android:textStyle="bold"/>
+	<RelativeLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		
+		<Button
+			android:id="@+id/loginButton"
+			android:text="@string/sign_in"
+			style="@style/AppTheme.Dark.NoActionBar.Button"
+			android:textStyle="bold"
+			android:layout_centerInParent="true"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentRight="true"/>
 
-	<!--<ImageView android:id="@+id/progress_ring"
-		android:layout_marginVertical="@dimen/Inset2X"
-		android:src="@drawable/progress_ring_animate"
-		android:background="@color/colorButton"
-		style="@style/AppTheme.Dark.NoActionBar.Button"/>
+		<ImageView android:id="@+id/progress_ring_second"
+			android:src="@drawable/progress_ring_animate"
+			android:layout_height="@dimen/Inset8X"
+			android:layout_width="@dimen/Inset8X"
+			android:layout_marginRight="@dimen/Inset4X"
+			android:layout_alignRight="@id/loginButton"
+			android:layout_centerVertical="@id/loginButton"
+			android:layout_centerInParent="true"
+			android:elevation="2dp"/>
 
-	<ImageView android:id="@+id/progress_ring_second"
-		android:background="@drawable/progress_ring_animate_second"
-		android:layout_height="@dimen/Inset12X"
-		android:layout_width="@dimen/Inset12X"
-		android:layout_gravity="center"/>-->
+	</RelativeLayout>
 
 	
->
 </LinearLayout>

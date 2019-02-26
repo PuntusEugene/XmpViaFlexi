@@ -7,7 +7,7 @@ using VacationsTracker.Core.Repositories.Interfaces;
 
 namespace VacationsTracker.Core.Repositories
 {
-    public class IdentityRepository : IIdentityRepository
+    internal class IdentityRepository : IIdentityRepository
     {
         private readonly IIdentityApi _identityApi;
 

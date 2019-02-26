@@ -5,7 +5,7 @@ using VacationsTracker.Core.Domain;
 
 namespace VacationsTracker.Core.DataTransferObjects
 {
-    public class VacationDTO : IDataTransferObject
+    internal class VacationDTO : IDataTransferObject
     {
         [JsonProperty("id")]
         public Guid Id { get; set; }

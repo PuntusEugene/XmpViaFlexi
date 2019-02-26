@@ -8,7 +8,7 @@ using VacationsTracker.Core.DataTransferObjects;
 
 namespace VacationsTracker.Core.Api
 {
-    public class VacationApi : IVacationApi
+    internal class VacationApi : IVacationApi
     {
         private readonly IVacationApiContext _apiContext;
         private readonly IIdentityApi _identyApi;

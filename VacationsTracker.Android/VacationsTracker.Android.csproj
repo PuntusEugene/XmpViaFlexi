@@ -122,6 +122,9 @@
     <PackageReference Include="Plugin.CurrentActivity">
       <Version>2.1.0.4</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Constraint.Layout">
+      <Version>1.1.2</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.0.1</Version>
@@ -171,7 +174,12 @@
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\progress_ring.xml" />
     <AndroidResource Include="Resources\drawable\progress_ring_animate.xml" />
-    <AndroidResource Include="Resources\drawable\progress_ring_animate_second.xml" />
+    <AndroidResource Include="Resources\layout\activity_detail.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\layout_large_date.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="Views\ViewHolderGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ViewHolderGenerator.cs</LastGenOutput>

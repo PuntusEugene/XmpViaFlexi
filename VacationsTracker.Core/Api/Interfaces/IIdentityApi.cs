@@ -4,7 +4,7 @@ using VacationsTracker.Core.DataTransferObjects;
 
 namespace VacationsTracker.Core.Api.Interfaces
 {
-    public interface IIdentityApi
+    internal interface IIdentityApi
     {
         Task LoginAsync(UserCredentialDTO userCredentialModel, CancellationToken cancellationToken);
 

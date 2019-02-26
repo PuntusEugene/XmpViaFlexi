@@ -1,9 +1,11 @@
 ﻿using Android.Content;
 using FlexiMvvm;
 using FlexiMvvm.Navigation;
+using FlexiMvvm.Views;
 using VacationsTracker.Android.Views;
 using VacationsTracker.Android.Views.Home;
 using VacationsTracker.Android.Views.Login;
+using VacationsTracker.Android.Views.VacationDetails;
 using VacationsTracker.Core.Navigation;
 using VacationsTracker.Core.Presentation.ViewModels;
 using VacationsTracker.Core.Presentation.ViewModels.Home;
@@ -23,27 +25,31 @@ namespace VacationsTracker.Android.Navigation
 
         public void NavigateBackToHome(VacationDetailsViewModel fromViewModel)
         {
-            throw new System.NotImplementedException();
+            var detailActivity = GetActivity<VacationDetailsViewModel, VacationDetailActivity>(fromViewModel);
+            detailActivity.NotNull().Finish();
         }
 
         public void NavigateToHome(LoginViewModel fromViewModel)
         {
             var loginActivity = GetActivity<LoginViewModel, LoginActivity>(fromViewModel);
             var homeIntent = new Intent(loginActivity, typeof(HomeActivity));
-            homeIntent.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask);
+            homeIntent.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask | ActivityFlags.ClearTop);
             loginActivity.NotNull().StartActivity(homeIntent);
         }
 
         public void NavigateToVacationDetails(HomeViewModel fromViewModel, VacationDetailsParameters parameters)
         {
-            throw new System.NotImplementedException();
+            var homeActivity = GetActivity<HomeViewModel, HomeActivity>(fromViewModel);
+            var detailIntent = new Intent(homeActivity, typeof(VacationDetailActivity));
+            detailIntent.PutViewModelParameters(parameters);
+            homeActivity.NotNull().StartActivity(detailIntent);
         }
 
         public void NavigateToLogin(HomeViewModel fromViewModel)
         {
             var homeActivity = GetActivity<HomeViewModel, HomeActivity>(fromViewModel);
             var loginIntent = new Intent(homeActivity, typeof(LoginActivity));
-            loginIntent.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask);
+            loginIntent.AddFlags(ActivityFlags.NewTask | ActivityFlags.ClearTask | ActivityFlags.ClearTop);
             homeActivity.NotNull().StartActivity(loginIntent);
         }
     }

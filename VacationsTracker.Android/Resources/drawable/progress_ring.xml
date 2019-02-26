@@ -7,8 +7,8 @@
 
   <solid android:color="@color/colorButtonText" />
   <size
-    android:height="20dp"
-    android:width="20dp" />
+    android:height="@dimen/Inset10X"
+    android:width="@dimen/Inset10X" />
 
   <gradient
     android:type="sweep"

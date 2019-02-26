@@ -1,0 +1,128 @@
+<android.support.constraint.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<View
+		android:id="@+id/type_pager"
+		android:layout_width="match_parent"
+		android:layout_height="124dp"
+		android:background="@color/colorSecondary"
+		android:layout_marginTop="@dimen/Inset10X"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+	<View
+		android:id="@+id/separator_date_first"
+		style="@style/SeparatorDetailView"
+		android:layout_marginTop="@dimen/Inset2X"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/type_pager"
+		app:layout_constraintRight_toRightOf="parent"/>
+
+	
+	<include 
+		android:id="@+id/date_from"
+		layout="@layout/layout_large_date"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		app:layout_constraintWidth_percent="0.5"
+		android:layout_marginTop="@dimen/Inset2X"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator_date_first" />
+
+	<include 
+		android:id="@+id/date_to"
+		layout="@layout/layout_large_date"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintLeft_toRightOf="@id/date_from"
+        app:layout_constraintTop_toTopOf="@id/date_from"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintBottom_toBottomOf="@id/date_from" />
+
+	<View
+		android:id="@+id/separator_date_second"
+		style="@style/SeparatorDetailView"
+		android:layout_marginTop="@dimen/Inset2X"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/date_from"
+		app:layout_constraintRight_toRightOf="parent"/>
+
+	<RadioGroup
+		android:id="@+id/type_radio_group"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center"
+		android:layout_marginTop="@dimen/Inset3X"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/separator_date_second"
+		app:layout_constraintRight_toRightOf="parent">
+		<RadioButton android:id="@+id/approved_radio"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/approved" />
+		<RadioButton android:id="@+id/closed_radio"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/closed" />
+	</RadioGroup>
+		
+	<View
+		android:id="@+id/separator_third"
+		style="@style/SeparatorDetailView"
+		android:layout_marginTop="@dimen/Inset3X"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/type_radio_group"
+		app:layout_constraintRight_toRightOf="parent"/>
+	
+	<android.support.design.widget.FloatingActionButton
+		android:id="@+id/fab_save_button"
+		app:fabSize="normal"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		style="@style/FloatingActionButton"
+	/>   
+	
+	<android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/home_toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:theme="@style/ToolbarTheme">
+
+			<Button 
+				android:id="@+id/back_button"
+				android:layout_gravity="center|left"
+				android:background="@drawable/abc_ic_ab_back_material"
+				android:backgroundTint="@color/colorButtonText"
+				android:layout_width="24dp"
+				android:layout_height="24dp"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:textColor="@color/colorHeader"
+				android:textSize="20sp"
+				android:textStyle="bold"
+				android:text="@string/all_requsts" />
+
+			<Button 
+				android:id="@+id/save_button"
+				android:layout_gravity="center|right"
+				android:text="@string/save"
+				style="@style/ToolbarButtonStyle"/>
+
+		</android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>>
+	
+</android.support.constraint.ConstraintLayout>

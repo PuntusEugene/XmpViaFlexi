@@ -5,7 +5,7 @@ using VacationsTracker.Core.Domain;
 
 namespace VacationsTracker.Core.DataTransferObjects
 {
-    public static class MapperExtension
+    internal static class MapperExtension
     {
         static MapperExtension()
         {

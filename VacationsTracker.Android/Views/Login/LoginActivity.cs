@@ -1,7 +1,5 @@
 ﻿using Android.App;
-using Android.Graphics.Drawables;
 using Android.OS;
-using Android.Views.Animations;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views.V7;
 using VacationsTracker.Android.ValueConverters;
@@ -21,14 +19,6 @@ namespace VacationsTracker.Android.Views.Login
             SetContentView(Resource.Layout.activity_login);
 
             ViewHolder = new LoginActivityViewHolder(this);
-
-            //dynamic animate = ViewHolder.ProgressRing.Background;
-            //animate.Start();
-            //AnimationUtils.LoadAnimation(ViewHolder.ProgressRing.Context, Resource.Drawable.progress_ring_animate);
-
-            //ViewHolder.ProgressRing.Animate().RotationBy(360).SetDuration(3000).SetInterpolator(new LinearInterpolator()).Start();
-            //var animation = (AnimationDrawable)ViewHolder.ProgressRingSecond.Drawable;
-            //animation.Start();
         }
 
         public override void Bind(BindingSet<LoginViewModel> bindingSet)
@@ -59,6 +49,11 @@ namespace VacationsTracker.Android.Views.Login
             bindingSet.Bind(ViewHolder.PasswordTextInput)
                 .For(v => v.Error)
                 .To(vm => vm.PasswordEmptyError);
+            
+            bindingSet.Bind(ViewHolder.ProgressRingSecond)
+                .For(v => v.Visibility)
+                .To(vm => vm.Loading)
+                .WithConvertion<BooleanToVisibleStateValueConverter>();
         }
     }
 }

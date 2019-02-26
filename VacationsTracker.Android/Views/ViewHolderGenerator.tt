@@ -21,9 +21,10 @@
         { "android.support.design.widget.TextInputLayout", "TextInputLayout"},
         { "android.support.design.widget.FloatingActionButton", "FloatingActionButton"},
         { "android.support.v7.widget.RecyclerView", "RecyclerView"},
-        { "android.support.v7.widget.Toolbar", "Toolbar"},	
-        { "android.support.design.widget.AppBarLayout", "AppBarLayout"},	
-        { "android.support.v4.widget.SwipeRefreshLayout", "SwipeRefreshLayout"}		
+        { "android.support.v7.widget.Toolbar", "Toolbar"},
+        { "android.support.design.widget.AppBarLayout", "AppBarLayout"},
+        { "android.support.v4.widget.SwipeRefreshLayout", "SwipeRefreshLayout"},
+        { "android.support.constraint.ConstraintLayout", "ConstraintLayout"}		
     };
     LayoutDefinitionOptions.LayoutTypeNamePostfix = "ViewHolder";
     LayoutDefinitionOptions.GenerateAnnotations = false;
@@ -48,6 +49,7 @@ using Android.Widget;
 using Android.Support.Design.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V4.Widget;
+using Android.Support.Constraints;
 <# if (LayoutDefinitionOptions.GenerateAnnotations) { #>
 using JetBrains.Annotations;
 <# } #>

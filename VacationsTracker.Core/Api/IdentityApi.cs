@@ -10,7 +10,7 @@ using VacationsTracker.Core.Resourses;
 
 namespace VacationsTracker.Core.Api
 {
-    public class IdentityApi : IIdentityApi
+    internal class IdentityApi : IIdentityApi
     {
         private readonly IVacationSecureStorage _secureStorage;
         private readonly string _tokenKey = "id_token";

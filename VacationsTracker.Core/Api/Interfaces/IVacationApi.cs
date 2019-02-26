@@ -5,7 +5,7 @@ using VacationsTracker.Core.DataTransferObjects;
 
 namespace VacationsTracker.Core.Api.Interfaces
 {
-    public interface IVacationApi
+    internal interface IVacationApi
     {
         Task<BaseResultOfVacationCollectionDTO> GetVacationCollectionAsync(CancellationToken cancellationToken);
 

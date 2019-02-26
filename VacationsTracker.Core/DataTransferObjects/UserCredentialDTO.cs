@@ -3,7 +3,7 @@
 
 namespace VacationsTracker.Core.DataTransferObjects
 {
-    public class UserCredentialDTO : IDataTransferObject
+    internal class UserCredentialDTO : IDataTransferObject
     {
         public string Login { get; private set; }
 
