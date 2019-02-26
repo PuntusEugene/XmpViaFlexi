@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Support.V4.Content;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views.V7;
 using VacationsTracker.Core.Presentation.ValueConverters;
@@ -8,7 +9,7 @@ using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
 namespace VacationsTracker.Android.Views.VacationDetails
 {
     [Activity(Label = "", Theme = "@style/AppTheme.Light.NoActionBar")]
-    internal class VacationDetailActivity : FlxBindableAppCompatActivity<VacationDetailsViewModel>
+    internal class VacationDetailActivity : FlxBindableAppCompatActivity<VacationDetailsViewModel, VacationDetailsParameters>
     {
         private DetailActivityViewHolder ViewHolder { get; set; }
 
@@ -19,6 +20,16 @@ namespace VacationsTracker.Android.Views.VacationDetails
             SetContentView(Resource.Layout.activity_detail);
 
             ViewHolder = new DetailActivityViewHolder(this);
+
+            var primaryColor = ContextCompat.GetColorStateList(this.ApplicationContext, Resource.Color.colorPrimary);
+            ViewHolder.DateFromViewHolder.DayOfDate.SetTextColor(primaryColor);
+            ViewHolder.DateFromViewHolder.MonthOfDate.SetTextColor(primaryColor);
+            ViewHolder.DateFromViewHolder.YearOfDate.SetTextColor(primaryColor);
+
+            var secondaryColor = ContextCompat.GetColorStateList(this.ApplicationContext, Resource.Color.colorSecondary);
+            ViewHolder.DateToViewHolder.DayOfDate.SetTextColor(primaryColor);
+            ViewHolder.DateToViewHolder.MonthOfDate.SetTextColor(primaryColor);
+            ViewHolder.DateToViewHolder.YearOfDate.SetTextColor(primaryColor);
 
             SetSupportActionBar(ViewHolder.HomeToolbar);
         }
