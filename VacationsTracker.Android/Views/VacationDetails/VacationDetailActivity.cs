@@ -5,6 +5,7 @@ using Android.Support.V4.Content;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views;
 using FlexiMvvm.Views.V7;
+using VacationsTracker.Android.ValueConverters;
 using VacationsTracker.Core.Presentation.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
 
@@ -23,12 +24,12 @@ namespace VacationsTracker.Android.Views.VacationDetails
 
             ViewHolder = new DetailActivityViewHolder(this);
 
-            var primaryColor = ContextCompat.GetColorStateList(this.ApplicationContext, Resource.Color.colorPrimary);
+            var primaryColor = ContextCompat.GetColorStateList(ApplicationContext, Resource.Color.colorPrimary);
             ViewHolder.DateFromViewHolder.DayOfDate.SetTextColor(primaryColor);
             ViewHolder.DateFromViewHolder.MonthOfDate.SetTextColor(primaryColor);
             ViewHolder.DateFromViewHolder.YearOfDate.SetTextColor(primaryColor);
 
-            var secondaryColor = ContextCompat.GetColorStateList(this.ApplicationContext, Resource.Color.colorSecondary);
+            var secondaryColor = ContextCompat.GetColorStateList(ApplicationContext, Resource.Color.colorSecondary);
             ViewHolder.DateToViewHolder.DayOfDate.SetTextColor(secondaryColor);
             ViewHolder.DateToViewHolder.MonthOfDate.SetTextColor(secondaryColor);
             ViewHolder.DateToViewHolder.YearOfDate.SetTextColor(secondaryColor);
@@ -49,12 +50,7 @@ namespace VacationsTracker.Android.Views.VacationDetails
 
             bindingSet.Bind(ViewHolder.SaveButton)
                 .For(v => v.ClickBinding())
-                .To(vm => vm.BackToHomeCommand);
-
-
-            bindingSet.Bind(ViewHolder.FabSaveButton)
-                .For(v => v.ClickBinding())
-                .To(vm => vm.BackToHomeCommand);
+                .To(vm => vm.SaveVacationCommand);
 
             bindingSet.Bind(ViewHolder.DateFromViewHolder.DayOfDate)
                 .For(v => v.TextBinding())
@@ -86,27 +82,33 @@ namespace VacationsTracker.Android.Views.VacationDetails
                 .To(vm => vm.DateEnd)
                 .WithConvertion<YearOfDateToStringValueConverter>();
 
+            bindingSet.Bind(ViewHolder.StatusRadioGroup)
+                .For(v => v.CheckAndCheckedChangeBinding())
+                .To(vm => vm.VacationStatus)
+                .TwoWay()
+                .WithConvertion<VacationStatusToRadioButtonIdValueConverter>();
+
             bindingSet.Bind(ViewHolder.FabSaveButton)
                 .For(v => v.ClickBinding())
-                .To(vm => vm.BackToHomeCommand);
+                .To(vm => vm.SaveVacationCommand);
         }
 
-        void DateFromSelect_OnClick(object sender, EventArgs eventArgs)
+        private void DateFromSelect_OnClick(object sender, EventArgs eventArgs)
         {
-            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            var frag = DatePickerFragment.NewInstance(delegate (DateTime time)
             {
                 ViewModel.DateBegin = time;
             });
-            frag.Show(FragmentManager, DatePickerFragment.TAG);
+            frag.Show(FragmentManager, string.Empty);
         }
 
-        void DateToSelect_OnClick(object sender, EventArgs eventArgs)
+        private void DateToSelect_OnClick(object sender, EventArgs eventArgs)
         {
-            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            var frag = DatePickerFragment.NewInstance(delegate (DateTime time)
             {
                 ViewModel.DateEnd = time;
             });
-            frag.Show(FragmentManager, DatePickerFragment.TAG);
+            frag.Show(FragmentManager, string.Empty);
         }
     }
 }
