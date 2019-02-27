@@ -3,11 +3,14 @@ using Android.App;
 using Android.OS;
 using Android.Support.V4.Content;
 using FlexiMvvm.Bindings;
+using FlexiMvvm.Collections;
 using FlexiMvvm.Views;
 using FlexiMvvm.Views.V7;
 using VacationsTracker.Android.ValueConverters;
 using VacationsTracker.Core.Presentation.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails;
+using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.VacationPager;
+using Fragment = Android.Support.V4.App.Fragment;
 
 namespace VacationsTracker.Android.Views.VacationDetails
 {
@@ -15,6 +18,8 @@ namespace VacationsTracker.Android.Views.VacationDetails
     internal class VacationDetailActivity : FlxBindableAppCompatActivity<VacationDetailsViewModel, VacationDetailsParameters>
     {
         private DetailActivityViewHolder ViewHolder { get; set; }
+
+        private FragmentPagerObservableAdapter Adapter { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -37,7 +42,25 @@ namespace VacationsTracker.Android.Views.VacationDetails
             ViewHolder.DateFromViewHolder.DateFrom.ClickWeakSubscribe(DateFromSelect_OnClick);
             ViewHolder.DateToViewHolder.DateFrom.ClickWeakSubscribe(DateToSelect_OnClick);
 
+            SetPagerAdapter();
+
             SetSupportActionBar(ViewHolder.HomeToolbar);
+            SetTabLayout();
+        }
+
+        private void SetTabLayout()
+        {
+            ViewHolder.TabLayout.SetupWithViewPager(ViewHolder.VacationPager);
+        }
+
+        private void SetPagerAdapter()
+        {
+            Adapter = new FragmentPagerObservableAdapter(SupportFragmentManager, FragmentsFactory)
+            {
+                Items = ViewModel.VacationTypes
+            };
+
+            ViewHolder.VacationPager.Adapter = Adapter;
         }
 
         public override void Bind(BindingSet<VacationDetailsViewModel> bindingSet)
@@ -47,6 +70,16 @@ namespace VacationsTracker.Android.Views.VacationDetails
             bindingSet.Bind(ViewHolder.BackButton)
                 .For(v => v.ClickBinding())
                 .To(vm => vm.BackToHomeCommand);
+
+            bindingSet.Bind(Adapter)
+                .For(v => v.Items)
+                .To(vm => vm.VacationTypes);
+
+            bindingSet.Bind(ViewHolder.VacationPager)
+                .For(v => v.SetCurrentItemAndPageSelectedBinding())
+                .To(vm => vm.VacationType)
+                .TwoWay()
+                .WithConvertion<VacationTypeToPagerValueConverter>();
 
             bindingSet.Bind(ViewHolder.SaveButton)
                 .For(v => v.ClickBinding())
@@ -109,6 +142,25 @@ namespace VacationsTracker.Android.Views.VacationDetails
                 ViewModel.DateEnd = time;
             });
             frag.Show(FragmentManager, string.Empty);
+        }
+
+        private Fragment FragmentsFactory(object parameters)
+        {
+            if (parameters is VacationTypePagerParameters vacationTypePagerParameters)
+            {
+                var bundle = new Bundle();
+                bundle.PutViewModelParameters(vacationTypePagerParameters);
+
+                var fragment = new VacationTypeFragment()
+                {
+                    Arguments = bundle
+                };
+
+                return fragment;
+            }
+
+            throw new NotSupportedException(nameof(parameters));
+
         }
     }
 }

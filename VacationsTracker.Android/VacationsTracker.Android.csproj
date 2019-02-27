@@ -73,6 +73,7 @@
     <Compile Include="ValueConverters\BooleanToVisibleStateInvertedValueConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibleStateValueConverter.cs" />
     <Compile Include="ValueConverters\VacationStatusToRadioButtonIdValueConverter.cs" />
+    <Compile Include="ValueConverters\VacationTypeToPagerValueConverter.cs" />
     <Compile Include="ValueConverters\VacationTypeToResourceImageValueConverter.cs" />
     <Compile Include="Views\Home\HomeActivity.cs" />
     <Compile Include="Views\Home\ScrollAwareFABBehavior.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Views\SplashScreenActivity.cs" />
     <Compile Include="Views\VacationDetails\DatePickerFragment.cs" />
     <Compile Include="Views\VacationDetails\VacationDetailActivity.cs" />
+    <Compile Include="Views\VacationDetails\VacationTypeFragment.cs" />
     <Compile Include="Views\ViewHolderGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +130,9 @@
       <Version>1.1.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.v4">
+      <Version>27.0.2.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.0.1</Version>
     </PackageReference>
@@ -183,6 +188,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\ic_done.png" />
+    <AndroidResource Include="Resources\layout\fragment_vacation_type.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="Views\ViewHolderGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ViewHolderGenerator.cs</LastGenOutput>

@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.Support.Design.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V4.Widget;
+using Android.Support.V4.View;
 using Android.Support.Constraints;
 
 namespace VacationsTracker.Android.Views
@@ -17,6 +18,8 @@ namespace VacationsTracker.Android.Views
          private readonly Activity activity;
 
          private View typePager;
+         private ViewPager vacationPager;
+         private TabLayout tabLayout;
          private View separatorDateFirst;
          private LargeDateLayoutViewHolder dateFromViewHolder;
          private LargeDateLayoutViewHolder dateToViewHolder;
@@ -40,6 +43,14 @@ namespace VacationsTracker.Android.Views
         
         public View TypePager =>
             typePager ?? (typePager = activity.FindViewById<View>(Resource.Id.type_pager));
+
+        
+        public ViewPager VacationPager =>
+            vacationPager ?? (vacationPager = activity.FindViewById<ViewPager>(Resource.Id.vacationPager));
+
+        
+        public TabLayout TabLayout =>
+            tabLayout ?? (tabLayout = activity.FindViewById<TabLayout>(Resource.Id.tabLayout));
 
         
         public View SeparatorDateFirst =>
@@ -201,6 +212,29 @@ namespace VacationsTracker.Android.Views
         
         public TextView VacationStatusTextView =>
             vacationStatusTextView ?? (vacationStatusTextView = ItemView.FindViewById<TextView>(Resource.Id.vacationStatusTextView));
+    }
+
+    public partial class VacationTypeFragmentViewHolder
+    {
+         private readonly View rootView;
+
+         private ImageView vacationTypeImageView;
+         private TextView vacationTypeTextView;
+
+        public VacationTypeFragmentViewHolder( View rootView)
+        {
+            if (rootView == null) throw new ArgumentNullException(nameof(rootView));
+
+            this.rootView = rootView;
+        }
+
+        
+        public ImageView VacationTypeImageView =>
+            vacationTypeImageView ?? (vacationTypeImageView = rootView.FindViewById<ImageView>(Resource.Id.vacation_type_image_view));
+
+        
+        public TextView VacationTypeTextView =>
+            vacationTypeTextView ?? (vacationTypeTextView = rootView.FindViewById<TextView>(Resource.Id.vacation_type_text_view));
     }
 
     public partial class LargeDateLayoutViewHolder
