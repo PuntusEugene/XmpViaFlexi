@@ -7,32 +7,32 @@
 	
 	<ImageView
 		android:id="@+id/vacationTypeImageView"
-		style="@style/VacationTypeImageView"
+		style="@style/AppTheme.Light.VacationTypeImageView"
 		android:layout_marginHorizontal="@dimen/Inset3X"/>
 
 	<TextView		
 		android:id="@+id/vacationDurationTextView"
-		style="@style/VacationDurationTextView"
+		style="@style/AppTheme.Light.VacationDurationTextView"
 		android:layout_marginTop="@dimen/Inset3X"
 		android:layout_toRightOf="@id/vacationTypeImageView"
 		android:layout_alignTop="@id/vacationTypeImageView"/>
 	
 	<TextView
 		android:id="@+id/vacationTypeTextView"
-		style="@style/VacationTypeTextView"
+		style="@style/AppTheme.Light.VacationTypeTextView"
 		android:layout_marginBottom="@dimen/Inset1X"
 		android:layout_alignLeft="@id/vacationDurationTextView"
 		android:layout_below="@id/vacationDurationTextView"/>
 	
 	<TextView
 		android:id="@+id/vacationStatusTextView"
-		style="@style/VacationStatusTextView"
+		style="@style/AppTheme.Light.VacationStatusTextView"
 		android:layout_alignParentRight="true"
 		android:layout_centerInParent="true"
 		android:layout_marginRight="@dimen/Inset8X"/>
 
 	<View
-		style="@style/SeparatorCellView"
+		style="@style/AppTheme.Light.SeparatorCellView"
 		android:layout_toRightOf="@id/vacationTypeImageView"
 		android:layout_alignParentBottom="true"/>
 

@@ -13,15 +13,76 @@
       <item name="android:windowFullscreen">true</item>
     </style>
 
+    <!-- AppTheme Dark-->
+
+    <style name="AppTheme.Dark" parent ="Theme.AppCompat.Light">
+    </style>
+
     <style name="AppTheme.Dark.NoActionBar" parent ="Theme.AppCompat.Light.NoActionBar">
     </style>
 
-    <style name="AppTheme.CustomToolbar" parent="Theme.AppCompat.Light.DarkActionBar">
-      <item name="colorPrimary">@color/colorPrimary</item>
-      <item name="colorAccent">@color/colorAccent</item>
-      <item name="windowActionBar">false</item>
-      <item name="windowNoTitle">true</item>
+    <style name="AppTheme.Dark.LoginLayout">
+      <item name="android:orientation">vertical</item>
+      <item name="android:layout_width">match_parent</item>
+      <item name="android:layout_height">match_parent</item>
+      <item name="android:background">@drawable/login_bg</item>
+      <item name="android:paddingHorizontal">@dimen/Inset3X</item>
+      <item name="android:paddingTop">@dimen/Inset14X</item>
     </style>
+
+    <style name="AppTheme.Dark.InvalidLabel">
+      <item name="android:background">@drawable/round_text_view</item>
+      <item name="android:backgroundTint">@android:color/white</item>
+      <item name="android:textColor">@color/colorError</item>
+      <item name="android:textSize">12sp</item>
+      <item name="android:textAlignment">center</item>
+      <item name="android:paddingHorizontal">@dimen/Inset3X</item>
+      <item name="android:paddingVertical">@dimen/Inset4X</item>
+      <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="AppTheme.Dark.TextInputLayout">
+      <item name="android:layout_width">match_parent</item>
+      <item name="android:layout_height">@dimen/TextInputLayoutSize</item>
+      <item name="android:paddingVertical">@dimen/Inset1X</item>
+      <item name="android:textColorHint">@color/colorTextInputHint</item>
+    </style>
+
+    <style name="AppTheme.Dark.TextInputEditText">
+      <item name="android:layout_width">match_parent</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:singleLine">true</item>
+      <item name="android:paddingHorizontal">@dimen/Inset3X</item>
+      <item name="android:textColor">@color/colorTextInputEdit</item>
+      <item name="android:backgroundTint">@color/colorSecondary</item>
+    </style>
+
+    <style name="AppTheme.Dark.Button">
+      <item name="android:layout_height">@dimen/ButtonSize</item>
+      <item name="android:textColor">@color/colorButtonText</item>
+      <item name="android:backgroundTint">@color/colorButton</item>
+      <item name="android:textSize">16sp</item>
+      <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.Dark.ErrorText">
+      <item name="android:textSize">10sp</item>
+      <item name="android:textColor">@color/colorTextInputError</item>
+    </style>
+
+    <style name="AppTheme.Dark.LoginErrorText" parent="AppTheme.Dark.ErrorText">
+      <item name="android:text">@string/login_is_empty</item>
+    </style>
+
+    <style name="AppTheme.Dark.PasswordErrorText" parent="AppTheme.Dark.ErrorText">
+      <item name="android:text">@string/password_is_empty</item>
+    </style>
+
+  <!-- end AppTheme Dark-->
+
+
+
+    <!-- AppTheme Light-->
 
     <style name="AppTheme.Light" parent ="Theme.AppCompat.Light">
       <item name="colorPrimary">@color/colorPrimary</item>
@@ -35,59 +96,50 @@
       <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.Dark.NoActionBar.LinearLayout" parent ="AppTheme.Dark.NoActionBar">
-      <item name="android:orientation">vertical</item>
-      <item name="android:layout_width">match_parent</item>
-      <item name="android:layout_height">match_parent</item>
-      <item name="android:background">@drawable/login_bg</item>
-      <item name="android:paddingHorizontal">@dimen/Inset3X</item>
-      <item name="android:paddingTop">@dimen/Inset14X</item>
-    </style>
-
-    <style name="AppTheme.TextInputLayout" parent ="AppTheme.Dark.NoActionBar">
-      <item name="android:layout_width">match_parent</item>
-      <item name="android:layout_height">84dp</item>
-      <item name="android:paddingVertical">@dimen/Inset1X</item>
-      <item name="android:textColorHint">@color/colorTextInputHint</item>
-    </style>
-
-  <style name="AppTheme.TextInputEditText">
-      <item name="android:layout_width">match_parent</item>
+    <style name="AppTheme.Light.FloatingActionButton">
+      <item name="android:layout_width">wrap_content</item>
       <item name="android:layout_height">wrap_content</item>
-      <item name="android:singleLine">true</item>
-      <item name="android:paddingHorizontal">@dimen/Inset3X</item>
-      <item name="android:textColor">@color/colorTextInputEdit</item>
-      <item name="android:backgroundTint">@color/colorSecondary</item>
+      <item name="android:layout_marginRight">@dimen/Inset4X</item>
+      <item name="android:layout_marginBottom">@dimen/Inset4X</item>
+      <item name="android:tint">@color/colorButtonText</item>
+      <item name="backgroundTint">@color/colorPrimary</item>
+      <item name="android:layout_gravity">bottom|right</item>
+      <item name="fabSize">normal</item>
     </style>
 
-    <style name="AppTheme.Dark.NoActionBar.Button" parent="AppTheme.Dark.NoActionBar">
-      <item name="android:layout_width">match_parent</item>
-      <item name="android:layout_height">@dimen/Inset14X</item>
-      <item name="android:textColor">@color/colorButtonText</item>
-      <item name="android:backgroundTint">@color/colorButton</item>
-      <item name="android:textSize">16sp</item>
+    <style name="AppTheme.Light.Toolbar">
+      <item name="colorPrimary">@color/colorPrimary</item>
+      <item name="colorAccent">@color/colorAccent</item>
+      <item name="android:background">@color/colorPrimary</item>
     </style>
 
-    <style name="ErrorText">
-      <item name="android:textSize">10sp</item>
-      <item name="android:textColor">@color/colorTextInputError</item>
+    <style name="AppTheme.Light.Toolbar.Header">
+      <item name="android:background">@null</item>
+      <item name="android:textColor">@color/colorHeader</item>
+      <item name="android:textSize">20sp</item>
+      <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="LoginErrorText" parent="ErrorText">
-      <item name="android:text">@string/login_is_empty</item>
+    <style name="AppTheme.Light.Toolbar.Button">
+      <item name="android:background">@null</item>
+      <item name="android:textColor">@color/colorHeader</item>
     </style>
 
-    <style name="PasswordErrorText" parent="ErrorText">
-      <item name="android:text">@string/password_is_empty</item>
+    <style name="AppTheme.Light.Toolbar.ImageButton">
+      <item name="android:layout_width">@dimen/Inset6X</item>
+      <item name="android:layout_height">@dimen/Inset6X</item>
+      <item name="android:backgroundTint">@color/colorButtonText</item>
     </style>
 
-  <style name="VacationTypeImageView">
+    <!-- end AppTheme Light-->
+
+  <style name="AppTheme.Light.VacationTypeImageView">
     <item name="android:layout_width">@dimen/Inset14X</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:src">@drawable/icon_request_blue</item>
   </style>
 
-  <style name="VacationDurationTextView">
+  <style name="AppTheme.Light.VacationDurationTextView">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:text">MAR 20 - MAR 31</item>
@@ -96,58 +148,31 @@
     <item name="android:textSize">20sp</item>
   </style>
 
-  <style name="VacationTypeTextView">
+  <style name="AppTheme.Light.VacationTypeTextView">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:text">Regular</item>
     <item name="android:textSize">12sp</item>
   </style>
 
-  <style name="VacationStatusTextView">
+  <style name="AppTheme.Light.VacationStatusTextView">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:text">Approved</item>
     <item name="android:gravity">center</item>
   </style>
 
-    <style name="SeparatorView">
+    <style name="AppTheme.Light.SeparatorView">
       <item name="android:layout_width">match_parent</item>
       <item name="android:layout_height">@dimen/SeparatorSize</item>
     </style>
 
-    <style name="SeparatorCellView" parent="SeparatorView">
+    <style name="AppTheme.Light.SeparatorCellView" parent="AppTheme.Light.SeparatorView">
       <item name="android:background">@color/colorSeparatorCell</item>
     </style>
 
-    <style name="SeparatorDetailView" parent="SeparatorView">
+    <style name="AppTheme.Light.SeparatorDetailView" parent="AppTheme.Light.SeparatorView">
       <item name="android:background">@color/colorSeparatorDetail</item>
-    </style>
-
-    <style name="FloatingActionButton">
-      <item name="android:layout_width">wrap_content</item>
-      <item name="android:layout_height">wrap_content</item>
-      <item name="android:layout_marginRight">@dimen/Inset4X</item>
-      <item name="android:layout_marginBottom">@dimen/Inset4X</item>
-      <item name="android:src">@android:drawable/ic_input_add</item>
-      <item name="android:tint">@color/colorButtonText</item>
-      <item name="backgroundTint">@color/colorPrimary</item>
-      <item name="android:layout_gravity">bottom|right</item>
-    </style>
-
-
-    <style name="ToolbarButtonStyle">
-      <item name="android:layout_width">wrap_content</item>
-      <item name="android:layout_height">wrap_content</item>
-      <item name="android:background">@null</item>
-      <item name="android:textColor">@android:color/white</item>
-    </style>
-
-    <style name="ToolbarTheme" parent="Theme.AppCompat">
-      <item name="android:layout_width">match_parent</item>
-      <item name="android:layout_height">@dimen/Inset8X</item>
-      <item name="colorPrimary">@color/colorPrimary</item>
-      <item name="colorAccent">@color/colorAccent</item>
-      <item name="android:background">@color/colorPrimary</item>
     </style>
 
 </resources>

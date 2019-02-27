@@ -1,37 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/AppTheme.Dark.NoActionBar.LinearLayout">
+    style="@style/AppTheme.Dark.LoginLayout">
 
 	<TextView
 	android:id="@+id/invalidCredentialLabel"
+	style="@style/AppTheme.Dark.InvalidLabel"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:text="@string/invalid_credential"
-	android:textColor="@color/colorError"
-	android:textSize="12sp"
-	android:textAlignment="center"
-	android:paddingHorizontal="@dimen/Inset3X"
-	android:paddingVertical="@dimen/Inset4X"
-	android:background="@drawable/round_text_view"
 	android:layout_marginBottom="@dimen/Inset4X"/>
 
 	<android.support.design.widget.TextInputLayout
 		android:id="@+id/loginTextInput"
-		style="@style/AppTheme.TextInputLayout"
-		app:errorTextAppearance="@style/ErrorText">
+		style="@style/AppTheme.Dark.TextInputLayout"
+		app:errorTextAppearance="@style/AppTheme.Dark.ErrorText">
 		<android.support.design.widget.TextInputEditText
-			style="@style/AppTheme.TextInputEditText"
+			style="@style/AppTheme.Dark.TextInputEditText"
 			android:imeOptions="actionNext"
 			android:hint="@string/login"/>
 		</android.support.design.widget.TextInputLayout>
 
 	<android.support.design.widget.TextInputLayout
 		android:id="@+id/passwordTextInput"
-		style="@style/AppTheme.TextInputLayout"
-		app:errorTextAppearance="@style/ErrorText">
+		style="@style/AppTheme.Dark.TextInputLayout"
+		app:errorTextAppearance="@style/AppTheme.Dark.ErrorText">
 		<android.support.design.widget.TextInputEditText
-			style="@style/AppTheme.TextInputEditText"
+			style="@style/AppTheme.Dark.TextInputEditText"
 			android:hint="@string/password"
 			android:imeOptions="actionDone"
 			android:password="true"/>
@@ -43,20 +38,17 @@
 		
 		<Button
 			android:id="@+id/loginButton"
+			style="@style/AppTheme.Dark.Button"
+			android:layout_width="match_parent"
 			android:text="@string/sign_in"
-			style="@style/AppTheme.Dark.NoActionBar.Button"
-			android:textStyle="bold"
 			android:layout_centerInParent="true"
 			android:layout_alignParentLeft="true"
 			android:layout_alignParentRight="true"/>
 
 		<ImageView android:id="@+id/progress_ring_second"
 			android:src="@drawable/progress_ring_animate"
-			android:layout_height="@dimen/Inset8X"
-			android:layout_width="@dimen/Inset8X"
-			android:layout_marginRight="@dimen/Inset4X"
-			android:layout_alignRight="@id/loginButton"
-			android:layout_centerVertical="@id/loginButton"
+			android:layout_height="@dimen/ProgressRingSize"
+			android:layout_width="@dimen/ProgressRingSize"
 			android:layout_centerInParent="true"
 			android:elevation="2dp"/>
 
