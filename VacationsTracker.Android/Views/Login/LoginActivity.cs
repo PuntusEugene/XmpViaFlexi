@@ -3,6 +3,7 @@ using Android.OS;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views.V7;
 using VacationsTracker.Android.ValueConverters;
+using VacationsTracker.Core.Presentation.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels.Login;
 
 namespace VacationsTracker.Android.Views.Login
@@ -49,7 +50,12 @@ namespace VacationsTracker.Android.Views.Login
             bindingSet.Bind(ViewHolder.PasswordTextInput)
                 .For(v => v.Error)
                 .To(vm => vm.PasswordEmptyError);
-            
+
+            bindingSet.Bind(ViewHolder.LoginButton)
+                .For(v => v.TextBinding())
+                .To(vm => vm.Loading)
+                .WithConvertion<LoadingToTextLoginButtonValueConverter>();
+
             bindingSet.Bind(ViewHolder.ProgressRingSecond)
                 .For(v => v.Visibility)
                 .To(vm => vm.Loading)
