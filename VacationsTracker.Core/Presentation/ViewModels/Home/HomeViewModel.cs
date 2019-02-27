@@ -30,6 +30,7 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
             get => _loading;
             set => Set(ref _loading, value);
         }
+
         public DateTime LastUpdateTime
         {
             get => _lastUpdateTime;

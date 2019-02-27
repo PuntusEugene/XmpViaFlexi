@@ -14,11 +14,11 @@
   <dimen name="Inset12X">48dp</dimen>
   <dimen name="Inset13X">52dp</dimen>
   <dimen name="Inset14X">56dp</dimen>
+
   <dimen name="SeparatorSize">1dp</dimen>
   <dimen name="CellSize">72dp</dimen>
   <dimen name="TextInputLayoutSize">84dp</dimen>
   <dimen name="ButtonSize">56dp</dimen>
   <dimen name="ProgressRingSize">24dp</dimen>
   <dimen name="ToolbarSize">40dp</dimen>
-  
 </resources>

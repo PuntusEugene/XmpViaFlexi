@@ -14,6 +14,8 @@ namespace VacationsTracker.Android.Views.Home
     // ReSharper disable once InconsistentNaming
     public class ScrollAwareFABBehavior : CoordinatorLayout.Behavior
     {
+        private bool _isShow = true;
+
         public ScrollAwareFABBehavior(Context context, IAttributeSet attrs) : base(context, attrs)
         {
         }
@@ -31,8 +33,8 @@ namespace VacationsTracker.Android.Views.Home
             base.OnNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, type);
 
             var floatingActionButtonChild = child.JavaCast<FloatingActionButton>();
-
-            if (dyConsumed > 0)
+            
+            if (dyConsumed > 0 && _isShow)
             {
                 Hide(floatingActionButtonChild);
             }
@@ -44,17 +46,25 @@ namespace VacationsTracker.Android.Views.Home
 
         private void Hide(FloatingActionButton button)
         {
+            _isShow = false;
             ViewCompat.Animate(button).ScaleX(0F).ScaleY(0F).Alpha(1.0F)
                 .SetInterpolator(new FastOutSlowInInterpolator()).WithLayer().SetListener(null)
                 .WithStartAction(new AnimationDrawable())
-                .WithEndAction(new Runnable(() => button.Visibility = ViewStates.Invisible));
+                .WithEndAction(new Runnable(() =>
+                {
+                    button.Visibility = ViewStates.Invisible;
+                }));
         }
 
         private void Show(FloatingActionButton button)
         {
+            _isShow = true;
             ViewCompat.Animate(button).ScaleX(1.0F).ScaleY(1.0F).Alpha(1.0F)
                 .SetInterpolator(new FastOutLinearInInterpolator()).WithLayer().SetListener(null)
-                .WithStartAction(new Runnable(() => button.Visibility = ViewStates.Visible));
+                .WithStartAction(new Runnable(() =>
+                {
+                    button.Visibility = ViewStates.Visible;
+                }));
         }
     }
 }
