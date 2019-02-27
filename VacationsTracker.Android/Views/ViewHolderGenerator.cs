@@ -17,7 +17,10 @@ namespace VacationsTracker.Android.Views
     {
          private readonly Activity activity;
 
-         private View typePager;
+         private Toolbar homeToolbar;
+         private Button backButton;
+         private Button saveButton;
+         private ProgressBar indeterminateBar;
          private ViewPager vacationPager;
          private TabLayout tabLayout;
          private View separatorDateFirst;
@@ -29,9 +32,6 @@ namespace VacationsTracker.Android.Views
          private RadioButton closedRadio;
          private View separatorThird;
          private FloatingActionButton fabSaveButton;
-         private Toolbar homeToolbar;
-         private Button backButton;
-         private Button saveButton;
 
         public DetailActivityViewHolder( Activity activity)
         {
@@ -41,8 +41,20 @@ namespace VacationsTracker.Android.Views
         }
 
         
-        public View TypePager =>
-            typePager ?? (typePager = activity.FindViewById<View>(Resource.Id.type_pager));
+        public Toolbar HomeToolbar =>
+            homeToolbar ?? (homeToolbar = activity.FindViewById<Toolbar>(Resource.Id.home_toolbar));
+
+        
+        public Button BackButton =>
+            backButton ?? (backButton = activity.FindViewById<Button>(Resource.Id.back_button));
+
+        
+        public Button SaveButton =>
+            saveButton ?? (saveButton = activity.FindViewById<Button>(Resource.Id.save_button));
+
+        
+        public ProgressBar IndeterminateBar =>
+            indeterminateBar ?? (indeterminateBar = activity.FindViewById<ProgressBar>(Resource.Id.indeterminateBar));
 
         
         public ViewPager VacationPager =>
@@ -87,18 +99,6 @@ namespace VacationsTracker.Android.Views
         
         public FloatingActionButton FabSaveButton =>
             fabSaveButton ?? (fabSaveButton = activity.FindViewById<FloatingActionButton>(Resource.Id.fab_save_button));
-
-        
-        public Toolbar HomeToolbar =>
-            homeToolbar ?? (homeToolbar = activity.FindViewById<Toolbar>(Resource.Id.home_toolbar));
-
-        
-        public Button BackButton =>
-            backButton ?? (backButton = activity.FindViewById<Button>(Resource.Id.back_button));
-
-        
-        public Button SaveButton =>
-            saveButton ?? (saveButton = activity.FindViewById<Button>(Resource.Id.save_button));
     }
 
     public partial class HomeActivityViewHolder

@@ -75,6 +75,11 @@ namespace VacationsTracker.Android.Views.VacationDetails
                 .For(v => v.Items)
                 .To(vm => vm.VacationTypes);
 
+            bindingSet.Bind(ViewHolder.IndeterminateBar)
+                .For(v => v.Visibility)
+                .To(vm => vm.Loading)
+                .WithConvertion<BooleanToVisibleStateValueConverter>();
+
             bindingSet.Bind(ViewHolder.VacationPager)
                 .For(v => v.SetCurrentItemAndPageSelectedBinding())
                 .To(vm => vm.VacationType)

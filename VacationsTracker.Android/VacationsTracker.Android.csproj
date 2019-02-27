@@ -191,6 +191,9 @@
     <AndroidResource Include="Resources\layout\fragment_vacation_type.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\dot_selector.xml" />
+    <AndroidResource Include="Resources\drawable\dot_selected.xml" />
+    <AndroidResource Include="Resources\drawable\dot_default.xml" />
     <Content Include="Views\ViewHolderGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ViewHolderGenerator.cs</LastGenOutput>

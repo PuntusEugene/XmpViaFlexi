@@ -1,4 +1,5 @@
 ﻿using Android.OS;
+using Android.Views;
 using FlexiMvvm.Bindings;
 using FlexiMvvm.Views.V4;
 using VacationsTracker.Android.Bindings;
@@ -9,18 +10,18 @@ using LayoutInflater = Android.Views.LayoutInflater;
 
 namespace VacationsTracker.Android.Views.VacationDetails
 {
-    public class VacationTypeFragment : FlxBindableFragment<VacationTypePagerViewModel>
+    public class VacationTypeFragment 
+        : FlxBindableFragment<VacationTypePagerViewModel, VacationTypePagerParameters>
     {
         private VacationTypeFragmentViewHolder ViewHolder { get; set; }
 
-        public override void OnCreate(Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState);
-
-            // TODO inflate view
-            var view = LayoutInflater.From(Context).Inflate(Resource.Layout.fragment_vacation_type, null, false);
+            var view = inflater.Inflate(Resource.Layout.fragment_vacation_type, container, false);
 
             ViewHolder = new VacationTypeFragmentViewHolder(view);
+
+            return view;
         }
 
         public override void Bind(BindingSet<VacationTypePagerViewModel> bindingSet)
