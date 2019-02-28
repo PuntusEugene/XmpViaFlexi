@@ -63,8 +63,6 @@ namespace VacationsTracker.Core.Presentation.ViewModels.Home
                         Vacations.Clear();
                         var vacations = vacationModels.Select(vacation => new VacationItemViewModel(vacation));
                         Vacations.AddRange(vacations);
-                        Vacations.AddRange(vacations);
-                        Vacations.AddRange(vacations);
 
                         LastUpdateTime = DateTime.Now;
                     })
