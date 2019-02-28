@@ -9,9 +9,8 @@ namespace VacationsTracker.Android.Views.VacationDetails
     public class DatePickerFragment : DialogFragment,
         DatePickerDialog.IOnDateSetListener
     {
-        // Initialize this value to prevent NullReferenceExceptions.
-        Action<DateTime> _dateSelectedHandler;
-        DateTime _currentDate;
+        private DateTime _currentDate;
+        private Action<DateTime> _dateSelectedHandler;
 
         public static DatePickerFragment NewInstance([NonNull] DateTime currentDate, Action<DateTime> onDateSelected)
         {

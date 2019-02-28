@@ -86,6 +86,7 @@
 
     <style name="AppTheme.Light" parent ="Theme.AppCompat.Light">
       <item name="colorPrimary">@color/colorPrimary</item>
+      <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
       <item name="colorAccent">@color/colorAccent</item>
       <item name="windowActionBar">false</item>
       <item name="windowNoTitle">true</item>
@@ -93,6 +94,7 @@
 
     <style name="AppTheme.Light.NoActionBar" parent ="Theme.AppCompat.Light.NoActionBar">
       <item name="colorPrimary">@color/colorPrimary</item>
+      <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
       <item name="colorAccent">@color/colorAccent</item>
     </style>
 
@@ -151,6 +153,7 @@
       <item name="android:layout_height">wrap_content</item>
       <item name="android:text">Regular</item>
       <item name="android:textSize">12sp</item>
+      <item name="android:textColor">@color/colorTextBody</item>
     </style>
 
     <style name="AppTheme.Light.VacationStatusTextView">
@@ -158,6 +161,7 @@
       <item name="android:layout_height">wrap_content</item>
       <item name="android:text">Approved</item>
       <item name="android:gravity">center</item>
+      <item name="android:textColor">@color/colorTextBody</item>
     </style>
 
     <style name="AppTheme.Light.SeparatorView">

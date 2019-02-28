@@ -35,6 +35,8 @@ namespace VacationsTracker.Android.Views.Home
             ViewHolder.VacationsRecyclerView.SetLayoutManager(new LinearLayoutManager(this, 1, false));
 
             SetSupportActionBar(ViewHolder.HomeToolbar);
+            
+            ViewHolder.SwipeRefresh.SetColorSchemeResources(Resource.Color.colorAccent);
         }
 
         public override void Bind(BindingSet<HomeViewModel> bindingSet)
