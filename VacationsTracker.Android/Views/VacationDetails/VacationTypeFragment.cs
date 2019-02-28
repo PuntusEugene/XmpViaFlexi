@@ -6,7 +6,6 @@ using VacationsTracker.Android.Bindings;
 using VacationsTracker.Android.ValueConverters;
 using VacationsTracker.Core.Presentation.ValueConverters;
 using VacationsTracker.Core.Presentation.ViewModels.VacationDetails.VacationPager;
-using LayoutInflater = Android.Views.LayoutInflater;
 
 namespace VacationsTracker.Android.Views.VacationDetails
 {

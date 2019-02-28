@@ -20,5 +20,7 @@
   <dimen name="TextInputLayoutSize">84dp</dimen>
   <dimen name="ButtonSize">56dp</dimen>
   <dimen name="ProgressRingSize">24dp</dimen>
-  <dimen name="ToolbarSize">40dp</dimen>
+  <dimen name="VacationPagerSize">120dp</dimen>
+  <dimen name="PageToolbarHeight">40dp</dimen>
+  <dimen name="VacationTypeImageHeight">76dp</dimen>
 </resources>

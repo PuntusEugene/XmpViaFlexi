@@ -17,12 +17,13 @@ namespace VacationsTracker.Android.Views
     {
          private readonly Activity activity;
 
-         private Toolbar homeToolbar;
+         private AppBarLayout pageAppbar;
+         private Toolbar pageToolbar;
          private Button backButton;
          private Button saveButton;
-         private ProgressBar indeterminateBar;
+         private ProgressBar horizontalProgressBar;
          private ViewPager vacationPager;
-         private TabLayout tabLayout;
+         private TabLayout dotTabLayout;
          private View separatorDateFirst;
          private LargeDateLayoutViewHolder dateFromViewHolder;
          private LargeDateLayoutViewHolder dateToViewHolder;
@@ -41,8 +42,12 @@ namespace VacationsTracker.Android.Views
         }
 
         
-        public Toolbar HomeToolbar =>
-            homeToolbar ?? (homeToolbar = activity.FindViewById<Toolbar>(Resource.Id.home_toolbar));
+        public AppBarLayout PageAppbar =>
+            pageAppbar ?? (pageAppbar = activity.FindViewById<AppBarLayout>(Resource.Id.page_appbar));
+
+        
+        public Toolbar PageToolbar =>
+            pageToolbar ?? (pageToolbar = activity.FindViewById<Toolbar>(Resource.Id.page_toolbar));
 
         
         public Button BackButton =>
@@ -53,16 +58,16 @@ namespace VacationsTracker.Android.Views
             saveButton ?? (saveButton = activity.FindViewById<Button>(Resource.Id.save_button));
 
         
-        public ProgressBar IndeterminateBar =>
-            indeterminateBar ?? (indeterminateBar = activity.FindViewById<ProgressBar>(Resource.Id.indeterminateBar));
+        public ProgressBar HorizontalProgressBar =>
+            horizontalProgressBar ?? (horizontalProgressBar = activity.FindViewById<ProgressBar>(Resource.Id.horizontal_progress_bar));
 
         
         public ViewPager VacationPager =>
-            vacationPager ?? (vacationPager = activity.FindViewById<ViewPager>(Resource.Id.vacationPager));
+            vacationPager ?? (vacationPager = activity.FindViewById<ViewPager>(Resource.Id.vacation_pager));
 
         
-        public TabLayout TabLayout =>
-            tabLayout ?? (tabLayout = activity.FindViewById<TabLayout>(Resource.Id.tabLayout));
+        public TabLayout DotTabLayout =>
+            dotTabLayout ?? (dotTabLayout = activity.FindViewById<TabLayout>(Resource.Id.dot_tab_layout));
 
         
         public View SeparatorDateFirst =>

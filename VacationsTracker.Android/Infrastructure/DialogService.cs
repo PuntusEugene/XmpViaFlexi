@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using VacationsTracker.Core.Infrastructure.Operations;
+using VacationsTracker.Core.Resourses;
+using Debug = System.Diagnostics.Debug;
 
 namespace VacationsTracker.Android.Infrastructure
 {
@@ -8,12 +9,17 @@ namespace VacationsTracker.Android.Infrastructure
     {
         public void ShowError(Exception error)
         {
-            Debug.WriteLine(error.Message);
+            ShowAlert(Strings.ErrorTitleAlert, error.Message);
         }
 
         public void ShowNotification(string message)
         {
-            Debug.WriteLine(message);
+            ShowAlert(Strings.NotificationTitleAlert, message);
+        }
+
+        private void ShowAlert(string title, string message)
+        {
+            Debug.WriteLine($"{title}: {message}");
         }
     }
 }

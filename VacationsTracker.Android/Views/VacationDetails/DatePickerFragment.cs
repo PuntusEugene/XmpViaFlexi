@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.App;
 using Android.OS;
+using Android.Support.Annotation;
 using Android.Widget;
 
 namespace VacationsTracker.Android.Views.VacationDetails
@@ -10,11 +11,13 @@ namespace VacationsTracker.Android.Views.VacationDetails
     {
         // Initialize this value to prevent NullReferenceExceptions.
         Action<DateTime> _dateSelectedHandler;
+        DateTime _currentDate;
 
-        public static DatePickerFragment NewInstance(Action<DateTime> onDateSelected)
+        public static DatePickerFragment NewInstance([NonNull] DateTime currentDate, Action<DateTime> onDateSelected)
         {
             DatePickerFragment frag = new DatePickerFragment
             {
+                _currentDate = currentDate,
                 _dateSelectedHandler = onDateSelected
             };
             return frag;
@@ -22,7 +25,7 @@ namespace VacationsTracker.Android.Views.VacationDetails
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
-            DateTime currently = DateTime.Now;
+            DateTime currently = _currentDate;
             DatePickerDialog dialog = new DatePickerDialog(Activity,
                 this,
                 currently.Year,

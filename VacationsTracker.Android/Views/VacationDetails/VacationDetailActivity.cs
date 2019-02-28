@@ -19,7 +19,7 @@ namespace VacationsTracker.Android.Views.VacationDetails
     {
         private DetailActivityViewHolder ViewHolder { get; set; }
 
-        private FragmentPagerObservableAdapter Adapter { get; set; }
+        private FragmentPagerObservableAdapter VacationTypeAdapter { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,23 +44,23 @@ namespace VacationsTracker.Android.Views.VacationDetails
 
             SetPagerAdapter();
 
-            SetSupportActionBar(ViewHolder.HomeToolbar);
+            SetSupportActionBar(ViewHolder.PageToolbar);
             SetTabLayout();
         }
 
         private void SetTabLayout()
         {
-            ViewHolder.TabLayout.SetupWithViewPager(ViewHolder.VacationPager);
+            ViewHolder.DotTabLayout.SetupWithViewPager(ViewHolder.VacationPager);
         }
 
         private void SetPagerAdapter()
         {
-            Adapter = new FragmentPagerObservableAdapter(SupportFragmentManager, FragmentsFactory)
+            VacationTypeAdapter = new FragmentPagerObservableAdapter(SupportFragmentManager, FragmentsFactory)
             {
                 Items = ViewModel.VacationTypes
             };
 
-            ViewHolder.VacationPager.Adapter = Adapter;
+            ViewHolder.VacationPager.Adapter = VacationTypeAdapter;
         }
 
         public override void Bind(BindingSet<VacationDetailsViewModel> bindingSet)
@@ -71,11 +71,11 @@ namespace VacationsTracker.Android.Views.VacationDetails
                 .For(v => v.ClickBinding())
                 .To(vm => vm.BackToHomeCommand);
 
-            bindingSet.Bind(Adapter)
+            bindingSet.Bind(VacationTypeAdapter)
                 .For(v => v.Items)
                 .To(vm => vm.VacationTypes);
 
-            bindingSet.Bind(ViewHolder.IndeterminateBar)
+            bindingSet.Bind(ViewHolder.HorizontalProgressBar)
                 .For(v => v.Visibility)
                 .To(vm => vm.Loading)
                 .WithConvertion<BooleanToVisibleStateValueConverter>();
@@ -133,19 +133,13 @@ namespace VacationsTracker.Android.Views.VacationDetails
 
         private void DateFromSelect_OnClick(object sender, EventArgs eventArgs)
         {
-            var frag = DatePickerFragment.NewInstance(delegate (DateTime time)
-            {
-                ViewModel.DateBegin = time;
-            });
+            var frag = DatePickerFragment.NewInstance(ViewModel.DateBegin, time => ViewModel.DateBegin = time);
             frag.Show(FragmentManager, string.Empty);
         }
 
         private void DateToSelect_OnClick(object sender, EventArgs eventArgs)
         {
-            var frag = DatePickerFragment.NewInstance(delegate (DateTime time)
-            {
-                ViewModel.DateEnd = time;
-            });
+            var frag = DatePickerFragment.NewInstance(ViewModel.DateEnd, time => ViewModel.DateEnd = time);
             frag.Show(FragmentManager, string.Empty);
         }
 

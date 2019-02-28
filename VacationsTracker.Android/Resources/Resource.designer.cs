@@ -1755,6 +1755,9 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0700a3
 			public const int Inset9X = 2131165347;
 			
+			// aapt resource value: 0x7f0700af
+			public const int PageToolbarHeight = 2131165359;
+			
 			// aapt resource value: 0x7f0700ad
 			public const int ProgressRingSize = 2131165357;
 			
@@ -1765,7 +1768,10 @@ namespace VacationsTracker.Android
 			public const int TextInputLayoutSize = 2131165355;
 			
 			// aapt resource value: 0x7f0700ae
-			public const int ToolbarSize = 2131165358;
+			public const int VacationPagerSize = 2131165358;
+			
+			// aapt resource value: 0x7f0700b0
+			public const int VacationTypeImageHeight = 2131165360;
 			
 			// aapt resource value: 0x7f070012
 			public const int abc_action_bar_content_inset_material = 2131165202;
@@ -2855,6 +2861,9 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f080020
 			public const int disableHome = 2131230752;
 			
+			// aapt resource value: 0x7f08009e
+			public const int dot_tab_layout = 2131230878;
+			
 			// aapt resource value: 0x7f08008b
 			public const int edit_query = 2131230859;
 			
@@ -2912,6 +2921,9 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0800ab
 			public const int home_toolbar = 2131230891;
 			
+			// aapt resource value: 0x7f08009c
+			public const int horizontal_progress_bar = 2131230876;
+			
 			// aapt resource value: 0x7f08006f
 			public const int icon = 2131230831;
 			
@@ -2923,9 +2935,6 @@ namespace VacationsTracker.Android
 			
 			// aapt resource value: 0x7f08006c
 			public const int image = 2131230828;
-			
-			// aapt resource value: 0x7f08009c
-			public const int indeterminateBar = 2131230876;
 			
 			// aapt resource value: 0x7f0800d8
 			public const int info = 2131230936;
@@ -3203,9 +3212,6 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0800a8
 			public const int swipe_refresh = 2131230888;
 			
-			// aapt resource value: 0x7f08009e
-			public const int tabLayout = 2131230878;
-			
 			// aapt resource value: 0x7f08001f
 			public const int tabMode = 2131230751;
 			
@@ -3281,9 +3287,6 @@ namespace VacationsTracker.Android
 			// aapt resource value: 0x7f0800b4
 			public const int vacationDurationTextView = 2131230900;
 			
-			// aapt resource value: 0x7f08009d
-			public const int vacationPager = 2131230877;
-			
 			// aapt resource value: 0x7f0800b6
 			public const int vacationStatusTextView = 2131230902;
 			
@@ -3292,6 +3295,9 @@ namespace VacationsTracker.Android
 			
 			// aapt resource value: 0x7f0800b5
 			public const int vacationTypeTextView = 2131230901;
+			
+			// aapt resource value: 0x7f08009d
+			public const int vacation_pager = 2131230877;
 			
 			// aapt resource value: 0x7f0800c5
 			public const int vacation_type_image_view = 2131230917;
@@ -3948,6 +3954,12 @@ namespace VacationsTracker.Android
 			
 			// aapt resource value: 0x7f0a0194
 			public const int AppTheme_Light_VacationDurationTextView = 2131362196;
+			
+			// aapt resource value: 0x7f0a019a
+			public const int AppTheme_Light_VacationFragment = 2131362202;
+			
+			// aapt resource value: 0x7f0a019b
+			public const int AppTheme_Light_VacationFragment_LargeTextView = 2131362203;
 			
 			// aapt resource value: 0x7f0a0196
 			public const int AppTheme_Light_VacationStatusTextView = 2131362198;

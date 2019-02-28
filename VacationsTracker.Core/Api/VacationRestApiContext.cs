@@ -35,12 +35,10 @@ namespace VacationsTracker.Core.Api
                 Authenticator = new OAuth2AuthorizationRequestHeaderAuthenticator(parameters.Token, "Bearer")
             };
 
+            var jsonBody = JsonConvert.SerializeObject(bodyRequest);
+
             var request = new RestRequest(parameters.Method)
-                {
-                    JsonSerializer = new RestSharp.Serialization.Json.JsonSerializer()
-                        {DateFormat = ApiSettings.DateFormatString}
-                }
-                .AddJsonBody(bodyRequest)
+                .AddJsonBody(jsonBody)
                 .AddUrlSegments(parameters.Resourse, parameters.UrlSegments);
 
             var response = await client.ExecuteTaskAsync(request, cancellationToken);
@@ -49,9 +47,8 @@ namespace VacationsTracker.Core.Api
             {
                 throw new AuthorizationException(Strings.NotActiveToken);
             }
-
+            
             return JsonConvert.DeserializeObject<TResponse>(response.Content);
-
         }
     }
 

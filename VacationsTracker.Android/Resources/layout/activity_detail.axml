@@ -1,19 +1,19 @@
 <android.support.constraint.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-	android:background="@color/windowBackground">
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/windowBackground">	
 	
 	<android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
 		android:id="@+id/page_appbar">
 
 		<android.support.v7.widget.Toolbar
 			android:id="@+id/page_toolbar"
 			android:layout_width="match_parent"
-			android:layout_height="40dp"
+			android:layout_height="@dimen/PageToolbarHeight"
 			android:theme="@style/AppTheme.Light.Toolbar">
 
 			<Button 
@@ -38,11 +38,11 @@
 				style="@style/AppTheme.Light.Toolbar.Button"/>
 
 		</android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
-
+	</android.support.design.widget.AppBarLayout>
+		
 	<ProgressBar
-		android:id="@+id/indeterminateBar"
-		style="?android:attr/progressBarStyleHorizontal"
+		android:id="@+id/horizontal_progress_bar"
+		style="@style/Widget.AppCompat.ProgressBar.Horizontal"
 		android:indeterminate="true"
 		android:layout_marginTop="@dimen/Inset9X"
 		android:layout_width="match_parent" 
@@ -50,98 +50,110 @@
 		app:layout_constraintLeft_toLeftOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
 		app:layout_constraintRight_toRightOf="parent" />
+
+	<android.support.v4.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<android.support.constraint.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 	   
-	<android.support.v4.view.ViewPager
-		android:id="@+id/vacationPager"
-		android:layout_marginTop="@dimen/Inset11X"
-		android:layout_width="match_parent"
-		android:layout_height="136dp"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintRight_toRightOf="parent"/>
+			<android.support.v4.view.ViewPager
+				android:id="@+id/vacation_pager"
+				android:layout_marginTop="@dimen/Inset11X"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/VacationPagerSize"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintRight_toRightOf="parent"/>
 
-	<android.support.design.widget.TabLayout
-		android:id="@+id/tabLayout"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		app:tabBackground="@drawable/dot_selector"
-		app:tabGravity="center"
-        app:tabIndicatorHeight="0dp"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintTop_toBottomOf="@id/vacationPager"
-		app:layout_constraintRight_toRightOf="parent"/>
+			<android.support.design.widget.TabLayout
+				android:id="@+id/dot_tab_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:tabBackground="@drawable/dot_selector"
+				app:tabGravity="center"
+				app:tabIndicatorHeight="0dp"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/vacation_pager"
+				app:layout_constraintRight_toRightOf="parent"/>
 
-	<View
-		android:id="@+id/separator_date_first"
-		style="@style/AppTheme.Light.SeparatorDetailView"
-		android:layout_marginTop="@dimen/Inset2X"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintTop_toBottomOf="@id/tabLayout"
-		app:layout_constraintRight_toRightOf="parent"/>
+			<View
+				android:id="@+id/separator_date_first"
+				style="@style/AppTheme.Light.SeparatorDetailView"
+				android:layout_marginTop="@dimen/Inset2X"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/dot_tab_layout"
+				app:layout_constraintRight_toRightOf="parent"/>
 
 	
-	<include 
-		android:id="@+id/date_from"
-		layout="@layout/layout_large_date"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="@dimen/Inset2X"
-		app:layout_constraintWidth_percent="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator_date_first" />
+			<include 
+				android:id="@+id/date_from"
+				layout="@layout/layout_large_date"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/Inset2X"
+				app:layout_constraintWidth_percent="0.5"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/separator_date_first" />
 
-	<include 
-		android:id="@+id/date_to"
-		layout="@layout/layout_large_date"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		app:layout_constraintWidth_percent="0.5"
-        app:layout_constraintLeft_toRightOf="@id/date_from"
-        app:layout_constraintTop_toTopOf="@id/date_from"
-		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintBottom_toBottomOf="@id/date_from" />
+			<include 
+				android:id="@+id/date_to"
+				layout="@layout/layout_large_date"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				app:layout_constraintWidth_percent="0.5"
+				app:layout_constraintLeft_toRightOf="@id/date_from"
+				app:layout_constraintTop_toTopOf="@id/date_from"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintBottom_toBottomOf="@id/date_from" />
 
-	<View
-		android:id="@+id/separator_date_second"
-		style="@style/AppTheme.Light.SeparatorDetailView"
-		android:layout_marginTop="@dimen/Inset2X"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintTop_toBottomOf="@id/date_from"
-		app:layout_constraintRight_toRightOf="parent"/>
+			<View
+				android:id="@+id/separator_date_second"
+				style="@style/AppTheme.Light.SeparatorDetailView"
+				android:layout_marginTop="@dimen/Inset2X"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/date_from"
+				app:layout_constraintRight_toRightOf="parent"/>
 
-	<RadioGroup
-		android:id="@+id/status_radio_group"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:gravity="center"
-		android:layout_marginTop="@dimen/Inset3X"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintTop_toBottomOf="@id/separator_date_second"
-		app:layout_constraintRight_toRightOf="parent">
-		<RadioButton android:id="@+id/approved_radio"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/approved" />
-		<RadioButton android:id="@+id/closed_radio"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/closed" />
-	</RadioGroup>
+			<RadioGroup
+				android:id="@+id/status_radio_group"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center"
+				android:layout_marginTop="@dimen/Inset3X"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/separator_date_second"
+				app:layout_constraintRight_toRightOf="parent">
+				<RadioButton android:id="@+id/approved_radio"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/approved" />
+				<RadioButton android:id="@+id/closed_radio"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/closed" />
+			</RadioGroup>
 		
-	<View
-		android:id="@+id/separator_third"
-		style="@style/AppTheme.Light.SeparatorDetailView"
-		android:layout_marginTop="@dimen/Inset3X"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintTop_toBottomOf="@id/status_radio_group"
-		app:layout_constraintRight_toRightOf="parent"/>
+			<View
+				android:id="@+id/separator_third"
+				style="@style/AppTheme.Light.SeparatorDetailView"
+				android:layout_marginTop="@dimen/Inset3X"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/status_radio_group"
+				app:layout_constraintRight_toRightOf="parent"/>
+	
+		</android.support.constraint.ConstraintLayout>
+
+	</android.support.v4.widget.NestedScrollView>
 	
 	<android.support.design.widget.FloatingActionButton
 		android:id="@+id/fab_save_button"
 		android:src="@drawable/ic_done"
 		app:layout_constraintRight_toRightOf="parent"
 		app:layout_constraintBottom_toBottomOf="parent"
-		style="@style/AppTheme.Light.FloatingActionButton"	/>
+		style="@style/AppTheme.Light.FloatingActionButton" />
 	
 </android.support.constraint.ConstraintLayout>

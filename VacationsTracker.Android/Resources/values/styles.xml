@@ -78,7 +78,7 @@
       <item name="android:text">@string/password_is_empty</item>
     </style>
 
-  <!-- end AppTheme Dark-->
+    <!-- end AppTheme Dark-->
 
 
 
@@ -131,36 +131,34 @@
       <item name="android:backgroundTint">@color/colorButtonText</item>
     </style>
 
-    <!-- end AppTheme Light-->
+    <style name="AppTheme.Light.VacationTypeImageView">
+      <item name="android:layout_width">@dimen/Inset14X</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:src">@drawable/icon_request_blue</item>
+    </style>
 
-  <style name="AppTheme.Light.VacationTypeImageView">
-    <item name="android:layout_width">@dimen/Inset14X</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:src">@drawable/icon_request_blue</item>
-  </style>
+    <style name="AppTheme.Light.VacationDurationTextView">
+      <item name="android:layout_width">wrap_content</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:text">MAR 20 - MAR 31</item>
+      <item name="android:textColor">@color/colorPrimary</item>
+      <item name="android:textStyle">bold</item>
+      <item name="android:textSize">20sp</item>
+    </style>
 
-  <style name="AppTheme.Light.VacationDurationTextView">
-    <item name="android:layout_width">wrap_content</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:text">MAR 20 - MAR 31</item>
-    <item name="android:textColor">@color/colorPrimary</item>
-    <item name="android:textStyle">bold</item>
-    <item name="android:textSize">20sp</item>
-  </style>
+    <style name="AppTheme.Light.VacationTypeTextView">
+      <item name="android:layout_width">wrap_content</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:text">Regular</item>
+      <item name="android:textSize">12sp</item>
+    </style>
 
-  <style name="AppTheme.Light.VacationTypeTextView">
-    <item name="android:layout_width">wrap_content</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:text">Regular</item>
-    <item name="android:textSize">12sp</item>
-  </style>
-
-  <style name="AppTheme.Light.VacationStatusTextView">
-    <item name="android:layout_width">wrap_content</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:text">Approved</item>
-    <item name="android:gravity">center</item>
-  </style>
+    <style name="AppTheme.Light.VacationStatusTextView">
+      <item name="android:layout_width">wrap_content</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:text">Approved</item>
+      <item name="android:gravity">center</item>
+    </style>
 
     <style name="AppTheme.Light.SeparatorView">
       <item name="android:layout_width">match_parent</item>
@@ -174,5 +172,17 @@
     <style name="AppTheme.Light.SeparatorDetailView" parent="AppTheme.Light.SeparatorView">
       <item name="android:background">@color/colorSeparatorDetail</item>
     </style>
+
+      <style name="AppTheme.Light.VacationFragment">
+        <item name="android:background">@color/windowBackground</item>
+      </style>
+
+    <style name="AppTheme.Light.VacationFragment.LargeTextView">
+      <item name="android:textSize">28sp</item>
+      <item name="android:textStyle">bold</item>
+      <item name="android:textColor">@color/colorTextBody</item>
+    </style>
+
+    <!-- end AppTheme Light-->
 
 </resources>
