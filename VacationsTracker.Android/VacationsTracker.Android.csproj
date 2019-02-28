@@ -75,8 +75,10 @@
     <Compile Include="ValueConverters\VacationStatusToRadioButtonIdValueConverter.cs" />
     <Compile Include="ValueConverters\VacationTypeToPagerValueConverter.cs" />
     <Compile Include="ValueConverters\VacationTypeToResourceImageValueConverter.cs" />
+    <Compile Include="Views\AlertDialogFragment.cs" />
     <Compile Include="Views\Home\HomeActivity.cs" />
     <Compile Include="Views\Home\ScrollAwareFABBehavior.cs" />
+    <Compile Include="Views\Home\SnackBarFragment.cs" />
     <Compile Include="Views\Home\Vacations\VacationItemCellViewHolder.cs" />
     <Compile Include="Views\Home\Vacations\VacationHeaderCellViewHolder.cs" />
     <Compile Include="Views\Home\Vacations\VacationsAdapter.cs" />
@@ -194,6 +196,9 @@
     <AndroidResource Include="Resources\drawable\dot_selector.xml" />
     <AndroidResource Include="Resources\drawable\dot_selected.xml" />
     <AndroidResource Include="Resources\drawable\dot_default.xml" />
+    <AndroidResource Include="Resources\layout\fragment_snackbar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="Views\ViewHolderGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ViewHolderGenerator.cs</LastGenOutput>
