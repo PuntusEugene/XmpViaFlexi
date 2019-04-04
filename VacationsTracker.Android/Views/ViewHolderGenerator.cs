@@ -110,6 +110,7 @@ namespace VacationsTracker.Android.Views
     {
          private readonly Activity activity;
 
+         private CoordinatorLayout mainLayout;
          private SwipeRefreshLayout swipeRefresh;
          private RecyclerView vacationsRecyclerView;
          private FloatingActionButton addVacationButton;
@@ -122,6 +123,10 @@ namespace VacationsTracker.Android.Views
 
             this.activity = activity;
         }
+
+        
+        public CoordinatorLayout MainLayout =>
+            mainLayout ?? (mainLayout = activity.FindViewById<CoordinatorLayout>(Resource.Id.main_layout));
 
         
         public SwipeRefreshLayout SwipeRefresh =>
@@ -148,6 +153,7 @@ namespace VacationsTracker.Android.Views
     {
          private readonly Activity activity;
 
+         private LinearLayout mainLayout;
          private TextView invalidCredentialLabel;
          private TextInputLayout loginTextInput;
          private TextInputLayout passwordTextInput;
@@ -160,6 +166,10 @@ namespace VacationsTracker.Android.Views
 
             this.activity = activity;
         }
+
+        
+        public LinearLayout MainLayout =>
+            mainLayout ?? (mainLayout = activity.FindViewById<LinearLayout>(Resource.Id.main_layout));
 
         
         public TextView InvalidCredentialLabel =>
@@ -217,24 +227,6 @@ namespace VacationsTracker.Android.Views
         
         public TextView VacationStatusTextView =>
             vacationStatusTextView ?? (vacationStatusTextView = ItemView.FindViewById<TextView>(Resource.Id.vacationStatusTextView));
-    }
-
-    public partial class SnackbarFragmentViewHolder
-    {
-         private readonly View rootView;
-
-         private TextView textSnackbar;
-
-        public SnackbarFragmentViewHolder( View rootView)
-        {
-            if (rootView == null) throw new ArgumentNullException(nameof(rootView));
-
-            this.rootView = rootView;
-        }
-
-        
-        public TextView TextSnackbar =>
-            textSnackbar ?? (textSnackbar = rootView.FindViewById<TextView>(Resource.Id.text_snackbar));
     }
 
     public partial class VacationTypeFragmentViewHolder

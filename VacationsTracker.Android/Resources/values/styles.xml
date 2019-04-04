@@ -80,7 +80,10 @@
 
     <!-- end AppTheme Dark-->
 
-
+    <style name="SnackbarTheme" parent="Theme.AppCompat.Light">
+      <item name="colorAccent">@color/colorButton</item>
+      <item name="android:textColor">@color/colorTextInputError</item>
+    </style>
 
     <!-- AppTheme Light-->
 

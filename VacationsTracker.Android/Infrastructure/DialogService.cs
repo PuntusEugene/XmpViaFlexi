@@ -20,6 +20,20 @@ namespace VacationsTracker.Android.Infrastructure
         private void ShowAlert(string title, string message)
         {
             Debug.WriteLine($"{title}: {message}");
+
+            //try
+            //{
+            //    var activity = (Application.Context as Activity);
+            //    var contentView = activity?.FindViewById(Resource.Id.main_layout);
+
+            //    var snackbar = Snackbar.Make(contentView, message, Snackbar.LengthLong);
+            //    snackbar.Show();
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e);
+            //    throw;
+            //}
         }
     }
 }
